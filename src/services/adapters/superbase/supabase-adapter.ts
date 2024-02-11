@@ -7,7 +7,9 @@ export class CombinedSupabaseAdapter {
     private storageAdapter: any;
 
     constructor() {
-        const client = createClient("https://<project>.supabase.co", "<your-anon-key>");
+        const url =import.meta.env.VITE_API_ENDPOINT;
+        const anonKey = import.meta.env.VITE_SUPABASE_ANON;
+        const client = createClient(url, anonKey);
         this.authAdapter = new SupabaseAuthAdapter(client);
     }
 

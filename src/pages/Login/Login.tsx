@@ -1,16 +1,15 @@
-
-import { type SubmitHandler, useForm } from 'react-hook-form';
-import useAuthStore from '@/store/useAuthStore';
+import { HeroImage } from '@/pages/Login/HeroImage';
+import { LoginForm } from './LoginForm';
 
 const Login = () => {
-  const { setIsAuthenticated } = useAuthStore((state) => state);
-
-
-  const onSubmit: SubmitHandler<any> = async (data) => {
-    setIsAuthenticated(true);
-  };
-
-  return (<></>);
+  return (
+    <div className="flex flex-col justify-end h-screen w-full relative">
+      <HeroImage />
+      <div className="flex flex-col items-center bg-base-100 w-full h-3/5 z-10 rounded-t-md shadow-md">
+        <LoginForm />
+      </div>
+    </div>
+  );
 };
 
 export default Login;
