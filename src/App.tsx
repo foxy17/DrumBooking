@@ -11,7 +11,7 @@ function App() {
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
         <Router />
-        <ToastContainer />
+        <ToastContainer position="bottom-center" theme="colored" pauseOnHover />
       </QueryClientProvider>
     </ChakraProvider>
   );
