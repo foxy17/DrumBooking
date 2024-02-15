@@ -9,7 +9,6 @@ import {
   InputLeftElement,
   InputRightElement,
 } from '@chakra-ui/react';
-import clsx from 'clsx';
 import useAuthStore from '@/store/useAuthStore';
 
 export const LoginForm = () => {

@@ -21,8 +21,8 @@ const useAuthStore = create<AuthStore>()(
         set(() => ({ isAuthenticated }));
       },
     }),
-    'authStore'
-  )
+    'authStore',
+  ),
 );
 
 export default useAuthStore;

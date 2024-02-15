@@ -18,7 +18,7 @@ const Router = () => (
         path="/articles"
         element={
           <PrivateRoute>
-              <></>
+            <></>
           </PrivateRoute>
         }
       />

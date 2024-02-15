@@ -25,8 +25,8 @@ const useGlobalStore = create<GlobalStore>()(
         });
       },
     }),
-    'globalStore'
-  )
+    'globalStore',
+  ),
 );
 
 export default useGlobalStore;
