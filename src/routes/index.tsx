@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -15,10 +16,18 @@ const Router = () => (
         }
       />
       <Route
-        path="/articles"
+        path="/dash"
+        element={
+          <PublicRoute>
+            <Dashboard />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/dashboard"
         element={
           <PrivateRoute>
-            <></>
+            <Dashboard />
           </PrivateRoute>
         }
       />

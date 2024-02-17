@@ -10,17 +10,26 @@ module.exports = {
     fontFamily: {
       sans: ['Lexend Deca', ...defaultTheme.fontFamily.sans],
       serif: ['Manrope', 'serif'],
+      roboto: ['Roboto', 'sans-serif'],
     },
     extend: {
       colors: {
-        main: '#111827',
+        main: '#030304',
+        secondary: '#1E1E1D',
+        'dark-grey': '#565D6DFF',
+        'pop-pink': '#FDC1E1FF',
+        'pop-yellow': '#F4F824',
+        'light-gray': '#6D6D6C',
+        'dark-green': '#085D48',
         darkPurple: '#473e61',
         light: '#cecfcc',
-        'base-100': '#EAEAE8',
+        'base-100': '#EAE9E8',
+        lightGrey: '#f7f7f7',
         info: '#bae6fd',
         success: '#bbf7d0',
         warning: '#fde68a',
         error: '#fda4af',
+        'date-heading': '#313130',
       },
       borderRadius: {
         xs: '0.125rem',
@@ -31,11 +40,20 @@ module.exports = {
         '100-percent': '100%',
       },
       boxShadow: {
-        xs: '0px 0px 1px rgba(23, 26, 31, 0.07), 0px 0px 2px rgba(23, 26, 31, 0.12)',
-        s: '0px 2px 5px rgba(23, 26, 31, 0.09), 0px 0px 2px rgba(23, 26, 31, 0.12)',
-        m: '0px 4px 9px rgba(23, 26, 31, 0.11), 0px 0px 2px rgba(23, 26, 31, 0.12)',
-        l: '0px 8px 17px rgba(23, 26, 31, 0.15), 0px 0px 2px rgba(23, 26, 31, 0.12)',
-        xl: '0px 17px 35px rgba(23, 26, 31, 0.24), 0px 0px 2px rgba(23, 26, 31, 0.12)',
+        card: '0px -4px 16px -8px rgba(0,0,0,0.4)',
+      },
+      animation: {
+        'meteor-effect': 'meteor 5s linear infinite',
+      },
+      keyframes: {
+        meteor: {
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: 1 },
+          '70%': { opacity: 1 },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-500px)',
+            opacity: 0,
+          },
+        },
       },
     },
   },

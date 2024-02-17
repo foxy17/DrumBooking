@@ -4,6 +4,8 @@ import { IoMailOutline } from 'react-icons/io5';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 import {
   Button,
+  Flex,
+  Heading,
   Input,
   InputGroup,
   InputLeftElement,
@@ -27,12 +29,14 @@ export const LoginForm = () => {
   const Icon = showPassword ? LuEye : LuEyeOff;
 
   return (
-    <div className="flex flex-col items-center px-5 w-full max-w-sm h-full mt-8 prose">
-      <h1 className="tracking-tight mb-1">Bombay Drum School</h1>
-      <h3 className="mt-1 text-neutral-500 font-normal mb-7">
+    <Flex className="flex flex-col px-5 w-full max-w-sm h-full mt-8 prose">
+      <Heading size="2xl" className="self-star tracking-tight mb-1">
+        Bombay Drum School
+      </Heading>
+      <h3 className="mt-3 self-start text-neutral-500 font-normal mb-7">
         Unlock Your Rhythm
       </h3>
-      <form className="not-prose flex flex-col justify-center items-center gap-8 w-full">
+      <form className="not-prose flex flex-col justify-center items-center gap-8 w-full mt-2">
         <div className="w-full max-w-sm">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
@@ -71,8 +75,10 @@ export const LoginForm = () => {
         >
           Sign In
         </Button>
-        <a className="text-xs text-gray-500">Terms and Conditions</a>
       </form>
-    </div>
+      <a className="text-xs mt-4 text-gray-500 self-center">
+        Terms and Conditions
+      </a>
+    </Flex>
   );
 };
