@@ -1,14 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import {
-  AnimatePresence,
-  motion,
-  stagger,
-  useAnimate,
-  useAnimation,
-  useAnimationFrame,
-  useInView,
-} from 'framer-motion';
+import { motion, stagger, useAnimate, useInView } from 'framer-motion';
 
 import { cn } from '@/utils/cn';
 
@@ -33,7 +25,7 @@ export const TypewriterEffect = ({
   });
 
   const [scope, animate] = useAnimate();
-  const controls = useAnimation();
+
   const isInView = useInView(scope);
   useEffect(() => {
     if (isInView) {
@@ -72,7 +64,7 @@ export const TypewriterEffect = ({
                   {char}
                 </motion.span>
               ))}
-              &nbsp; &nbsp; &nbsp;
+              &nbsp;
             </motion.div>
           );
         })}

@@ -5,7 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     fontFamily: {
       sans: ['Lexend Deca', ...defaultTheme.fontFamily.sans],
@@ -17,14 +17,15 @@ module.exports = {
         main: '#030304',
         secondary: '#1E1E1D',
         'dark-grey': '#565D6DFF',
+        'darker-grey': '#292939',
         'pop-pink': '#FDC1E1FF',
         'pop-yellow': '#F4F824',
         'light-gray': '#6D6D6C',
         'dark-green': '#085D48',
-        darkPurple: '#473e61',
+        'pastel-green': '#AED999',
+        'pastel-purple': '#8F8FEF',
         light: '#cecfcc',
         'base-100': '#EAE9E8',
-        lightGrey: '#f7f7f7',
         info: '#bae6fd',
         success: '#bbf7d0',
         warning: '#fde68a',

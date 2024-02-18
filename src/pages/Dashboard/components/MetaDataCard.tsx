@@ -1,21 +1,30 @@
-import { Card, CardBody, Flex, Heading, Text } from '@chakra-ui/react';
+import { Card, CardBody, Flex, Text } from '@chakra-ui/react';
 
 import { cn } from '@/utils/cn';
 
-interface MetaDataProps {
-  title: string;
-  subtitle: string;
-  className?: string;
-}
-export const MetaDataCard = ({ title, subtitle, className }: MetaDataProps) => {
+export const MetaDataCard = () => {
   return (
-    <Card className={cn('!rounded-[20px]', className)}>
-      <CardBody>
-        <Flex className="items-center gap-x-4">
-          <Heading className="mb-2 !text-5xl">{title}</Heading>
-        </Flex>
-        <Text className="mb-2 text-lg font-medium">{subtitle}</Text>
-      </CardBody>
-    </Card>
+    <Flex className="w-full gap-x-2">
+      <Card
+        className={cn(
+          '!rounded-xl dark:!bg-pop-yellow dark:!text-main !flex-1',
+        )}
+      >
+        <CardBody className="flex-col items-start">
+          <Text className="text-lg">Classes</Text>
+          <Text className="mb-2 text-lg">Attended</Text>
+          <Text className="!text-3xl font-semibold">4 of 4</Text>
+        </CardBody>
+      </Card>
+      <Card
+        className={cn('!rounded-xl dark:!bg-pop-pink dark:!text-main !flex-1')}
+      >
+        <CardBody className="flex-col items-start">
+          <Text className="text-lg">Practice</Text>
+          <Text className="mb-2 text-lg">Booked</Text>
+          <Text className="!text-3xl font-semibold">24</Text>
+        </CardBody>
+      </Card>
+    </Flex>
   );
 };
