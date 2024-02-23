@@ -18,10 +18,19 @@ import { SessionCard } from '@/pages/Dashboard/components/SessionCard';
 import { cn } from '@/utils/cn';
 
 export const Sessions = () => {
-  const [sessions, setSessions] = useState([]);
+  const [sessions, setSessions] = useState<any>([]);
+
   if (sessions.length === 0) {
-    return <NoSession sessions={sessions} />;
+    return (
+      <NoSession
+        sessions={sessions}
+        onClick={() => {
+          setSessions([1]);
+        }}
+      />
+    );
   }
+
   return (
     <>
       <Card

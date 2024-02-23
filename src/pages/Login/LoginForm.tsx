@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { type SubmitHandler } from 'react-hook-form';
-import { IoMailOutline } from 'react-icons/io5';
+import { IoLockClosed, IoMailOutline } from 'react-icons/io5';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
+import { useNavigate } from 'react-router';
 import {
   Button,
   Flex,
@@ -15,11 +16,12 @@ import useAuthStore from '@/store/useAuthStore';
 
 export const LoginForm = () => {
   const { setIsAuthenticated } = useAuthStore((state) => state);
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit: SubmitHandler<any> = async (data) => {
-    setIsAuthenticated(true);
+    navigate('/dash');
   };
 
   const togglePassword = () => {
@@ -30,10 +32,10 @@ export const LoginForm = () => {
 
   return (
     <Flex className="flex flex-col px-5 w-full max-w-sm h-full mt-8 prose">
-      <Heading size="2xl" className="self-star tracking-tight mb-1">
+      <Heading size="2xl" className="self-star tracking-tight mb-1 text-white">
         Bombay Drum School
       </Heading>
-      <h3 className="mt-3 self-start text-neutral-500 font-normal mb-7">
+      <h3 className="mt-2 self-start font-normal mb-7 text-base-100">
         Unlock Your Rhythm
       </h3>
       <form className="not-prose flex flex-col justify-center items-center gap-8 w-full mt-2">
@@ -51,6 +53,9 @@ export const LoginForm = () => {
         </div>
         <div className="w-full max-w-sm mb-4">
           <InputGroup size="md">
+            <InputLeftElement pointerEvents="none">
+              <IoLockClosed color="gray.300" />
+            </InputLeftElement>
             <Input
               pr="4.5rem"
               type={showPassword ? 'text' : 'password'}
@@ -61,22 +66,23 @@ export const LoginForm = () => {
               <Icon className="" onClick={togglePassword} />
             </InputRightElement>
           </InputGroup>
-          <div className="flex flex-row-reverse mt-3 cursor-pointer">
+          <Flex className="flex-row-reverse mt-3 cursor-pointer text-sm text-green-100">
             Forgot Password?
-          </div>
+          </Flex>
         </div>
         <Button
-          className="!bg-black w-full"
+          className="!bg-dark-green w-full"
           colorScheme="red"
           fontWeight="normal"
-          fontSize={16}
+          fontSize={18}
           variant="solid"
           height="44px"
+          onClick={onSubmit}
         >
           Sign In
         </Button>
       </form>
-      <a className="text-xs mt-4 text-gray-500 self-center">
+      <a className="text-xs mt-4 text-white/80 self-center">
         Terms and Conditions
       </a>
     </Flex>

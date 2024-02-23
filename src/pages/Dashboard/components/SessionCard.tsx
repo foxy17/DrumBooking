@@ -16,17 +16,17 @@ export const SessionCard = ({
       <Flex className="flex-col w-full">
         <Text className="text-2xl">{date}</Text>
         {solo ? (
-          <Tag className="!bg-pastel-purple tracking-widest !text-white w-fit !font-bold !px-4 !py-2 mt-3">
+          <Tag className="!bg-main !rounded-full !text-white w-fit !px-3 !py-1 mt-3">
             Solo Drums
           </Tag>
         ) : (
-          <Tag className="!bg-pastel-green tracking-widest w-fit !font-bold !px-4 !py-2 mt-3">
+          <Tag className="!bg-dark-green !rounded-full !text-white w-fit !px-3 !py-1 mt-3">
             Shared Practice
           </Tag>
         )}
       </Flex>
       <Flex className="flex-col w-full items-end">
-        <Text className="text-2xl text-pop-pink mb-3">{time}</Text>
+        <Text className="text-2xl text-pastel-green mb-3">{time}</Text>
 
         {solo ? (
           <Avatar
