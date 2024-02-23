@@ -6,7 +6,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
 const Router = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/DrumBooking">
     <Routes>
       <Route
         path="/"

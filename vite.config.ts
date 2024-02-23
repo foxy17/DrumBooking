@@ -7,6 +7,7 @@ import { PWAConfig } from './src/lib/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/DrumBooking/',
   plugins: [react(), tsconfigPaths()],
   resolve: {
     alias: {
