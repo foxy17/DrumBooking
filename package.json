@@ -15,7 +15,7 @@
     "commit": "git-cz",
     "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [

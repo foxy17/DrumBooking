@@ -10,6 +10,7 @@ const Router = () => (
     <Routes>
       <Route
         path="/"
+        index={true}
         element={
           <PublicRoute>
             <Home />
