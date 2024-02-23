@@ -1,6 +1,7 @@
 {
   "name": "BombayDrumSchool",
   "version": "0.0.4",
+  "homepage": ".",
   "scripts": {
     "start": "npm run build:css && concurrently \"npm run watch:css\" \"vite\"",
     "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/styles.css --watch",
