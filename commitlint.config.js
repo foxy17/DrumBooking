@@ -1,7 +1,7 @@
 // .commitlintrc.js
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
-  rules: {},
+  extends: ['@commitlint/config-conventional'],
   prompt: {
     alias: { fd: 'docs: fix typos' },
     messages: {
