@@ -4,9 +4,8 @@ import { LoginForm } from './LoginForm';
 
 const Login = () => {
   return (
-    <Flex className="flex-col justify-end h-screen w-full relative">
-      <HeroImage />
-      <Flex className="flex-col items-center bg-secondary w-full h-3/5 z-10 rounded-t-md shadow-md">
+    <Flex className="flex-col justify-center h-full w-full relative px-2 pt-4 login-bg">
+      <Flex className="flex-col items-center w-full h-fit z-10 rounded-md shadow-md card-bg">
         <LoginForm />
       </Flex>
     </Flex>

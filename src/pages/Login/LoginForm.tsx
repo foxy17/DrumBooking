@@ -31,7 +31,7 @@ export const LoginForm = () => {
   const Icon = showPassword ? LuEye : LuEyeOff;
 
   return (
-    <Flex className="flex flex-col px-5 w-full max-w-sm h-full mt-8 prose">
+    <Flex className="flex flex-col px-5 w-full max-w-sm h-full mt-6 prose">
       <Heading size="2xl" className="self-star tracking-tight mb-1 text-white">
         Bombay Drum School
       </Heading>
@@ -82,7 +82,7 @@ export const LoginForm = () => {
           Sign In
         </Button>
       </form>
-      <a className="text-xs mt-4 text-white/80 self-center">
+      <a className="text-xs my-6 text-white/80 self-center">
         Terms and Conditions
       </a>
     </Flex>

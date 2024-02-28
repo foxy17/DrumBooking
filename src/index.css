@@ -5,3 +5,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.login-bg {
+    --dot-bg: black;
+    --dot-color: white;
+    --dot-size: 1px;
+    --dot-space: 22px;
+    background: linear-gradient(
+            90deg,
+            var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+            transparent 1%
+    )
+    center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+            var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+            transparent 1%
+    )
+    center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+.card-bg {
+    background: rgba( 255, 255, 255, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
