@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router';
 import {
   BrowserRouter,
   createBrowserRouter,
@@ -20,6 +21,11 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
+        index: true,
+        element: <Navigate to={routeConfig.home.link} replace />,
+      },
+      {
+        index: true,
         path: routeConfig.home.link,
         element: <Dashboard />,
       },
