@@ -9,17 +9,17 @@ const Dashboard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <>
-      <Flex className="relative flex-col w-full bg-main px-4">
+    <Flex className="relative flex-col w-full bg-main h-full overflow-auto">
+      <Flex className="relative flex-col w-full px-4">
         <DashboardTabs />
-        <Header onClick={onOpen} />
+        <Header />
       </Flex>
-      <Flex className="relative flex-col w-full bg-main px-4 overflow-auto">
+      <Flex className="relative flex-col w-full px-4 overflow-y-scroll">
         <MetaDataCard />
         <Sessions />
       </Flex>
       <BottomSheet isOpen={isOpen} onClose={onClose} />
-    </>
+    </Flex>
   );
 };
 

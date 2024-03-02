@@ -19,7 +19,7 @@ module.exports = {
         'dark-grey': '#565D6DFF',
         'darker-grey': '#292939',
         'pop-pink': '#FDC1E1FF',
-        'pop-yellow': '#F4F824',
+        'pop-yellow': '#FCBA28',
         'light-gray': '#6D6D6C',
         'dark-green': '#085D48',
         'pastel-green': '#AED999',

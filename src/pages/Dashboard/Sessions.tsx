@@ -35,22 +35,21 @@ export const Sessions = () => {
     <>
       <Card
         className={cn(
-          '!rounded-xl dark:!bg-secondary dark:!text-white h-full mt-3 ',
+          '!rounded-t-xl !rounded-b-none !bg-main dark:!text-white h-full mt-2 !sticky !top-0 !z-10 ',
+          '!border-b-8 !border-b-main',
         )}
       >
-        <CardHeader className="flex flex-row w-full items-center justify-center !py-4 relative !overflow-hidden">
-          <Meteors number={25} />
+        <CardHeader className="flex flex-row w-full items-center rounded-xl dark:!bg-secondary justify-center !py-4 !overflow-hidden relative ">
           <Text className="font-sans text-2xl text-center">
             Upcoming Practice Sessions
           </Text>
         </CardHeader>
       </Card>
-      <Flex className="dark:bg-secondary w-full justify-center gap-x-10">
-        <Flex className="bg-main h-3 w-full rounded-r-full" />
-        <Flex className="bg-main h-3 w-full  rounded-l-full" />
-      </Flex>
+
       <Card
-        className={cn('!rounded-xl dark:!bg-secondary dark:!text-white h-full')}
+        className={cn(
+          '!rounded-xl dark:!bg-secondary dark:!text-white h-full mt-2',
+        )}
       >
         <CardBody className="flex flex-col w-full">
           <SessionCard date="Today" people="Only you" time="12pm - 1pm" solo />

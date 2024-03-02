@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Card, CardBody, Flex, Text } from '@chakra-ui/react';
+import { motion, useCycle } from 'framer-motion';
 
 import { cn } from '@/utils/cn';
 

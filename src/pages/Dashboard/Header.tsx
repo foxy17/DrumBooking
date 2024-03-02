@@ -1,18 +1,24 @@
 import { GoMoveToStart } from 'react-icons/go';
+import { useNavigate } from 'react-router';
 import { Button, Flex } from '@chakra-ui/react';
+import { routeConfig } from 'routes/routeConfig';
 
-const Header = ({ onClick }) => {
+const Header = () => {
+  const navigate = useNavigate();
+  const handleCheckIn = () => {
+    navigate(routeConfig.checkin.link);
+  };
   return (
-    <Flex className="justify-between items-end mt-12 mb-3">
-      <Flex className="tracking-wider text-white text-xl  font-sans ">
-        This Month
+    <Flex className="justify-between items-center mt-12 mb-3">
+      <Flex className="tracking-wide text-white text-xl  font-sans">
+        This Billing Cycle
       </Flex>
       <Button
-        className=" !bg-white !rounded-full"
+        className="!bg-white !rounded-full"
         rightIcon={<GoMoveToStart />}
-        onClick={onClick}
+        onClick={handleCheckIn}
       >
-        Check In
+        Check in
       </Button>
     </Flex>
   );

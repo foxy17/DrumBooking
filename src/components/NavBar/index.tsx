@@ -1,5 +1,11 @@
 'use client';
-import React, { type ReactNode, useMemo, useState } from 'react';
+import React, {
+  type ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import {
   AnimatePresence,
@@ -23,13 +29,12 @@ export const FloatingNav = ({
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const routes = ['/dash', '/calendar', '/profile'];
-  const [index, setIndex] = useState(0);
+
   const id = useMemo(
-    () => routes.indexOf(location.pathname),
+    () => navItems.findIndex((item) => item.link === location.pathname),
     [location.pathname],
   );
-  console.log(id, location.pathname);
+
   const variants = {
     active: {
       background: 'blue', // Your desired active background color
@@ -61,14 +66,13 @@ export const FloatingNav = ({
           className,
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
+        {navItems.map((navItem, idx: number) => (
           <a
             key={`link=${idx}`}
             className={cn(
               'relative bg-transparent p-2.5 rounded-full dark:text-neutral-50 items-center flex-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500',
             )}
             onClick={() => {
-              setIndex(idx);
               navigate(navItem.link);
             }}
           >
