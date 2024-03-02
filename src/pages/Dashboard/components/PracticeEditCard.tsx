@@ -9,7 +9,7 @@ import { cn } from '@/utils/cn';
 interface PracticeCardProps {
   toggleOpen: (value: boolean) => void;
 }
-export const PracticeCard = ({ toggleOpen }: PracticeCardProps) => {
+export const PracticeEditCard = ({ toggleOpen }: PracticeCardProps) => {
   const { value, setValue } = useCounterStore((state) => state);
   const [count, setCount] = useState(value);
 
@@ -41,7 +41,7 @@ export const PracticeCard = ({ toggleOpen }: PracticeCardProps) => {
       ></motion.div>
       <Card
         className={cn(
-          '!rounded-xl dark:!bg-pop-pink dark:!text-main !fixed overflow-hidden mx-4 py-2 -mt-2 top-1/3 inset-x-0 z-30',
+          '!rounded-xl dark:!bg-pop-pink dark:!text-main !fixed overflow-hidden mx-4 py-2 top-1/3 inset-x-0 z-30',
         )}
         layoutId="card-booked"
         as={motion.div}
@@ -60,6 +60,7 @@ export const PracticeCard = ({ toggleOpen }: PracticeCardProps) => {
               className="!text-3xl font-semibold"
               as={motion.div}
               layoutId="card-booked-value"
+              layout="position"
             >
               {count}
             </Text>

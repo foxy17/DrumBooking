@@ -11,7 +11,7 @@ export const NoSession = ({
   onClick: () => void;
 }) => {
   return (
-    <Flex className="flex-col h-max items-center pb-6 bg-dark-grey mt-2 rounded-xl z-10">
+    <Flex className="flex-col h-max items-center pb-6 bg-dark-grey mt-2 rounded-xl">
       <Flex className="mt-4 text-3xl font-[200] text-center text-white">
         No Upcoming <br />
         Practice Session
