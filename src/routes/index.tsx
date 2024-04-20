@@ -6,8 +6,11 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
+import { adminRouteConfig } from 'routes/adminRouteConfig';
+import PrivateRoute from 'routes/PrivateRoute';
 import { routeConfig } from 'routes/routeConfig';
 import { HomeLayout } from '@/components/Layout/home.layout';
+import { AdminDashboard } from '@/pages/AdminDashboard';
 import Dashboard from '@/pages/Dashboard';
 import Home from '@/pages/Home';
 
@@ -15,9 +18,11 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: (
-      <HomeLayout>
-        <Outlet />
-      </HomeLayout>
+      <PrivateRoute>
+        <HomeLayout>
+          <Outlet />
+        </HomeLayout>
+      </PrivateRoute>
     ),
     children: [
       {
@@ -36,6 +41,33 @@ export const router = createBrowserRouter([
       {
         path: routeConfig.profile.link,
         element: <Dashboard />,
+      },
+    ],
+  },
+  {
+    path: '/admin',
+    element: (
+      <HomeLayout>
+        <Outlet />
+      </HomeLayout>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Navigate to={adminRouteConfig.home.link} replace />,
+      },
+      {
+        index: true,
+        path: adminRouteConfig.home.link,
+        element: <AdminDashboard />,
+      },
+      {
+        path: adminRouteConfig.checkin.link,
+        element: <AdminDashboard />,
+      },
+      {
+        path: adminRouteConfig.profile.link,
+        element: <AdminDashboard />,
       },
     ],
   },
