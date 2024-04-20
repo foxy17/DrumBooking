@@ -16,7 +16,7 @@ export const MetaDataCard = () => {
       <Flex className="w-full gap-x-2">
         <Card
           className={cn(
-            '!rounded-xl dark:!bg-pop-yellow dark:!text-main !flex-1',
+            '!rounded-xl dark:!bg-yellow dark:!text-primary !flex-1',
           )}
         >
           <CardBody className="flex-col items-start">
@@ -28,7 +28,7 @@ export const MetaDataCard = () => {
         </Card>
         <Card
           className={cn(
-            '!rounded-xl dark:!bg-pop-pink dark:!text-main !flex-1',
+            '!rounded-xl dark:!bg-pop-pink dark:!text-primary !flex-1',
             isOpen ? 'invisible ' : 'visible',
           )}
           as={motion.div}

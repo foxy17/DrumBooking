@@ -4,6 +4,7 @@ import { IoLockClosed, IoMailOutline } from 'react-icons/io5';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 import { useNavigate } from 'react-router';
 import {
+  Box,
   Button,
   Flex,
   Heading,
@@ -12,9 +13,11 @@ import {
   InputLeftElement,
   InputRightElement,
 } from '@chakra-ui/react';
+import { AuthService } from '@/services/auth';
 import useAuthStore from '@/store/useAuthStore';
 
 export const LoginForm = () => {
+  const authService = new AuthService();
   const { setIsAuthenticated } = useAuthStore((state) => state);
   const navigate = useNavigate();
 
@@ -24,6 +27,10 @@ export const LoginForm = () => {
     navigate('/dash');
   };
 
+  const checkAuth = async () => {
+    // Check if user is authenticated
+    const isAuthenticated = await authService.isAuthenticated();
+  };
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -39,7 +46,7 @@ export const LoginForm = () => {
         Unlock Your Rhythm
       </h3>
       <form className="not-prose flex flex-col justify-center items-center gap-8 w-full mt-2">
-        <div className="w-full max-w-sm">
+        <Box className="w-full max-w-sm">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
               <IoMailOutline color="gray.300" />
@@ -50,8 +57,8 @@ export const LoginForm = () => {
               placeholder="Enter Email"
             />
           </InputGroup>
-        </div>
-        <div className="w-full max-w-sm mb-4">
+        </Box>
+        <Box className="w-full max-w-sm mb-4">
           <InputGroup size="md">
             <InputLeftElement pointerEvents="none">
               <IoLockClosed color="gray.300" />
@@ -69,9 +76,9 @@ export const LoginForm = () => {
           <Flex className="flex-row-reverse mt-3 cursor-pointer text-sm text-green-100">
             Forgot Password?
           </Flex>
-        </div>
+        </Box>
         <Button
-          className="!bg-dark-green w-full"
+          className="!bg-green w-full"
           colorScheme="red"
           fontWeight="normal"
           fontSize={18}

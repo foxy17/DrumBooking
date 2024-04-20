@@ -6,8 +6,8 @@ import {
 export interface User {
   id: string;
   app_metadata?: UserAppMetadata;
-  user_metadata: UserMetadata;
-  aud: string;
+  user_metadata?: UserMetadata;
+  aud?: string | null;
   confirmation_sent_at?: string;
   recovery_sent_at?: string;
   email_change_sent_at?: string;
@@ -17,7 +17,7 @@ export interface User {
   action_link?: string;
   email?: string;
   phone?: string;
-  created_at: string;
+  created_at?: string;
   confirmed_at?: string;
   email_confirmed_at?: string;
   phone_confirmed_at?: string;

@@ -9,7 +9,7 @@ const Dashboard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex className="relative flex-col w-full bg-main h-full overflow-auto">
+    <Flex className="relative flex-col w-full bg-primary h-full overflow-auto">
       <Flex className="relative flex-col w-full px-4">
         <DashboardTabs />
         <Header />

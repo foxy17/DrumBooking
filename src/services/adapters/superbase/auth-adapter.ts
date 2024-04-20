@@ -1,7 +1,6 @@
 import { toast } from 'react-toastify';
 import { type SupabaseClient } from '@supabase/supabase-js';
 import { AuthAdapter } from '@/services/adapters/abstract/auth';
-import { type User } from '@/types/auth';
 
 export class SupabaseAuthAdapter extends AuthAdapter {
   private readonly client: SupabaseClient;
@@ -13,16 +12,17 @@ export class SupabaseAuthAdapter extends AuthAdapter {
   async loginWithEmail(
     email: string,
     password: string,
-  ): Promise<User | undefined> {
+  ): Promise<boolean | string> {
     const { data, error } = await this.client.auth.signInWithPassword({
       email,
       password,
     });
+
     if (error) {
-      toast.error(error.message);
-      return;
+      return error.message;
     }
-    return data.user;
+
+    return !!data.user;
   }
 
   async logout(): Promise<boolean> {
@@ -32,5 +32,9 @@ export class SupabaseAuthAdapter extends AuthAdapter {
       return false;
     }
     return true;
+  }
+
+  isAuthenticated(): boolean {
+    return false;
   }
 }

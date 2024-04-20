@@ -79,7 +79,7 @@ export const FloatingNav = ({
             <span
               className={cn(
                 'block sm:hidden',
-                idx === id ? 'text-white' : 'text-main',
+                idx === id ? 'text-white' : 'text-primary',
               )}
             >
               {navItem.icon}
@@ -87,7 +87,7 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-sm">{navItem.name}</span>
             {idx === id && (
               <motion.div
-                className="absolute bottom-0 left-0 h-full bg-main rounded-full -z-10 ml-0"
+                className="absolute bottom-0 left-0 h-full bg-primary rounded-full -z-10 ml-0"
                 layoutId="navbar"
                 aria-hidden="true"
                 style={{

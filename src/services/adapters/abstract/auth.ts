@@ -1,9 +1,8 @@
-import { type User } from '@/types/auth';
-
 export abstract class AuthAdapter {
   abstract loginWithEmail(
     email: string,
     password: string,
-  ): Promise<User | undefined>;
+  ): Promise<boolean | string>;
   abstract logout(): Promise<boolean>;
+  abstract isAuthenticated(): boolean;
 }

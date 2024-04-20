@@ -32,7 +32,7 @@ export const SessionCard = ({
                 name="Kola Tioluwani"
                 src="https://bit.ly/tioluwani-kolawole"
               />
-              <Tag className="!bg-main !rounded-full !text-white w-fit !px-3 !py-1 mt-2">
+              <Tag className="!bg-primary !rounded-full !text-white w-fit !px-3 !py-1 mt-2">
                 Solo Drums
               </Tag>
             </>
@@ -45,7 +45,7 @@ export const SessionCard = ({
                   src="https://bit.ly/tioluwani-kolawole"
                 />
               </AvatarGroup>
-              <Tag className="!bg-dark-green !rounded-full !text-white w-fit !px-3 !py-1 mt-2">
+              <Tag className="!bg-green !rounded-full !text-white w-fit !px-3 !py-1 mt-2">
                 Shared Practice
               </Tag>
             </>
@@ -54,7 +54,7 @@ export const SessionCard = ({
       </Flex>
       <Button
         variant="ouitline"
-        className="bg-main text-pop-pink !rounded-full !font-normal !w-fit !px-10"
+        className="bg-primary text-pop-pink !rounded-full !font-normal !w-fit !px-10"
       >
         Cancel
       </Button>

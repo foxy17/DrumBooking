@@ -35,8 +35,8 @@ export const Sessions = () => {
     <>
       <Card
         className={cn(
-          '!rounded-t-xl !rounded-b-none !bg-main dark:!text-white h-full mt-2 !sticky !top-0 !z-10 ',
-          '!border-b-8 !border-b-main',
+          '!rounded-t-xl !rounded-b-none !bg-primary dark:!text-white h-full mt-2 !sticky !top-0 !z-10 ',
+          '!border-b-8 !border-b-primary',
         )}
       >
         <CardHeader className="flex flex-row w-full items-center rounded-xl dark:!bg-secondary justify-center !py-4 !overflow-hidden relative ">
@@ -53,11 +53,11 @@ export const Sessions = () => {
       >
         <CardBody className="flex flex-col w-full">
           <SessionCard date="Today" people="Only you" time="12pm - 1pm" solo />
-          <Divider className="my-4 !border-main" />
+          <Divider className="my-4 !border-primary" />
           <SessionCard date="Tomorrow" people="Only you" time="2pm - 3pm" />
-          <Divider className="my-4 !border-main" />
+          <Divider className="my-4 !border-primary" />
           <SessionCard date="21st Feb" people="Only you" time="12pm - 1pm" />
-          <Divider className="my-4 !border-main" />
+          <Divider className="my-4 !border-primary" />
           <SessionCard date="28th Feb" people="Only you" time="12pm - 1pm" />
         </CardBody>
       </Card>

@@ -18,7 +18,7 @@ export const NoSession = ({
       </Flex>
       <Button
         className={clsx(
-          '!bg-white !text-main !rounded-full !text-md !px-24 py-6',
+          '!bg-white !text-primary !rounded-full !text-md !px-24 py-6',
           'hover:!bg-info hover:!text-black mt-12',
         )}
         onClick={onClick}
