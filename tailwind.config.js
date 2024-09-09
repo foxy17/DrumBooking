@@ -5,7 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'media',
+  darkMode: ['media', 'class'],
   theme: {
     fontFamily: {
       sans: ['Lexend Deca', ...defaultTheme.fontFamily.sans],
@@ -13,7 +13,9 @@ module.exports = {
       roboto: ['Roboto', 'sans-serif'],
     },
     extend: {
-      colors,
+      colors: {
+        ...colors,
+      },
       borderRadius: {
         xs: '0.125rem',
         s: '0.1875rem',
@@ -21,6 +23,9 @@ module.exports = {
         l: '0.375rem',
         xl: '0.5rem',
         '100-percent': '100%',
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       boxShadow: {
         card: '0px -4px 16px -8px rgba(0,0,0,0.4)',
@@ -30,15 +35,24 @@ module.exports = {
       },
       keyframes: {
         meteor: {
-          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: 1 },
-          '70%': { opacity: 1 },
+          '0%': {
+            transform: 'rotate(215deg) translateX(0)',
+            opacity: '1',
+          },
+          '70%': {
+            opacity: '1',
+          },
           '100%': {
             transform: 'rotate(215deg) translateX(-500px)',
-            opacity: 0,
+            opacity: '0',
           },
         },
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('tailwindcss-animate'),
+  ],
 };

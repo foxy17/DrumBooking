@@ -6,13 +6,12 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import { adminRouteConfig } from 'routes/adminRouteConfig';
-import PrivateRoute from 'routes/PrivateRoute';
-import { routeConfig } from 'routes/routeConfig';
 import { HomeLayout } from '@/components/Layout/home.layout';
 import { AdminDashboard } from '@/pages/AdminDashboard';
-import Dashboard from '@/pages/Dashboard';
 import Home from '@/pages/Home';
+import { adminRouteConfig } from '@/routes/adminRouteConfig';
+import PrivateRoute from '@/routes/PrivateRoute';
+import { routeConfig } from '@/routes/routeConfig';
 
 export const router = createBrowserRouter([
   {
@@ -32,15 +31,15 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: routeConfig.home.link,
-        element: <Dashboard />,
+        element: <AdminDashboard />,
       },
       {
         path: routeConfig.checkin.link,
-        element: <Dashboard />,
+        element: <AdminDashboard />,
       },
       {
         path: routeConfig.profile.link,
-        element: <Dashboard />,
+        element: <AdminDashboard />,
       },
     ],
   },
@@ -76,58 +75,3 @@ export const router = createBrowserRouter([
     element: <Home />,
   },
 ]);
-// const Router = () => (
-//     <BrowserRouter>
-//         <Routes>
-//             <Route
-//                 path="/"
-//                 element={
-//                     <PublicRoute>
-//                         <Home/>
-//                     </PublicRoute>
-//                 }
-//             />
-//             <Route
-//                 element={
-//                     <HomeLayout>
-//                         <Outlet/>
-//                     </HomeLayout>
-//                 }
-//             >
-//                 <Route
-//                     path={routeConfig.}
-//                     element={
-//                         <PublicRoute>
-//                             <Dashboard/>
-//                         </PublicRoute>
-//                     }
-//                 />
-//                 <Route
-//                     path="/calendar"
-//                     element={
-//                         <PublicRoute>
-//                             <Dashboard/>
-//                         </PublicRoute>
-//                     }
-//                 />
-//                 <Route
-//                     path="/profile"
-//                     element={
-//                         <PublicRoute>
-//                             <Dashboard/>
-//                         </PublicRoute>
-//                     }
-//                 />
-//             </Route>
-//
-//             <Route
-//                 path="/dashboard"
-//                 element={
-//                     <PrivateRoute>
-//                         <Dashboard/>
-//                     </PrivateRoute>
-//                 }
-//             />
-//         </Routes>
-//     </BrowserRouter>
-// );
