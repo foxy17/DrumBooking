@@ -1,11 +1,8 @@
-"use client";
-
-import { motion, Variants } from "framer-motion";
-
-import { cn } from "@/lib/utils";
+import { motion, type Variants } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 interface WordPullUpProps {
-  words: string;
+  lines: string[];
   delayMultiple?: number;
   wrapperFramerProps?: Variants;
   framerProps?: Variants;
@@ -13,7 +10,7 @@ interface WordPullUpProps {
 }
 
 export default function WordPullUp({
-  words,
+  lines,
   wrapperFramerProps = {
     hidden: { opacity: 0 },
     show: {
@@ -30,24 +27,28 @@ export default function WordPullUp({
   className,
 }: WordPullUpProps) {
   return (
-    <motion.h1
+    <motion.div
       variants={wrapperFramerProps}
       initial="hidden"
       animate="show"
       className={cn(
-        "font-display text-center text-4xl font-bold leading-[5rem] tracking-[-0.02em] drop-shadow-sm",
+        'font-display text-left text-4xl font-bold tracking-[-0.02em] drop-shadow-sm',
         className,
       )}
     >
-      {words.split(" ").map((word, i) => (
-        <motion.span
-          key={i}
-          variants={framerProps}
-          style={{ display: "inline-block", paddingRight: "8px" }}
-        >
-          {word === "" ? <span>&nbsp;</span> : word}
-        </motion.span>
+      {lines.map((line, lineIndex) => (
+        <motion.div key={lineIndex} className="mb-0 last:mb-0">
+          {line.split(' ').map((word, wordIndex) => (
+            <motion.span
+              key={`${lineIndex}-${wordIndex}`}
+              variants={framerProps}
+              className="inline-block pr-2 leading-6"
+            >
+              {word === '' ? <span>&nbsp;</span> : word}
+            </motion.span>
+          ))}
+        </motion.div>
       ))}
-    </motion.h1>
+    </motion.div>
   );
 }

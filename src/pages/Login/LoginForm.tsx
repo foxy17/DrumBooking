@@ -1,69 +1,92 @@
-import { useState } from 'react';
-import { type SubmitHandler } from 'react-hook-form';
-import { IoLockClosed, IoMailOutline } from 'react-icons/io5';
-import { LuEye, LuEyeOff } from 'react-icons/lu';
-import { useNavigate } from 'react-router';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
-import { AuthService } from '@/services/auth';
-import useAuthStore from '@/store/useAuthStore';
+import { CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
-export const LoginForm = () => {
-  const authService = new AuthService();
-  const { setIsAuthenticated } = useAuthStore((state) => state);
+// Define Yup schema for form validation
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Please enter a valid email')
+    .required('Email is required'),
+  password: yup
+    .string()
+    .min(8, 'Password must be at least 8 characters')
+    .required('Password is required'),
+});
+
+export function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onBlur', // Validate on blur
+  });
   const navigate = useNavigate();
+  const [loginError, setLoginError] = useState('');
 
-  const [showPassword, setShowPassword] = useState(false);
-
-  const onSubmit: SubmitHandler<any> = async (data) => {
-    navigate('/dash');
+  const onSubmit = async (data: any) => {
+    try {
+      // Here you would typically make an API call to authenticate the user
+      console.log('Login data:', data);
+      // If login is successful, navigate to dashboard
+      navigate('/dash');
+    } catch (error) {
+      setLoginError('Login failed. Please try again.');
+    }
   };
-
-  const checkAuth = async () => {
-    // Check if user is authenticated
-    const isAuthenticated = authService.isAuthenticated();
-  };
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const Icon = showPassword ? LuEye : LuEyeOff;
 
   return (
-    <div className="flex flex-col px-5 w-full max-w-sm h-full mt-6 prose">
-      <h1 className="self-star tracking-tight mb-1 text-white">
-        Bombay Drum School
-      </h1>
-      <h3 className="mt-2 self-start font-normal mb-7 text-base-100">
-        Unlock Your Rhythm
-      </h3>
-      <form className="not-prose flex flex-col justify-center items-center gap-8 w-full mt-2">
-        <div className="w-full max-w-sm">
-          <input
+    <CardContent>
+      <form
+        noValidate={true}
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid gap-4"
+      >
+        <div className="grid gap-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
             type="email"
-            className="!bg-white rounded !border-none !focus:ring-0 !focus:outline-none !focus:border-none"
-            placeholder="Enter Email"
+            placeholder="m@example.com"
+            {...register('email')}
           />
+          {errors.email && (
+            <p className="text-sm text-red-500">{errors.email.message}</p>
+          )}
         </div>
-        <div className="w-full max-w-sm mb-4">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Enter password"
-            className="pr-4.5 !bg-white rounded !border-none !focus:ring-0 !focus:outline-none !focus:border-none"
-          />
-          <div className="flex-row-reverse mt-3 cursor-pointer text-sm text-green-100">
-            Forgot Password?
+        <div className="grid gap-2">
+          <div className="flex items-center">
+            <Label htmlFor="password">Password</Label>
+            <Link
+              to="/forgot-password"
+              className="ml-auto inline-block text-sm underline"
+            >
+              Forgot your password?
+            </Link>
           </div>
+          <Input id="password" type="password" {...register('password')} />
+          {errors.password && (
+            <p className="text-sm text-red-500">{errors.password.message}</p>
+          )}
         </div>
-        <div
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          onClick={onSubmit}
-        >
-          Sign In
-        </div>
+        {loginError && (
+          <Alert variant="destructive">
+            <AlertDescription>{loginError}</AlertDescription>
+          </Alert>
+        )}
+        <Button type="submit" className="w-full">
+          Login
+        </Button>
       </form>
-      <a className="text-xs my-6 text-white/80 self-center">
-        Terms and Conditions
-      </a>
-    </div>
+    </CardContent>
   );
-};
+}
