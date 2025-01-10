@@ -1,4 +1,3 @@
-import { NavigationDock } from '@/components/Layout/navigation';
 import { RecentClasses } from '@/components/RecentClasses';
 import { UpcomingClasses } from '@/components/UpcomingClasses';
 import { type Appointment } from '@/types/appointment';
