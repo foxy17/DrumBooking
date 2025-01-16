@@ -7,7 +7,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { HomeLayout } from '@/components/Layout/home.layout';
-import { AdminDashboard } from '@/pages/AdminDashboard';
+import AdminDashboard from '@/pages/AdminDashboard';
 import Home from '@/pages/Home';
 import { adminRouteConfig } from '@/routes/adminRouteConfig';
 import PrivateRoute from '@/routes/PrivateRoute';
