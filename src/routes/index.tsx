@@ -12,6 +12,7 @@ import Home from '@/pages/Home';
 import { adminRouteConfig } from '@/routes/adminRouteConfig';
 import PrivateRoute from '@/routes/PrivateRoute';
 import { routeConfig } from '@/routes/routeConfig';
+import NotesHistory from '@/pages/NotesHistory/NotesHistory';
 
 export const router = createBrowserRouter([
   {
@@ -73,5 +74,9 @@ export const router = createBrowserRouter([
   {
     path: '/login',
     element: <Home />,
+  },
+  {
+    path: '/history',
+    element: <NotesHistory />,
   },
 ]);
