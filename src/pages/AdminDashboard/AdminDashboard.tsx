@@ -1,5 +1,5 @@
-import { RecentClasses } from '@/components/RecentClasses';
-import { UpcomingClasses } from '@/components/UpcomingClasses';
+import { RecentClasses } from '@/pages/AdminDashboard/components/RecentClasses';
+import { UpcomingClasses } from '@/pages/AdminDashboard/components/UpcomingClasses';
 import { type Appointment } from '@/types/appointment';
 
 const upcomingClasses: Appointment[] = [
@@ -11,7 +11,9 @@ const upcomingClasses: Appointment[] = [
     appointmentType: 'Solo',
     grade: 3,
     notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. Proin mauris augue, dictum a neque at, vehicula vestibulum neque. Duis in elit lacus. Fusce ut eros vitae elit rutrum aliqu',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Proin mauris augue, dictum a neque at, vehicula vestibulum neque. Duis in elit lacus. Fusce ut eros vitae elit rutrum aliqu',
+    homework:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
   },
   {
     id: '2',
@@ -21,7 +23,9 @@ const upcomingClasses: Appointment[] = [
     appointmentType: 'Duo',
     grade: 4,
     notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. Proin mauris augue, dictum a neque at, vehicula vestibulum neque. Duis in elit lacus. Fusce ut eros vitae elit rutrum aliqu',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. ',
+    homework:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
   },
 ];
 
