@@ -74,57 +74,37 @@ export default function NotesHistory() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  if (isMobile) {
-    return (
-      <div className="min-h-screen bg-black p-4">
-        {/* Header */}
-        <header className="flex items-center mb-4">
-          <Button
-            variant="secondary"
-            className="bg-transparent hover:bg-zinc-800 rounded-full h-10 w-10 text-indigo-400 hover:text-indigo-400/80 p-0 mr-2"
-          >
-            <ChevronLeft className="h-8 w-8" />
-          </Button>
-          <h2 className="text-xl font-bold tracking-tight">
-            History - Brandon Taylor
-          </h2>
-        </header>
-
-        {/* Timeline */}
-        <div className="relative top-4 pb-8">
+  return (
+    <div className="min-h-screen bg-black p-4">
+      {/* Header */}
+      <header className="flex items-center mb-4 md:gap-4">
+        <Button
+          variant="secondary"
+          className="bg-transparent hover:bg-zinc-800 rounded-full h-10 w-10 text-indigo-400 hover:text-indigo-400/80 p-0 mr-2"
+        >
+          <ChevronLeft className="h-8 w-8 md:h-12 md:w-12" />
+        </Button>
+        <h2 className="text-xl font-bold md:text-2xl tracking-tight">
+          History - Brandon Taylor
+        </h2>
+      </header>
+      {/* Timeline */}
+      {isMobile ? (
+        <div className="relative top-4 pb-8 ">
           <div className="space-y-4">
             {historyData.map((item) => (
               <TimelineItem key={item.id} item={item} />
             ))}
           </div>
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="min-h-screen bg-black p-4">
-        {/* Header */}
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-4">
-            <Button
-              variant="secondary"
-              className="bg-transparent hover:bg-zinc-800 rounded-full h-10 w-10 text-indigo-400 hover:text-indigo-400/80 p-0 mr-2"
-            >
-              <ChevronLeft className="h-8 w-8" />
-            </Button>
-            <h1 className="text-2xl font-bold tracking-tight">
-              History - Brandon Taylor
-            </h1>
-          </div>
-        </div>
-
+      ) : (
         <div className="mx-auto w-[90%] max-w-4xl pb-8 pt-4">
           {/* Timeline section */}
           {historyData.map((item) => (
             <TimelineItem key={item.id} item={item} />
           ))}
         </div>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }

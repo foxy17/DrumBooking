@@ -19,95 +19,53 @@ export default function TimelineItem({ item }: { item: noteHistoryItem }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  if (isMobile) {
-    return (
-      <div className="flex gap-4 relative group">
-        <div className="absolute left-6 top-0 -bottom-4 w-px bg-white group-last:hidden" />
-
-        <div className="relative z-10">
-          <div className="w-12 h-12 rounded-full bg-white border border-zinc-800 flex items-center justify-center group-hover:border-indigo-500 transition-colors">
-            {item.type === 'note' ? (
-              <Music className="w-5 h-5 text-black" />
-            ) : (
-              <PenLine className="w-5 h-5 text-black" />
-            )}
-          </div>
-        </div>
-
-        <div className="flex-1 pt-2">
-          <p className="text-indigo-300 font-bold tracking-tight mb-2">
-            {item.date}
-          </p>
-          <div className="space-y-2">
-            <ReactMarkdown
-              className={cn(
-                'prose prose-invert max-w-none',
-                'prose-p:my-0 prose-p:leading-relaxed',
-                'text-zinc-200',
-              )}
-            >
-              {isExpanded
-                ? item.content
-                : item.content.substring(0, 100) +
-                  (item.content.length > 100 ? '...' : '')}
-            </ReactMarkdown>
-            {item.content.length > 100 && (
-              <span
-                className="text-rose-200 hover:text-rose-300 text-sm cursor-pointer"
-                onClick={toggleExpand}
-              >
-                {isExpanded ? 'show less' : 'view more'}
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="grid grid-cols-[25%_75%] gap-4 py-4 group">
+  return (
+    <div className="group gap-4 flex relative md:grid md:grid-cols-[25%_75%] md:py-4">
+      {isMobile ? (
+        <div className="absolute left-5 top-0 -bottom-4 w-px bg-white group-last:hidden" />
+      ) : (
         <div className="text-indigo-300 font-bold tracking-tight text-right pr-4">
           {item.date}
         </div>
+      )}
 
-        <div className="flex relative">
+      <div className="relative flex z-10">
+        {!isMobile && (
           <div className="absolute left-5 top-0 -bottom-8 w-px bg-white group-last:hidden" />
-          <div className="absolute left-0 bg-white rounded-full p-2 border">
-            {item.type === 'note' ? (
-              <Music className="h-6 w-6 text-black" />
-            ) : (
-              <PenLine className="h-6 w-6 text-black" />
-            )}
-          </div>
+        )}
+        <div className="bg-white rounded-full flex items-center justify-center w-10 h-10 md:absolute md:left-0 md:p-2">
+          {item.type === 'note' ? (
+            <Music className="w-4 h-4 text-black md:w-6 md:h-6" />
+          ) : (
+            <PenLine className="w-4 h-4 text-black md:w-6 md:h-6" />
+          )}
+        </div>
 
-          <div
-            className={cn(
-              'p-4 rounded-lg border border-zinc-600 group-hover:border-indigo-500 transition-colors ml-16',
-            )}
-          >
-            <ReactMarkdown
-              className={cn(
-                'prose prose-invert max-w-none',
-                'prose-p:my-0 prose-p:leading-relaxed',
-                'text-zinc-200',
-              )}
+        <div
+          className={cn(
+            'prose prose-invert max-w-none text-zinc-200',
+            'flex-1 px-4 pb-2 md:p-4 md:rounded-lg md:border md:border-zinc-600 md:group-hover:border-indigo-500 md:transition-colors md:ml-16',
+          )}
+        >
+          <p className="text-indigo-300 font-bold tracking-tight mb-2 md:hidden">
+            {item.date}
+          </p>
+          <ReactMarkdown>
+            {isExpanded
+              ? item.content
+              : item.content.substring(0, 100) +
+                (item.content.length > 100 ? '...' : '')}
+          </ReactMarkdown>
+          {item.content.length > 100 && (
+            <span
+              className="text-rose-200 hover:text-rose-300 text-sm cursor-pointer"
+              onClick={toggleExpand}
             >
-              {isExpanded
-                ? item.content
-                : item.content.substring(0, 100) +
-                  (item.content.length > 100 ? '...' : '')}
-            </ReactMarkdown>
-            {item.content.length > 100 && (
-              <span
-                className="text-rose-200 hover:text-rose-300 text-sm cursor-pointer"
-                onClick={toggleExpand}
-              >
-                {isExpanded ? 'show less' : 'view more'}
-              </span>
-            )}
-          </div>
+              {isExpanded ? 'show less' : 'view more'}
+            </span>
+          )}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
