@@ -6,4 +6,5 @@ export interface Appointment {
   appointmentType: 'Solo' | 'Duo';
   grade: number;
   notes: string;
+  homework?: string;
 }
