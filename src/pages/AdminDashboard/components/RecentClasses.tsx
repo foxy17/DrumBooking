@@ -16,7 +16,7 @@ export const RecentClasses = (props: { data: Appointment[] }) => {
             key={appointment.id}
             className="flex items-center justify-between px-4 py-8 hover:bg-zinc-900 transition-all duration-200"
           >
-            <UserInfo classData={appointment} />
+            <UserInfo userInfo={appointment} />
             <RotateCcw className="h-8 w-8 text-zinc-200" />
           </div>
         ))}
