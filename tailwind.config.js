@@ -19,6 +19,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        xs: '350px', // custom breakpoints
+      },
       keyframes: {
         'accordion-down': {
           from: {
