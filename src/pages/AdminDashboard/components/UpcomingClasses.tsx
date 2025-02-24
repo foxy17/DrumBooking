@@ -21,7 +21,7 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
   const { data } = props;
 
   return (
-    <div className="">
+    <div>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">Upcoming Classes</h2>
         <button className="text-zinc-400 hover:text-zinc-600">See all</button>
@@ -42,7 +42,7 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
           >
             <AccordionTrigger className="hover:no-underline">
               <div className="flex w-full items-center">
-                <UserInfo classData={classData} />
+                <UserInfo userInfo={classData} />
                 <div className="flex-1 flex justify-center">
                   <span
                     className={cn(

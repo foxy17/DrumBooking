@@ -13,6 +13,7 @@ import { adminRouteConfig } from '@/routes/adminRouteConfig';
 import PrivateRoute from '@/routes/PrivateRoute';
 import { routeConfig } from '@/routes/routeConfig';
 import NotesHistory from '@/pages/NotesHistory/NotesHistory';
+import Users from '@/pages/Users/Users';
 
 export const router = createBrowserRouter([
   {
@@ -67,7 +68,7 @@ export const router = createBrowserRouter([
       },
       {
         path: adminRouteConfig.profile.link,
-        element: <AdminDashboard />,
+        element: <Users />,
       },
     ],
   },
