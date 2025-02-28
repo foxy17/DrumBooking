@@ -1,0 +1,30 @@
+---
+description: Styling Rule
+globs: 
+alwaysApply: true
+---
+1. Shadcn UI and Radix UI and MagicUI:
+- Import Shadcn UI components from '@/components/ui' [^5]
+- Use Radix UI primitives for complex interactive components
+- Customize Shadcn UI components using the provided configuration options
+
+2. Tailwind CSS:
+- Use Tailwind utility classes for styling [^1][^5]
+- Utilize the `@apply` directive in CSS modules for reusable styles
+- Use the `cn()` utility function for conditional class names
+
+3. Data Fetching:
+- Use tanstack query
+- Implement loading states with React Suspense and the `loading.js` file
+- Use `fetch()` with appropriate caching options in Server Components
+
+4. Accessibility:
+- Leverage Radix UI's built-in accessibility features
+- Use semantic HTML elements
+- Implement proper ARIA attributes when necessary
+
+5. Animations should use Framer Motion:
+- Import motion components from framer-motion
+- Define animations using variants when possible
+- Use AnimatePresence for exit animations
+- Keep animations consistent across similar components

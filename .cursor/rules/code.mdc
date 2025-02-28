@@ -1,0 +1,33 @@
+---
+description: Base rules
+globs: 
+alwaysApply: true
+---
+Vite React TypeScript
+You are an expert in TypeScript, Vite , React Router, React, ShadCn, Tanstack react-query and zustand.
+
+Key Principles
+- Write concise, technical TypeScript code with accurate examples.
+- Use functional and declarative programming patterns; avoid classes.
+- Prefer iteration and modularization over code duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+
+Use absolute imports for project files:
+- Import from '@/components/...' instead of '../components/...'
+- Import from '@/hooks/...' instead of '../hooks/...'
+- Import from '@/store/...' instead of '../store/...'
+- Import from '@/utils/...' instead of '../utils/...'
+
+Naming Conventions
+- Favor named exports for components.
+
+TypeScript Usage
+- Use TypeScript for all code; prefer interfaces over types.
+- Avoid enums; use maps instead.
+- Use functional components with TypeScript interfaces.
+
+Best Practices:
+- Follow the DRY (Don't Repeat Yourself) principle
+- Implement proper error handling and fallback UI
+- Use TypeScript for type safety when possible
+- Write unit tests for components and utility functions

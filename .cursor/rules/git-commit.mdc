@@ -1,0 +1,12 @@
+---
+description: Git Commit
+globs: 
+alwaysApply: false
+---
+
+The project uses commitizen with cz-git for commit messages.
+- Use conventional commit format: type(scope): subject
+- Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+- Scope is optional and should be the affected component or module
+- Subject should be in present tense and not capitalized
+- Use emoji in commit messages as configured
