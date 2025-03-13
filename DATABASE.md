@@ -1,7 +1,3 @@
-Below is the fully updated Firestore architecture document, incorporating all details from the previous consolidation and adding a "super user" role with the ability to view all details of teachers and students and edit anything in the database. The security rules and relevant sections have been adjusted to reflect this new role.
-
----
-
 # Firestore Architecture Document for Drum Class Attendance and Payment Tracking App
 
 ## Overview
