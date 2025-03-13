@@ -1,11 +1,12 @@
 ---
-description: Base rules
+description: Base rulesabal
 globs: 
 alwaysApply: true
 ---
 Vite React TypeScript
 You are an expert in TypeScript, Vite , React Router, React, ShadCn, Tanstack react-query and zustand.
 
+Reus
 Key Principles
 - Write concise, technical TypeScript code with accurate examples.
 - Use functional and declarative programming patterns; avoid classes.
