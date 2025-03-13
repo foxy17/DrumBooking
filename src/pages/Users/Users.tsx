@@ -131,7 +131,18 @@ const Users = () => {
           <Filter className="h-5 w-5" />
         </Button>
       </div>
-      <UserList data={filteredUsers} />
+      <UserList data={filteredUsers} header="Due Date">
+        <UserList.Header />
+        <UserList.AccordionWrapper>
+          <UserList.AccordionTrigger>
+            <UserList.SecondColumn />
+          </UserList.AccordionTrigger>
+          <UserList.AccordionContentWrapper>
+            <UserList.ContactInformation />
+            <UserList.Buttons />
+          </UserList.AccordionContentWrapper>
+        </UserList.AccordionWrapper>
+      </UserList>
 
       <FilterModal
         isOpen={isFilterModalOpen}

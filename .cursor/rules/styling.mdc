@@ -1,10 +1,12 @@
 ---
-description: Styling Rule
-globs: 
-alwaysApply: true
+description: Styling Rules.s-
+globs: src/pages/**/*.tsx, src/components/**/*.tsx
+alwaysApply: false
 ---
 1. Shadcn UI and Radix UI and MagicUI:
 - Import Shadcn UI components from '@/components/ui' [^5]
+- Use Shadcn UI, Radix, and Tailwind Aria for components and styling
+- Implement responsive design with Tailwind CSS; use a mobile-first approach
 - Use Radix UI primitives for complex interactive components
 - Customize Shadcn UI components using the provided configuration options
 
@@ -23,8 +25,6 @@ alwaysApply: true
 - Use semantic HTML elements
 - Implement proper ARIA attributes when necessary
 
-5. Animations should use Framer Motion:
-- Import motion components from framer-motion
-- Define animations using variants when possible
-- Use AnimatePresence for exit animations
-- Keep animations consistent across similar components
+5. Animation and Transitions:
+- Use subtle animations to enhance UX (e.g., page transitions, micro-interactions).
+- Utilize Tailwind's transition utilities or consider libraries like Framer Motion.
