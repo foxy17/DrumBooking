@@ -69,7 +69,7 @@ UserList.AccordionWrapper = function UserListAccordionWrapper({
             value={data.id}
             className={cn(
               'group transition-all duration-200 bg-[#171a1f]',
-              '[&[data-state=open]]:bg-[#1e1e1d]',
+              'data-[state=open]:bg-[#1e1e1d]',
               'border-b border-zinc-200',
               'md:px-4',
               'last:border-0'

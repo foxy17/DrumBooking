@@ -37,7 +37,7 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
             value={classData.id}
             className={cn(
               'group px-4 py-4 transition-all duration-200',
-              '[&[data-state=open]]:bg-zinc-900'
+              'data-[state=open]:bg-zinc-900'
             )}
           >
             <AccordionTrigger className="hover:no-underline">
