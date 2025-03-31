@@ -1,2 +1,16 @@
-node_modules
+# Build artifacts
 dist
+build
+coverage
+
+# Package management
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Misc
+.DS_Store
+.env
+.env.*
+!.env.example
