@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { type noteHistoryItem } from '@/types/notesHistory';
-import TimelineItem from './components/TimelineItem';
+import { type noteHistoryItem } from '@/types/notes-history';
+import TimelineItem from './components/timeline-line-item';
 
 export const historyData: noteHistoryItem[] = [
   {

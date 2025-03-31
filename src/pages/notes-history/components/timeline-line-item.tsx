@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Music, PenLine } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { type noteHistoryItem } from '@/types/notesHistory';
+import { type noteHistoryItem } from '@/types/notes-history';
 
 export default function TimelineItem({ item }: { item: noteHistoryItem }) {
   const [isExpanded, setIsExpanded] = useState(false); // State to track expanded/collapsed

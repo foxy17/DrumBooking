@@ -1,4 +1,3 @@
-import React from 'react';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import DotPattern from '@/components/magicui/dot-pattern';
 import WordPullUp from '@/components/magicui/word-pull-up';
@@ -9,7 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { LoginForm } from './LoginForm';
+import { LoginForm } from './login-form';
 
 const Login = () => {
   return (

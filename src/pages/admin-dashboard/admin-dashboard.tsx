@@ -1,5 +1,5 @@
-import { RecentClasses } from '@/pages/AdminDashboard/components/RecentClasses';
-import { UpcomingClasses } from '@/pages/AdminDashboard/components/UpcomingClasses';
+import { RecentClasses } from '@/pages/admin-dashboard/components/recent-classes';
+import { UpcomingClasses } from '@/pages/admin-dashboard/components/upcoming-classes';
 import { type Appointment } from '@/types/appointment';
 
 const upcomingClasses: Appointment[] = [

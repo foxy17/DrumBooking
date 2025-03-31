@@ -1,5 +1,5 @@
 import { Dock } from '@/components/ui/dock-two';
-import { routeConfig } from '@/routes/routeConfig';
+import { routeConfig } from '@/routes/route-config';
 
 export function NavigationDock() {
   const items = [

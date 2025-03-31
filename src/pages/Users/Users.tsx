@@ -3,8 +3,8 @@ import { Filter, Plus, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import type { Booking } from '@/types/booking';
-import { FilterModal } from './components/FilterModal';
-import UserList from './components/UserList';
+import { FilterModal } from './components/filter-modal';
+import UserList from './components/user-list';
 
 const usersData: Booking[] = [
   {
