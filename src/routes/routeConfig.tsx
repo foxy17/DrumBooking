@@ -1,20 +1,24 @@
-import React from 'react';
-import { FaHouse, FaPersonBooth, FaUser } from 'react-icons/fa6';
+import { House, Calendar, User, Users } from 'lucide-react';
 
 export const routeConfig = {
   home: {
     name: 'Home',
     link: '/dash',
-    icon: <FaHouse className="h-6 w-6 text-inherit" />,
+    icon: House,
+  },
+  students: {
+    name: 'Students',
+    link: '/students',
+    icon: Users,
   },
   checkin: {
     name: 'check',
     link: '/check',
-    icon: <FaPersonBooth className="h-6 w-6 text-inherit" />,
+    icon: Calendar,
   },
   profile: {
     name: 'Profile',
     link: '/profile',
-    icon: <FaUser className="h-6 w-6 text-inherit" />,
+    icon: User,
   },
 };
