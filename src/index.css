@@ -4,6 +4,109 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+  /* Gilroy Font Variations */
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('https://web-assets.cred.club/fonts/Gilroy-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('https://web-assets.cred.club/fonts/Gilroy-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('https://web-assets.cred.club/fonts/Gilroy-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('https://web-assets.cred.club/fonts/Gilroy-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('https://web-assets.cred.club/fonts/Gilroy-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('https://web-assets.cred.club/fonts/Gilroy-Thin.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  /* Cirka Font Variations */
+  @font-face {
+    font-family: 'Cirka';
+    src: url('https://web-assets.cred.club/fonts/PPCirka-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Cirka';
+    src: url('https://web-assets.cred.club/fonts/PPCirka-Light.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Cirka';
+    src: url('https://web-assets.cred.club/fonts/PPCirka-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Cirka';
+    src: url('https://web-assets.cred.club/fonts/PPCirka-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Cirka';
+    src: url('https://web-assets.cred.club/fonts/PPCirka-SemiBold.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  /* Overpass Mono Font */
+  @font-face {
+    font-family: 'Overpass Mono';
+    src: url('https://web-assets.cred.club/fonts/OverpassMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  :root {
+    --font-gilroy: 'Gilroy', system-ui, sans-serif;
+    --font-overpass: 'Overpass Mono', monospace;
+    --font-cirka: 'Cirka', "Times New Roman", Times, serif;
+  }
+
+  html {
+    font-family: var(--font-gilroy);
+  }
+
+  code, pre, kbd {
+    font-family: var(--font-overpass);
+  }
+}
+
 @theme {
   --breakpoint-xs: 350px;
 
@@ -397,5 +500,60 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Font Family Utilities */
+  .font-gilroy {
+    font-family: var(--font-gilroy);
+  }
+
+  .font-overpass {
+    font-family: var(--font-overpass);
+  }
+
+  .font-cirka {
+    font-family: var(--font-cirka);
+  }
+
+  .neo-card {
+    @apply bg-pop-black-400 border border-pop-black-300/30 rounded-sm shadow-lg;
+  }
+  
+  .neo-gradient {
+    @apply bg-gradient-to-br from-poli-purple-500 to-poli-purple-600;
+  }
+
+  .neo-button {
+    @apply px-4 py-2 font-medium transition-all duration-200;
+  }
+
+  .neo-button-primary {
+    composes: neo-button;
+    @apply bg-poli-purple-500 text-pop-white-500 hover:bg-poli-purple-600 hover:shadow-lg;
+  }
+
+  .neo-button-secondary {
+    composes: neo-button;
+    @apply bg-pop-black-400 text-pop-white-300 hover:bg-pop-black-300/80;
+  }
+
+  .neo-button-danger {
+    composes: neo-button;
+    @apply bg-error-500/90 text-pop-white-500 hover:bg-error-500;
+  }
+
+  .neo-button-success {
+    composes: neo-button;
+    @apply bg-park-green-500/90 text-pop-white-500 hover:bg-park-green-500;
+  }
+
+  .neo-glass {
+    @apply backdrop-blur-sm bg-pop-black-400/30 border border-pop-black-300/50;
+  }
+
+  .neo-input {
+    @apply bg-pop-black-400 border border-pop-black-300/50 rounded-lg px-4 py-2 text-pop-white-300 focus:outline-none focus:ring-2 focus:ring-poli-purple-500/50;
   }
 }
