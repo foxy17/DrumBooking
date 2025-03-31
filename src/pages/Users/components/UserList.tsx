@@ -62,7 +62,7 @@ UserList.AccordionWrapper = function UserListAccordionWrapper({
   if (!data) return null;
   return (
     <Accordion type="single" collapsible>
-      {data.map((data) => (
+      {data.map(data => (
         <AccordionItemContext.Provider value={data} key={data.id}>
           <AccordionItem
             key={data.id}
@@ -72,7 +72,7 @@ UserList.AccordionWrapper = function UserListAccordionWrapper({
               '[&[data-state=open]]:bg-[#1e1e1d]',
               'border-b border-zinc-200',
               'md:px-4',
-              'last:border-0',
+              'last:border-0'
             )}
           >
             {children}

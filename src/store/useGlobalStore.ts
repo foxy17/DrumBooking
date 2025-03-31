@@ -16,17 +16,17 @@ const initialState: Pick<GlobalStore, keyof GlobalState> = {
 
 const useGlobalStore = create<GlobalStore>()(
   logger<GlobalStore>(
-    (set) => ({
+    set => ({
       ...initialState,
       toggleMenu: () => {
-        set((state) => {
+        set(state => {
           setItem('isMenuOpen', !state.isMenuOpen);
           return { isMenuOpen: !state.isMenuOpen };
         });
       },
     }),
-    'globalStore',
-  ),
+    'globalStore'
+  )
 );
 
 export default useGlobalStore;

@@ -16,7 +16,7 @@ const Login = () => {
     <div className="flex flex-col justify-center h-full w-full relative px-2 pt-4 login-bg">
       <DotPattern
         className={cn(
-          '[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]',
+          '[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]'
         )}
       />
       <Card className="mx-auto max-w-md bg-card z-10 relative">

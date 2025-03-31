@@ -15,12 +15,12 @@ const initialState: Pick<CounterStore, keyof CounterState> = {
 
 export const useCounterStore = create<CounterStore>()(
   logger<CounterStore>(
-    (set) => ({
+    set => ({
       ...initialState,
-      setValue: (number) => {
+      setValue: number => {
         set({ value: number });
       },
     }),
-    'authStore',
-  ),
+    'authStore'
+  )
 );

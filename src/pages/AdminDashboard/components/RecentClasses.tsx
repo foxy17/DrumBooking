@@ -11,7 +11,7 @@ export const RecentClasses = (props: { data: Appointment[] }) => {
         <h2 className="text-xl font-bold">Recent Classes</h2>
       </div>
       <div className="rounded-2xl border-2 border-zinc-400 overflow-hidden">
-        {data.map((appointment) => (
+        {data.map(appointment => (
           <div
             key={appointment.id}
             className="flex items-center justify-between px-4 py-8 hover:bg-zinc-900 transition-all duration-200"

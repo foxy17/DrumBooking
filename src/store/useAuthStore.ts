@@ -15,14 +15,14 @@ const initialState: Pick<AuthStore, keyof AuthState> = {
 
 const useAuthStore = create<AuthStore>()(
   logger<AuthStore>(
-    (set) => ({
+    set => ({
       ...initialState,
-      setIsAuthenticated: (isAuthenticated) => {
+      setIsAuthenticated: isAuthenticated => {
         set(() => ({ isAuthenticated }));
       },
     }),
-    'authStore',
-  ),
+    'authStore'
+  )
 );
 
 export default useAuthStore;

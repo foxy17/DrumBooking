@@ -92,7 +92,7 @@ export default function NotesHistory() {
       {isMobile ? (
         <div className="relative top-4 pb-8 ">
           <div className="space-y-4">
-            {historyData.map((item) => (
+            {historyData.map(item => (
               <TimelineItem key={item.id} item={item} />
             ))}
           </div>
@@ -100,7 +100,7 @@ export default function NotesHistory() {
       ) : (
         <div className="mx-auto w-[90%] max-w-4xl pb-8 pt-4">
           {/* Timeline section */}
-          {historyData.map((item) => (
+          {historyData.map(item => (
             <TimelineItem key={item.id} item={item} />
           ))}
         </div>

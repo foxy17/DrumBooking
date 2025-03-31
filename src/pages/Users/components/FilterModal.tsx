@@ -62,7 +62,7 @@ export const FilterModal = ({
                 <Checkbox
                   id="solo"
                   checked={filters.soloSession}
-                  onCheckedChange={(checked) => {
+                  onCheckedChange={checked => {
                     onFilterChange('soloSession', checked as boolean);
                   }}
                 />
@@ -72,7 +72,7 @@ export const FilterModal = ({
                 <Checkbox
                   id="duo"
                   checked={filters.duoSession}
-                  onCheckedChange={(checked) => {
+                  onCheckedChange={checked => {
                     onFilterChange('duoSession', checked as boolean);
                   }}
                 />

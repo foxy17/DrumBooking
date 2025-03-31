@@ -11,7 +11,7 @@ export interface ConsoleError {
 }
 
 export const requestInterceptor = (
-  config: InternalAxiosRequestConfig,
+  config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
   const token = getItem<string>('token');
   if (token) {

@@ -33,7 +33,7 @@ export default function WordPullUp({
       animate="show"
       className={cn(
         'font-display text-left text-4xl font-bold tracking-[-0.02em] drop-shadow-sm',
-        className,
+        className
       )}
     >
       {lines.map((line, lineIndex) => (

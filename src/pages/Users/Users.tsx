@@ -54,7 +54,7 @@ const Users = () => {
   });
 
   const handleFilterChange = (key: FilterKeys, value: boolean) => {
-    setFilters((prev) => ({ ...prev, [key]: value }));
+    setFilters(prev => ({ ...prev, [key]: value }));
   };
 
   const handleClearAll = () => {
@@ -69,14 +69,14 @@ const Users = () => {
     let filteredUsers = users;
 
     // Filter by search term
-    filteredUsers = filteredUsers.filter((user) =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()),
+    filteredUsers = filteredUsers.filter(user =>
+      user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // Filter by due date (within 7 days)
     if (filters.dueWithin7Days) {
       const today = new Date();
-      filteredUsers = filteredUsers.filter((user) => {
+      filteredUsers = filteredUsers.filter(user => {
         if (!user.date) return false;
         const userDate = new Date(user.date);
         const diffTime = userDate.getTime() - today.getTime();
@@ -87,7 +87,7 @@ const Users = () => {
 
     // Filter by session type
     if (filters.soloSession || filters.duoSession) {
-      filteredUsers = filteredUsers.filter((user) => {
+      filteredUsers = filteredUsers.filter(user => {
         if (filters.soloSession && user.appointmentType === 'Solo') return true;
         if (filters.duoSession && user.appointmentType === 'Duo') return true;
         return false;
@@ -108,7 +108,7 @@ const Users = () => {
             placeholder="Search Users"
             className="rounded-full border dark:border-zinc-200 bg-zinc-900 pl-9 dark:placeholder:text-white"
             value={searchTerm}
-            onChange={(e) => {
+            onChange={e => {
               setSearchTerm(e.target.value);
             }}
           />

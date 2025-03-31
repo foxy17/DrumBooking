@@ -19,7 +19,7 @@ export const UserInfo = ({ userInfo }: UserInfoProps) => {
         <AvatarFallback className="text-lg">
           {userInfo.name
             .split(' ')
-            .map((n) => n[0])
+            .map(n => n[0])
             .join('')}
         </AvatarFallback>
       </Avatar>
@@ -28,7 +28,7 @@ export const UserInfo = ({ userInfo }: UserInfoProps) => {
           className={`font-semibold text-white w-full ${
             expanded ? 'whitespace-normal break-words' : 'truncate'
           }`}
-          onClick={(e) => {
+          onClick={e => {
             e.stopPropagation();
             setExpanded(!expanded);
           }}

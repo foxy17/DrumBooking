@@ -31,13 +31,13 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
         collapsible
         className="rounded-2xl border-2 border-zinc-400 overflow-hidden"
       >
-        {data.map((classData) => (
+        {data.map(classData => (
           <AccordionItem
             key={classData.id}
             value={classData.id}
             className={cn(
               'group px-4 py-4 transition-all duration-200',
-              '[&[data-state=open]]:bg-zinc-900',
+              '[&[data-state=open]]:bg-zinc-900'
             )}
           >
             <AccordionTrigger className="hover:no-underline">
@@ -47,7 +47,7 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
                   <span
                     className={cn(
                       'rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 bg-white text-black text-center',
-                      'group-data-[state=open]:bg-black group-data-[state=open]:text-white',
+                      'group-data-[state=open]:bg-black group-data-[state=open]:text-white'
                     )}
                   >
                     {classData.appointmentType}

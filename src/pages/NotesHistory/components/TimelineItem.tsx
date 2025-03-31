@@ -44,7 +44,7 @@ export default function TimelineItem({ item }: { item: noteHistoryItem }) {
         <div
           className={cn(
             'prose prose-invert max-w-none text-zinc-200',
-            'flex-1 px-4 pb-2 md:p-4 md:rounded-lg md:border md:border-zinc-600 md:group-hover:border-indigo-500 md:transition-colors md:ml-16',
+            'flex-1 px-4 pb-2 md:p-4 md:rounded-lg md:border md:border-zinc-600 md:group-hover:border-indigo-500 md:transition-colors md:ml-16'
           )}
         >
           <p className="text-indigo-300 font-bold tracking-tight mb-2 md:hidden">
