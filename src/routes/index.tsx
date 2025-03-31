@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         element: <AdminDashboard />,
       },
       {
-        path: routeConfig.checkin.link,
+        path: routeConfig.calendar.link,
         element: <AdminDashboard />,
       },
       {
