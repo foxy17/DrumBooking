@@ -1,10 +1,13 @@
+import { type ClassType } from '@/utils/constants';
+
 export interface Appointment {
   id: string;
   name: string;
   time: string;
   image: string;
-  appointmentType: 'Solo' | 'Duo';
+  appointmentType: ClassType;
   grade: number;
   notes: string;
   homework?: string;
+  timeEnd?: string;
 }
