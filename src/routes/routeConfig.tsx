@@ -1,4 +1,4 @@
-import { House, Calendar, User, Users } from 'lucide-react';
+import { Calendar, House, User, Users } from 'lucide-react';
 
 export const routeConfig = {
   home: {
@@ -11,9 +11,9 @@ export const routeConfig = {
     link: '/students',
     icon: Users,
   },
-  checkin: {
-    name: 'check',
-    link: '/check',
+  calendar: {
+    name: 'Calendar',
+    link: '/calendar',
     icon: Calendar,
   },
   profile: {
