@@ -1,19 +1,13 @@
 import { Navigate } from 'react-router';
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Outlet,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 import { HomeLayout } from '@/components/Layout/home.layout';
 import AdminDashboard from '@/pages/AdminDashboard';
 import Home from '@/pages/Home';
+import NotesHistory from '@/pages/NotesHistory/NotesHistory';
+import Users from '@/pages/Users/Users';
 import { adminRouteConfig } from '@/routes/adminRouteConfig';
 import PrivateRoute from '@/routes/PrivateRoute';
 import { routeConfig } from '@/routes/routeConfig';
-import NotesHistory from '@/pages/NotesHistory/NotesHistory';
-import Users from '@/pages/Users/Users';
 
 export const router = createBrowserRouter([
   {

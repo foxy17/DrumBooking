@@ -6,9 +6,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
-import { UserInfo } from '@/components/ui/user-info';
-import { cn } from '@/lib/utils';
-import { type Appointment } from '@/types/appointment';
 import {
   Dialog,
   DialogContent,
@@ -16,6 +13,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { UserInfo } from '@/components/ui/user-info';
+import { cn } from '@/lib/utils';
+import { type Appointment } from '@/types/appointment';
 
 export const UpcomingClasses = (props: { data: Appointment[] }) => {
   const { data } = props;

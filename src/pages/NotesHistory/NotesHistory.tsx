@@ -1,9 +1,8 @@
-import ReactMarkdown from 'react-markdown';
-import { ArrowLeft, ChevronLeft, Music, PenLine } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { noteHistoryItem } from '@/types/notesHistory';
-import TimelineItem from './components/TimelineItem';
 import { useEffect, useState } from 'react';
+import { ChevronLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { type noteHistoryItem } from '@/types/notesHistory';
+import TimelineItem from './components/TimelineItem';
 
 export const historyData: noteHistoryItem[] = [
   {
@@ -71,7 +70,9 @@ export default function NotesHistory() {
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (

@@ -1,8 +1,8 @@
-import { cn } from '@/lib/utils';
-import { noteHistoryItem } from '@/types/notesHistory';
-import { Music, PenLine } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { Music, PenLine } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { type noteHistoryItem } from '@/types/notesHistory';
 
 export default function TimelineItem({ item }: { item: noteHistoryItem }) {
   const [isExpanded, setIsExpanded] = useState(false); // State to track expanded/collapsed
@@ -16,7 +16,9 @@ export default function TimelineItem({ item }: { item: noteHistoryItem }) {
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (

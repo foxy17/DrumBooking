@@ -1,9 +1,8 @@
 'use client';
 
-import React, { PropsWithChildren, useRef } from 'react';
+import React, { type PropsWithChildren, useRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-
 import { cn } from '@/lib/utils';
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
@@ -38,9 +37,9 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
         return React.cloneElement(child, {
-          mouseX: mouseX,
-          magnification: magnification,
-          distance: distance,
+          mouseX,
+          magnification,
+          distance,
         });
       });
     };
@@ -48,8 +47,12 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={e => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
+        onMouseMove={e => {
+          mouseX.set(e.pageX);
+        }}
+        onMouseLeave={() => {
+          mouseX.set(Infinity);
+        }}
         {...props}
         className={cn(dockVariants({ className }), {
           'items-start': direction === 'top',
@@ -92,13 +95,13 @@ const DockIcon = ({
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthSync = useTransform(
+  const widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
     [40, magnification, 40]
   );
 
-  let width = useSpring(widthSync, {
+  const width = useSpring(widthSync, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
