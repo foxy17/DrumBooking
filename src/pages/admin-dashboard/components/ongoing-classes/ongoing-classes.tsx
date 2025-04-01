@@ -3,6 +3,7 @@ import StudentCard, {
   type StudentData,
 } from '@/components/student-card/student-card';
 import { type Appointment } from '@/types/appointment';
+import { OngoingClassCard } from './ongoing-class-card';
 
 import { type ClassType, STATUS } from '@/utils/constants';
 
@@ -25,7 +26,7 @@ const convertAppointmentToStudentData = (
   };
 };
 
-const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
+export const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
   ongoingStudents,
 }) => {
   if (ongoingStudents.length === 0) {
@@ -48,13 +49,13 @@ const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
           <StudentCard
             key={student.id}
             student={convertAppointmentToStudentData(student)}
-            onAddNote={() => {}}
-            onViewFullNote={() => {}}
-          />
+          >
+            <OngoingClassCard
+              student={convertAppointmentToStudentData(student)}
+            />
+          </StudentCard>
         ))}
       </div>
     </div>
   );
 };
-
-export default OngoingClassesSection;

@@ -1,5 +1,5 @@
 import { type Appointment } from '@/types/appointment';
-import OngoingClasses from './components/ongoing-classes';
+import { OngoingClassesSection as OngoingClasses } from './components/ongoing-classes';
 import { RecentClasses } from './components/recent-classes';
 import { UpcomingClasses } from './components/upcoming-classes';
 

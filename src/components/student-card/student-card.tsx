@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { Drawer } from 'vaul';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import type { StatusType } from '@/types/status';
-import SheetChildren from './sheet-children';
 import StatusBadge from './status-badge';
 
 import { type ClassType } from '@/utils/constants';
@@ -19,19 +18,34 @@ export interface StudentData {
   timeEnd?: string;
 }
 
-export interface StudentCardProps {
-  student: StudentData;
-  onCheckIn?: (id: string) => void;
-  onChangeTime?: (id: string) => void;
-  onAddNote?: (id: string) => void;
-  onViewDetails?: (id: string) => void;
-  onViewFullNote?: (id: string) => void;
-  showActions?: boolean;
+// Define Context props
+interface StudentCardContextProps {
+  setSheetOpen: (open: boolean) => void;
+  isSheetOpen: boolean;
 }
 
-const StudentCard: React.FC<StudentCardProps> = props => {
-  const [isOpen, setIsOpen] = React.useState(false);
+// Create Context
+const StudentCardContext = createContext<StudentCardContextProps | null>(null);
+
+// Create a hook to use the context
+export const useStudentCardSheet = () => {
+  const context = useContext(StudentCardContext);
+  if (!context) {
+    throw new Error('useStudentCardSheet must be used within a StudentCard');
+  }
+  return context;
+};
+
+export interface StudentCardProps {
+  student: StudentData;
+  children: React.ReactNode;
+}
+
+const StudentCard: React.FC<StudentCardProps> = ({ student, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
+
+  const contextValue = { setSheetOpen: setIsOpen, isSheetOpen: isOpen };
 
   return (
     <>
@@ -49,34 +63,28 @@ const StudentCard: React.FC<StudentCardProps> = props => {
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-pop-white-500 tracking-wide font-bold text-lg">
-              {props.student.name}
+              {student.name}
             </h3>
             <div className="flex font-cirka items-center tracking-wide gap-1 text-sm text-pop-white-300/80 mt-1">
-              <span>{props.student.time}</span>
-              {props.student.timeEnd && (
+              <span>{student.time}</span>
+              {student.timeEnd && (
                 <>
                   <span className="mx-1">-</span>
-                  <span>{props.student.timeEnd}</span>
+                  <span>{student.timeEnd}</span>
                 </>
               )}
             </div>
           </div>
-          <StatusBadge classType={props.student.classType} />
+          <StatusBadge classType={student.classType} />
         </div>
       </div>
 
       {isDesktop ? (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetContent side="right" className="w-[400px] sm:max-w-xl p-6 z-50">
-            <SheetChildren
-              student={props.student}
-              onCheckIn={props.onCheckIn}
-              onChangeTime={props.onChangeTime}
-              onAddNote={props.onAddNote}
-              onViewDetails={props.onViewDetails}
-              showActions={props.showActions}
-              setIsOpen={setIsOpen}
-            />
+            <StudentCardContext.Provider value={contextValue}>
+              {children}
+            </StudentCardContext.Provider>
           </SheetContent>
         </Sheet>
       ) : (
@@ -86,15 +94,9 @@ const StudentCard: React.FC<StudentCardProps> = props => {
             <Drawer.Content className="bg-background fixed bottom-0 left-0 right-0 mt-24 flex flex-col rounded-t-[10px] h-fit pb-8 z-50">
               <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-muted mt-2 mb-8" />
               <div className="px-6">
-                <SheetChildren
-                  student={props.student}
-                  onCheckIn={props.onCheckIn}
-                  onChangeTime={props.onChangeTime}
-                  onAddNote={props.onAddNote}
-                  onViewDetails={props.onViewDetails}
-                  showActions={props.showActions}
-                  setIsOpen={setIsOpen}
-                />
+                <StudentCardContext.Provider value={contextValue}>
+                  {children}
+                </StudentCardContext.Provider>
               </div>
             </Drawer.Content>
           </Drawer.Portal>
