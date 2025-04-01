@@ -27,7 +27,7 @@ const SheetChildren = ({
   return (
     <div className="flex flex-col h-full">
       <div className="flex flex-col mb-6">
-        <h2 className="text-lg font-semibold text-foreground">
+        <h2 className="text-xl tracking-widest font-cirka text-foreground border-b border-b-orange-sunshine-500 pb-2">
           {student.name}
         </h2>
       </div>
@@ -35,22 +35,21 @@ const SheetChildren = ({
       <div className="flex flex-col h-full">
         <div className="flex-1 overflow-y-auto mb-4">
           {student.notes && (
-            <div className="mb-3 p-3 rounded-md bg-pop-black-400/50">
+            <div className="mb-3 rounded-md bg-pop-black-400/50">
               <div className="flex items-start gap-2">
-                <MessageSquare className="w-4 h-4 mt-0.5 text-poli-purple-500 flex-shrink-0" />
-                <p className="text-pop-white-300/90">{student.notes}</p>
+                <p className="text-pop-white-100">{student.notes}</p>
               </div>
             </div>
           )}
           {!student.notes && (
             <div className="text-center text-muted-foreground italic py-4">
-              No notes added yet.
+              No previous class notes.
             </div>
           )}
         </div>
 
         {showActions && (
-          <div className="flex flex-col gap-2 pt-4 border-t border-border sticky bottom-0 bg-background pb-2">
+          <div className="flex flex-col gap-2 pt-4 border-t sticky bottom-0 bg-background pb-2">
             {student.status === STATUS.ONGOING && (
               <DragToCompleteButton
                 variant="sharp"

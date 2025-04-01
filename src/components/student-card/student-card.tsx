@@ -19,7 +19,7 @@ export interface StudentData {
   timeEnd?: string;
 }
 
-interface StudentCardProps {
+export interface StudentCardProps {
   student: StudentData;
   onCheckIn?: (id: string) => void;
   onChangeTime?: (id: string) => void;

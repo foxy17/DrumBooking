@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ChevronsRight } from 'lucide-react';
 import { animate, motion, useMotionValue, useTransform } from 'motion/react';
 import { cn } from '@/lib/utils'; // Assuming you have a cn utility
 
@@ -81,7 +81,7 @@ const DragToCompleteButton: React.FC<DragToCompleteButtonProps> = ({
     <div
       ref={constraintsRef}
       className={cn(
-        'relative w-full h-12 bg-muted overflow-hidden cursor-grab active:cursor-grabbing select-none',
+        'relative w-full h-12 bg-pop-black-500 border border-pop-black-100 overflow-hidden cursor-grab active:cursor-grabbing select-none',
         variant === 'rounded' ? 'rounded-full' : 'rounded-none', // Conditional border radius for container
         isComplete && 'bg-success-500 cursor-default', // Success state styling
         className
@@ -115,21 +115,23 @@ const DragToCompleteButton: React.FC<DragToCompleteButtonProps> = ({
         dragElastic={0.1}
         dragMomentum={false}
         onDragEnd={handleDragEnd}
+        onPointerDown={e => {
+          e.stopPropagation();
+        }}
         style={{ x: dragX }}
         className={cn(
           'absolute top-0 left-0 h-full w-12 bg-primary flex items-center justify-center shadow z-10', // Added z-10
           variant === 'rounded' ? 'rounded-full' : 'rounded-[2px]', // Conditional border radius for thumb
-          isComplete && 'bg-success-500 text-pop-black-500', // Adjust thumb appearance on complete
+          isComplete && 'bg-transparent text-pop-black-500 shadow-none', // Adjust thumb appearance on complete
           thumbClassName
         )}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       >
         {!isComplete && (
-          <ArrowRight className="w-5 h-5 text-primary-foreground" />
+          <ChevronsRight className="w-5 h-5 text-primary-foreground" />
         )}
       </motion.div>
 
-      {/* Text Label */}
       <motion.span
         style={{ opacity: textOpacity }}
         className="absolute inset-0 flex items-center justify-center text-sm font-medium text-primary pointer-events-none z-20" // Added z-20
