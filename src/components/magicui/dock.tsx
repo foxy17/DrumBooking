@@ -34,6 +34,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         return React.cloneElement(child, {
           mouseX,
           magnification,
