@@ -138,19 +138,19 @@ const AdminDashboard = () => {
   return (
     <div className="flex w-full max-w-2xl mx-auto flex-col px-6 py-4">
       <div id="ongoing">
-        <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-10">
+        <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-1">
           ongoing classes
         </h2>
         <OngoingClasses ongoingStudents={ongoingStudents} />
       </div>
       <div id="recent">
-        <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-10">
+        <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-1">
           recent classes
         </h2>
         <RecentClasses data={recentClasses} />
       </div>
       <div id="upcoming">
-        <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-10">
+        <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-1">
           upcoming classes
         </h2>
         <UpcomingClasses data={upcomingClasses} />
