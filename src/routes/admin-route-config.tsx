@@ -3,7 +3,7 @@ import { FaHouse, FaPersonBooth, FaUser } from 'react-icons/fa6';
 export const adminRouteConfig = {
   home: {
     name: 'Dashboard',
-    link: 'dashbaord',
+    link: 'dashboard',
     icon: <FaHouse className="h-6 w-6 text-inherit" />,
   },
   checkin: {

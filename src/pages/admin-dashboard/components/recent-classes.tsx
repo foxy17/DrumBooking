@@ -7,9 +7,6 @@ export const RecentClasses = (props: { data: Appointment[] }) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Recent Classes</h2>
-      </div>
       <div className="rounded-2xl border-2 border-zinc-400 overflow-hidden">
         {data.map(appointment => (
           <div

@@ -149,15 +149,15 @@ const StudentCard: React.FC<StudentCardProps> = props => {
 
       {isDesktop ? (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetContent side="right" className="w-[400px] sm:max-w-xl p-6">
+          <SheetContent side="right" className="w-[400px] sm:max-w-xl p-6 z-50">
             <SheetChildren {...props} setIsOpen={setIsOpen} />
           </SheetContent>
         </Sheet>
       ) : (
         <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
           <Drawer.Portal>
-            <Drawer.Overlay className="fixed inset-0 bg-black/90" />
-            <Drawer.Content className="bg-background fixed bottom-0 left-0 right-0 mt-24 flex flex-col rounded-t-[10px] h-fit pb-8">
+            <Drawer.Overlay className="fixed inset-0 bg-black/90 z-50" />
+            <Drawer.Content className="bg-background fixed bottom-0 left-0 right-0 mt-24 flex flex-col rounded-t-[10px] h-fit pb-8 z-50">
               <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-muted mt-2 mb-8" />
               <div className="px-6">
                 <SheetChildren {...props} setIsOpen={setIsOpen} />
