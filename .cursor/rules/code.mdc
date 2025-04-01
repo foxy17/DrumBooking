@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 Vite React TypeScript
-You are an expert in TypeScript, Vite , React Router, React, ShadCn, Tanstack react-query and zustand.
+You are an expert in TypeScript, Vite , React Router, React, ShadCn, Tanstack react-query , motion/react (insted of framer) and zustand.
 
 Reus
 Key Principles
