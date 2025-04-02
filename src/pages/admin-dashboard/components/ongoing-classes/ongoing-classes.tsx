@@ -3,6 +3,8 @@ import StudentCard from '@/components/student-card/student-card';
 import { type StudentClassInstance } from '@/types/student';
 import { OngoingClassCard } from './ongoing-class-card';
 
+import { CARD_TYPE } from '@/utils/constants';
+
 interface OngoingClassesSectionProps {
   ongoingStudents: StudentClassInstance[];
 }
@@ -30,6 +32,7 @@ export const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
           <StudentCard
             key={instance.classInstanceId + instance.studentId}
             student={instance}
+            cardType={CARD_TYPE.ONGOING}
           >
             <OngoingClassCard student={instance} />
           </StudentCard>

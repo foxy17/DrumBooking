@@ -1,0 +1,43 @@
+.note-textarea {
+  min-height: 120px;
+  background-color: rgba(32, 32, 32, 0.3);
+  color: var(--pop-white-100);
+  border-color: var(--pop-black-300);
+}
+
+.note-textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--pop-black-300) !important;
+  ring: 0 !important;
+}
+
+.note-textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: var(--pop-black-300) !important;
+  ring: 0 !important;
+}
+
+.textarea-container {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.textarea-container.visible {
+  max-height: 150px; /* Adjust based on your textarea height */
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.add-note-button {
+  transition: all 0.3s ease-in-out;
+}
+
+.add-note-button.save {
+  background-color: var(--park-green-700);
+  color: var(--pop-white-500);
+}
