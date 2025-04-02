@@ -16,7 +16,7 @@ export const HomeLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
           <Button
             variant="outline"
             size="sm"
-            className="gap-2 tracking-wider font-thin"
+            className="gap-2 tracking-wider font-thin cursor-pointer"
             title="Logout"
           >
             Logout

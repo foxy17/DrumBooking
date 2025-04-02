@@ -1,30 +1,11 @@
 import React from 'react';
-import StudentCard, {
-  type StudentData,
-} from '@/components/student-card/student-card';
-import { type Appointment } from '@/types/appointment';
+import StudentCard from '@/components/student-card/student-card';
+import { type StudentClassInstance } from '@/types/student';
 import { OngoingClassCard } from './ongoing-class-card';
 
-import { type ClassType, STATUS } from '@/utils/constants';
-
 interface OngoingClassesSectionProps {
-  ongoingStudents: Appointment[];
+  ongoingStudents: StudentClassInstance[];
 }
-
-const convertAppointmentToStudentData = (
-  appointment: Appointment
-): StudentData => {
-  return {
-    id: appointment.id,
-    name: appointment.name,
-    status: STATUS.ONGOING,
-    time: appointment.time,
-    date: new Date().toISOString().split('T')[0], // Today's date since it's ongoing
-    classType: appointment.appointmentType as ClassType,
-    notes: appointment.notes,
-    timeEnd: appointment.timeEnd,
-  };
-};
 
 export const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
   ongoingStudents,
@@ -45,14 +26,12 @@ export const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
   return (
     <div className="flex flex-col gap-4">
       <div className="space-y-2">
-        {ongoingStudents.map(student => (
+        {ongoingStudents.map(instance => (
           <StudentCard
-            key={student.id}
-            student={convertAppointmentToStudentData(student)}
+            key={instance.classInstanceId + instance.studentId}
+            student={instance}
           >
-            <OngoingClassCard
-              student={convertAppointmentToStudentData(student)}
-            />
+            <OngoingClassCard student={instance} />
           </StudentCard>
         ))}
       </div>

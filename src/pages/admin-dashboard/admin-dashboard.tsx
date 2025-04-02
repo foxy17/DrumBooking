@@ -1,136 +1,88 @@
-import { type Appointment } from '@/types/appointment';
+import { type StudentClassInstance } from '@/types/student';
 import { OngoingClassesSection as OngoingClasses } from './components/ongoing-classes';
 import { RecentClasses } from './components/recent-classes';
 import { UpcomingClasses } from './components/upcoming-classes';
 
 import { CLASS_TYPE } from '@/utils/constants';
 
-const upcomingClasses: Appointment[] = [
+const upcomingClasses: StudentClassInstance[] = [
   {
-    id: '1',
-    image: '/hero.png',
-    name: 'James Harrid',
-    time: '11:47 PM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 3,
+    studentId: '1',
+    studentName: 'James Harrid',
+    classInstanceId: 'ci-upcoming-1',
+    date: '2024-04-10',
+    timeSlot: '11pm-12pm',
+    classType: CLASS_TYPE.SOLO,
+    attendance: 'pending',
     notes:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Proin mauris augue, dictum a neque at, vehicula vestibulum neque. Duis in elit lacus. Fusce ut eros vitae elit rutrum aliqu',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
   },
   {
-    id: '2',
-    image: '/hero.png',
-    name: 'Anna Hunt',
-    time: '11:00 AM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 4,
+    studentId: '2',
+    studentName: 'Anna Hunt',
+    classInstanceId: 'ci-upcoming-2',
+    date: '2024-04-11',
+    timeSlot: '11am-12pm',
+    classType: CLASS_TYPE.SOLO,
+    attendance: 'pending',
     notes:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. ',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
-  },
-  {
-    id: '2',
-    image: '/hero.png',
-    name: 'Anna Hunt',
-    time: '11:00 AM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 4,
-    notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. ',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
   },
 ];
 
-const recentClasses: Appointment[] = [
+const recentClasses: StudentClassInstance[] = [
   {
-    id: '1',
-    image: '/hero.png',
-    name: 'Jane Cooper',
-    time: '12:00 PM',
-    timeEnd: '1:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 3,
-    notes: '',
+    studentId: '1',
+    studentName: 'Jane Cooper',
+    classInstanceId: 'ci-recent-1',
+    date: '2024-04-01',
+    timeSlot: '12pm-1pm',
+    classType: CLASS_TYPE.SOLO,
+    attendance: 'attended',
+    notes: 'Good progress on rudiments.',
   },
   {
-    id: '2',
-    image: '/hero.png',
-    name: 'James Harrid',
-    time: '11:00 PM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 4,
-    notes: '',
-  },
-  {
-    id: '3',
-    image: '/hero.png',
-    name: 'James Harrid',
-    time: '11:00 PM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 4,
-    notes: '',
+    studentId: '2',
+    studentName: 'James Harrid',
+    classInstanceId: 'ci-recent-2',
+    date: '2024-04-01',
+    timeSlot: '11am-12pm',
+    classType: CLASS_TYPE.SOLO,
+    attendance: 'attended',
+    notes: 'Needs to practice paradiddles more.',
   },
 ];
-const ongoingStudents: Appointment[] = [
+
+const ongoingStudents: StudentClassInstance[] = [
   {
-    id: '1',
-    image: '/hero.png',
-    name: 'James Harrid',
-    time: '11:47 PM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.SOLO,
-    grade: 3,
-    notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Proin mauris augue, dictum a neque at, vehicula vestibulum neque. Duis in elit lacus. Fusce ut eros vitae elit rutrum aliqu',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
+    studentId: '1',
+    studentName: 'James Harrid',
+    classInstanceId: 'ci-ongoing-1',
+    date: '2024-04-08',
+    timeSlot: '11am-12pm',
+    classType: CLASS_TYPE.SOLO,
+    attendance: 'pending',
+    notes: 'Ongoing class notes placeholder.',
   },
   {
-    id: '2',
-    image: '/hero.png',
-    name: 'Anna Hunt',
-    time: '11:00 AM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.DUO,
-    grade: 4,
-    notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. ',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
+    studentId: '2',
+    studentName: 'Anna Hunt',
+    classInstanceId: 'ci-ongoing-2',
+    date: '2024-04-08',
+    timeSlot: '11am-12pm',
+    classType: CLASS_TYPE.DUO,
+    attendance: 'pending',
+    notes: 'Ongoing class notes placeholder for duo student 1.',
   },
   {
-    id: '3',
-    image: '/hero.png',
-    name: 'Anna Hunt',
-    time: '11:00 AM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.DUO,
-    grade: 4,
-    notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. ',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
-  },
-  {
-    id: '4',
-    image: '/hero.png',
-    name: 'Anna Hunt',
-    time: '11:00 AM',
-    timeEnd: '12:00 PM',
-    appointmentType: CLASS_TYPE.DUO,
-    grade: 4,
-    notes:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat enim diam, non malesuada massa blandit ut. Nulla elementum commodo luctus. Curabitur ultricies risus eget maximus ullamcorper. Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. ',
-    homework:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nam pretium posuere ligula, non gravida dolor tempor nec. Proin aliquet, eros non rhoncus porttitor, risus odio sodales velit, non egestas urna erat nec enim. Aliquam erat volutpat. Mauris at dui consequat, ultrices augue gravida, fermentum turpis. Vivamus turpis enim, maximus id commodo vel, sodales in odio. Nullam iaculis ipsum a sagittis tempus. Donec vel efficitur lacus. Cras varius consectetur finibus. ',
+    studentId: '3',
+    studentName: 'Ben Carter',
+    classInstanceId: 'ci-ongoing-2',
+    date: '2024-04-08',
+    timeSlot: '11am-12pm',
+    classType: CLASS_TYPE.DUO,
+    attendance: 'pending',
+    notes: 'Ongoing class notes placeholder for duo student 2.',
   },
 ];
 

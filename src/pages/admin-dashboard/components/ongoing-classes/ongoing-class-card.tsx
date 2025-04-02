@@ -1,10 +1,8 @@
-import {
-  type StudentData,
-  useStudentCardSheet,
-} from '@/components/student-card/student-card';
+import { useStudentCardSheet } from '@/components/student-card/student-card';
 import DragToCompleteButton from '@/components/ui/drag-to-complete-button';
+import { type StudentClassInstance } from '@/types/student';
 
-export const OngoingClassCard: React.FC<{ student: StudentData }> = ({
+export const OngoingClassCard: React.FC<{ student: StudentClassInstance }> = ({
   student,
 }) => {
   const { setSheetOpen } = useStudentCardSheet();
@@ -13,7 +11,7 @@ export const OngoingClassCard: React.FC<{ student: StudentData }> = ({
     <div className="flex flex-col h-full">
       <div className="flex flex-col mb-6">
         <h2 className="text-xl tracking-widest font-cirka text-foreground border-b border-b-orange-sunshine-500 pb-2">
-          {student.name}
+          {student.studentName}
         </h2>
       </div>
 

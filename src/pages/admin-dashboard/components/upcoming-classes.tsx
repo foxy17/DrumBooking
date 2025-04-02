@@ -15,9 +15,9 @@ import {
 } from '@/components/ui/dialog';
 import { UserInfo } from '@/components/ui/user-info';
 import { cn } from '@/lib/utils';
-import { type Appointment } from '@/types/appointment';
+import { type StudentClassInstance } from '@/types/student';
 
-export const UpcomingClasses = (props: { data: Appointment[] }) => {
+export const UpcomingClasses = (props: { data: StudentClassInstance[] }) => {
   const { data } = props;
 
   return (
@@ -27,10 +27,10 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
         collapsible
         className="rounded-2xl border-2 border-zinc-400 overflow-hidden"
       >
-        {data.map(classData => (
+        {data.map(instance => (
           <AccordionItem
-            key={classData.id}
-            value={classData.id}
+            key={instance.classInstanceId + instance.studentId}
+            value={instance.classInstanceId + instance.studentId}
             className={cn(
               'group px-4 py-4 transition-all duration-200',
               'data-[state=open]:bg-zinc-900'
@@ -38,7 +38,14 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
           >
             <AccordionTrigger className="hover:no-underline">
               <div className="flex w-full items-center">
-                <UserInfo userInfo={classData} />
+                <UserInfo
+                  userInfo={{
+                    id: instance.studentId,
+                    name: instance.studentName,
+                    image: '',
+                    time: instance.timeSlot,
+                  }}
+                />
                 <div className="flex-1 flex justify-center">
                   <span
                     className={cn(
@@ -46,7 +53,7 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
                       'group-data-[state=open]:bg-black group-data-[state=open]:text-white'
                     )}
                   >
-                    {classData.appointmentType}
+                    {instance.classType}
                   </span>
                 </div>
               </div>
@@ -57,40 +64,34 @@ export const UpcomingClasses = (props: { data: Appointment[] }) => {
                   <span className="text-base font-bold uppercase tracking-wider text-white">
                     Notes
                   </span>
-                  <span className="text-base font-bold uppercase tracking-wider text-white">
-                    Grade - {classData.grade}
-                  </span>
                 </div>
                 <p className="text-sm text-zinc-400">
-                  {classData.notes.slice(0, 100) + '... '}
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <span className="text-rose-300 hover:text-rose-200 font-normal hover:underline hover:cursor-pointer">
-                        view more
-                      </span>
-                    </DialogTrigger>
-                    <DialogContent className="bg-black border-2 border-zinc-400 rounded-2xl w-5/6 gap-2 p-4">
-                      <DialogTitle className="text-base font-bold tracking-wider text-white text-xl font-extrabold">
-                        Notes
-                      </DialogTitle>
-                      <DialogDescription>{classData.notes}</DialogDescription>
-                      <DialogTitle className="text-base font-bold tracking-wider text-white text-xl font-extrabold pt-4">
-                        Homework
-                      </DialogTitle>
-                      <DialogDescription>
-                        {classData.homework}
-                      </DialogDescription>
-                      <div className="flex justify-center w-full pt-8">
-                        <Button
-                          variant="secondary"
-                          className="w-full bg-indigo-400  hover:bg-indigo-400/80 rounded-full"
-                        >
-                          <RotateCcw className="mr-2 h-4 w-4" />
-                          Notes History
-                        </Button>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
+                  {(instance.notes ?? '').slice(0, 100)}
+                  {(instance.notes?.length ?? 0) > 100 ? '... ' : ''}
+                  {(instance.notes?.length ?? 0) > 0 && (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <span className="text-rose-300 hover:text-rose-200 font-normal hover:underline hover:cursor-pointer ml-1">
+                          view more
+                        </span>
+                      </DialogTrigger>
+                      <DialogContent className="bg-black border-2 border-zinc-400 rounded-2xl w-5/6 gap-2 p-4">
+                        <DialogTitle className="text-base font-bold tracking-wider text-white text-xl font-extrabold">
+                          Notes
+                        </DialogTitle>
+                        <DialogDescription>{instance.notes}</DialogDescription>
+                        <div className="flex justify-center w-full pt-8">
+                          <Button
+                            variant="secondary"
+                            className="w-full bg-indigo-400  hover:bg-indigo-400/80 rounded-full"
+                          >
+                            <RotateCcw className="mr-2 h-4 w-4" />
+                            Notes History
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  )}
                 </p>
                 <div className="flex justify-between pt-4 mt-4 gap-4">
                   <Button

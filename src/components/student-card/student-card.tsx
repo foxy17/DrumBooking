@@ -2,21 +2,8 @@ import React, { createContext, useContext, useState } from 'react';
 import { Drawer } from 'vaul';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import type { StatusType } from '@/types/status';
+import { type StudentClassInstance } from '@/types/student';
 import StatusBadge from './status-badge';
-
-import { type ClassType } from '@/utils/constants';
-
-export interface StudentData {
-  id: string;
-  name: string;
-  status: StatusType;
-  time: string;
-  date: string;
-  classType: ClassType;
-  notes?: string;
-  timeEnd?: string;
-}
 
 // Define Context props
 interface StudentCardContextProps {
@@ -37,7 +24,7 @@ export const useStudentCardSheet = () => {
 };
 
 export interface StudentCardProps {
-  student: StudentData;
+  student: StudentClassInstance;
   children: React.ReactNode;
 }
 
@@ -46,6 +33,8 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, children }) => {
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const contextValue = { setSheetOpen: setIsOpen, isSheetOpen: isOpen };
+
+  const displayTime = student.timeSlot;
 
   return (
     <>
@@ -63,16 +52,10 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, children }) => {
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-pop-white-500 tracking-wide font-bold text-lg">
-              {student.name}
+              {student.studentName}
             </h3>
             <div className="flex font-cirka items-center tracking-wide gap-1 text-sm text-pop-white-300/80 mt-1">
-              <span>{student.time}</span>
-              {student.timeEnd && (
-                <>
-                  <span className="mx-1">-</span>
-                  <span>{student.timeEnd}</span>
-                </>
-              )}
+              <span>{displayTime}</span>
             </div>
           </div>
           <StatusBadge classType={student.classType} />
