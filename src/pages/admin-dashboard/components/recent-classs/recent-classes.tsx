@@ -2,6 +2,8 @@ import StudentCard from '@/components/student-card/student-card';
 import { type StudentClassInstance } from '@/types/student';
 import { RecentClassCard } from './recent-classes-card';
 
+import { CARD_TYPE } from '@/utils/constants';
+
 export const RecentClasses = (props: { data: StudentClassInstance[] }) => {
   const { data } = props;
 
@@ -12,6 +14,7 @@ export const RecentClasses = (props: { data: StudentClassInstance[] }) => {
           <StudentCard
             key={instance.classInstanceId + instance.studentId}
             student={instance}
+            cardType={CARD_TYPE.RECENT}
           >
             <RecentClassCard student={instance} />
           </StudentCard>
