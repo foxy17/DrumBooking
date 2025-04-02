@@ -1,7 +1,7 @@
 import { type StudentClassInstance } from '@/types/student';
 import { OngoingClassesSection as OngoingClasses } from './components/ongoing-classes';
-import { RecentClasses } from './components/recent-classes';
-import { UpcomingClasses } from './components/upcoming-classes';
+import { RecentClasses } from './components/recent-classs/recent-classes';
+import { UpcomingClasses } from './components/upcoming-classes/upcoming-classes';
 
 import { CLASS_TYPE } from '@/utils/constants';
 
