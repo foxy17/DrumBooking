@@ -1,13 +1,3 @@
-// import { type StatusType } from '@/types/status';
-
-export const STATUS = {
-  ONGOING: 'ongoing',
-  UPCOMING: 'upcoming',
-  COMPLETED: 'completed',
-  ABSENT: 'absent',
-  RESCHEDULED: 'rescheduled',
-} as const;
-
 export const ATTENDANCE_STATUS = {
   ATTENDED: 'attended',
   PENDING: 'pending',
@@ -34,3 +24,11 @@ export const CLASS_TYPE = {
 } as const;
 
 export type ClassType = (typeof CLASS_TYPE)[keyof typeof CLASS_TYPE];
+
+export const CARD_TYPE = {
+  ONGOING: 'ongoing',
+  RECENT: 'recent',
+  UPCOMING: 'upcoming',
+} as const;
+
+export type CardType = (typeof CARD_TYPE)[keyof typeof CARD_TYPE];
