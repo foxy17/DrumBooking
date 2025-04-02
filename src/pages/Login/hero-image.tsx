@@ -1,9 +1,9 @@
 export const HeroImage = () => {
   return (
     <img
-      src="./hero.png"
+      src="./favicon.svg"
       alt="Hero Image"
-      className="w-full h-1/2 object-cover absolute top-0 left-0"
+      className="w-full h-9 md:h-10 md:-mb-12 -mb-10 -translate-y-10 md:-translate-y-13 md:translate-x-4 object-contain transform "
     />
   );
 };
