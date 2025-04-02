@@ -3,7 +3,11 @@ import { OngoingClassesSection as OngoingClasses } from './components/ongoing-cl
 import { RecentClasses } from './components/recent-classs/recent-classes';
 import { UpcomingClasses } from './components/upcoming-classes/upcoming-classes';
 
-import { CLASS_TYPE } from '@/utils/constants';
+import {
+  ATTENDANCE_STATUS,
+  CLASS_INSTANCE_STATUS,
+  CLASS_TYPE,
+} from '@/utils/constants';
 
 const upcomingClasses: StudentClassInstance[] = [
   {
@@ -38,7 +42,8 @@ const recentClasses: StudentClassInstance[] = [
     date: '2024-04-01',
     timeSlot: '12pm-1pm',
     classType: CLASS_TYPE.SOLO,
-    attendance: 'attended',
+    attendance: ATTENDANCE_STATUS.ATTENDED,
+    classInstanceStatus: CLASS_INSTANCE_STATUS.COMPLETED,
     notes: 'Good progress on rudiments.',
   },
   {
@@ -48,8 +53,20 @@ const recentClasses: StudentClassInstance[] = [
     date: '2024-04-01',
     timeSlot: '11am-12pm',
     classType: CLASS_TYPE.SOLO,
-    attendance: 'attended',
+    attendance: ATTENDANCE_STATUS.MISSED,
+    classInstanceStatus: CLASS_INSTANCE_STATUS.COMPLETED,
     notes: 'Needs to practice paradiddles more.',
+  },
+  {
+    studentId: '3',
+    studentName: 'James Harrid',
+    classInstanceId: 'ci-recent-3',
+    date: '2024-04-02',
+    timeSlot: '11am-12pm',
+    classType: CLASS_TYPE.SOLO,
+    attendance: ATTENDANCE_STATUS.PENDING,
+    classInstanceStatus: CLASS_INSTANCE_STATUS.SCHEDULED,
+    notes: 'Scheduled but not yet completed.',
   },
 ];
 

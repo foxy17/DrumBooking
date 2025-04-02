@@ -3,7 +3,10 @@ import { Drawer } from 'vaul';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { type StudentClassInstance } from '@/types/student';
+import RecentClassStatusBadge from './recent-class-status-badge';
 import StatusBadge from './status-badge';
+
+import { CARD_TYPE, type CardType } from '@/utils/constants';
 
 // Define Context props
 interface StudentCardContextProps {
@@ -26,9 +29,14 @@ export const useStudentCardSheet = () => {
 export interface StudentCardProps {
   student: StudentClassInstance;
   children: React.ReactNode;
+  cardType?: CardType;
 }
 
-const StudentCard: React.FC<StudentCardProps> = ({ student, children }) => {
+const StudentCard: React.FC<StudentCardProps> = ({
+  student,
+  children,
+  cardType,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
@@ -58,7 +66,14 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, children }) => {
               <span>{displayTime}</span>
             </div>
           </div>
-          <StatusBadge classType={student.classType} />
+          {cardType === CARD_TYPE.RECENT ? (
+            <RecentClassStatusBadge
+              classInstanceStatus={student.classInstanceStatus}
+              attendanceStatus={student.attendance}
+            />
+          ) : (
+            <StatusBadge classType={student.classType} />
+          )}
         </div>
       </div>
 
