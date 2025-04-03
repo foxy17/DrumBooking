@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "jest",
     "release": "standard-version",
-    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
+    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
