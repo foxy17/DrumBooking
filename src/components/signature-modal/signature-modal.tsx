@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
 import SignaturePad from 'react-signature-pad-wrapper';
 import { X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface SignatureModalProps {
