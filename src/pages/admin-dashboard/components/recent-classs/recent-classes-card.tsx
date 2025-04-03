@@ -40,7 +40,7 @@ export const RecentClassCard: React.FC<{ student: StudentClassInstance }> = ({
                 }}
                 className="note-textarea bg-pop-black-500! border-0 p-0"
                 placeholder="Enter class notes..."
-                disabled={!isEditing}
+                // disabled={!isEditing}
               />
 
               <Button
