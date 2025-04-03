@@ -9,21 +9,16 @@ export function ModalManager() {
   return (
     <>
       {Object.entries(activeModals).map(([id, modal]) => {
-        const Component =
-          modal.type in modalComponents
-            ? modalComponents[modal.type as keyof typeof modalComponents]
-            : undefined;
+        const Component = modalComponents[modal.type];
         if (!Component) {
           console.warn(`No component mapped for modal type: ${modal.type}`);
           return null;
         }
 
         return (
-          <Modal key={id} id={id} type={modal.type}>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Component {...modal.props} />
-            </Suspense>
-          </Modal>
+          <Suspense fallback={<div>Loading...</div>} key={id}>
+            <Component {...modal.props} id={id} />
+          </Suspense>
         );
       })}
     </>

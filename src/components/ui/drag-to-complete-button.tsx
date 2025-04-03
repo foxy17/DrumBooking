@@ -56,11 +56,12 @@ const DragToCompleteButton: React.FC<DragToCompleteButtonProps> = ({
       // Call onComplete immediately
       onComplete();
 
-      // If onClose is provided, call it after 4 seconds
+      // If onClose is provided, call it after the specified delay
       if (onClose) {
         setTimeout(() => {
           onClose();
-        }, delay); // 4 seconds delay
+          setIsComplete(false);
+        }, delay);
       }
     } else {
       // Snap back to start using explicit animation

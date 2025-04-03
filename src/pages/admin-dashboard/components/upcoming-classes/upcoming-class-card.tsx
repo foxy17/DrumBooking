@@ -13,6 +13,17 @@ export const UpcomingClassCard: React.FC<{ student: StudentClassInstance }> = ({
   const { setSheetOpen } = useStudentCardSheet();
   const { openModal } = useModalStore();
 
+  const handleOpenSignatureModal = () => {
+    openModal(MODAL_TYPES.SIGNATURE, {
+      studentName: student.studentName,
+      onSave: (signatureData: string) => {
+        console.log('Signature saved:', signatureData);
+        // Here you would save the signature to the database
+        setSheetOpen(false);
+      },
+    });
+  };
+
   return (
     <div className="flex flex-col h-full">
       <div className="flex flex-col mb-6">
@@ -43,20 +54,9 @@ export const UpcomingClassCard: React.FC<{ student: StudentClassInstance }> = ({
           </Button>
         </div>
 
-        <DragToCheckinButton
-          variant="sharp"
-          onComplete={() => {
-            openModal(MODAL_TYPES.SIGNATURE, {
-              studentName: student.studentName,
-              onSave: (signatureData: string) => {
-                console.log('Signature saved:', signatureData);
-                // Here you would save the signature to the database
-                setSheetOpen(false);
-              },
-            });
-          }}
-          text="Swipe to Check In"
-        />
+        <Button className="w-full" onClick={handleOpenSignatureModal}>
+          Start Signature
+        </Button>
       </div>
     </div>
   );
