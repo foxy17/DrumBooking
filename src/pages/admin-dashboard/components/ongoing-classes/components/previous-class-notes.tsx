@@ -1,6 +1,7 @@
 import { type StudentClassInstance } from '@/types/student';
-import { formatPreviousClassDate } from '@/utils/date-string-helper';
 import { SectionHeader } from './section-header';
+
+import { formatPreviousClassDate } from '@/utils/date-string-helper';
 
 interface PreviousClassNotesProps {
   student: StudentClassInstance;

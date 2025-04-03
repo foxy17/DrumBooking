@@ -9,7 +9,7 @@ interface CurrentClassNotesProps {
   newNote: string;
   setNewNote: (note: string) => void;
   isAddingNote: boolean;
-  setIsAddingNote: (isAdding: boolean) => void;
+  setIsAddingNote: (isAddingNote: boolean) => void;
 }
 
 export const CurrentClassNotes = ({
@@ -35,7 +35,9 @@ export const CurrentClassNotes = ({
         <Textarea
           ref={textareaRef}
           value={newNote}
-          onChange={e => setNewNote(e.target.value)}
+          onChange={e => {
+            setNewNote(e.target.value);
+          }}
           className="note-textarea bg-pop-black-500! border-0 p-0"
           placeholder="Enter class notes..."
         />
@@ -50,7 +52,6 @@ export const CurrentClassNotes = ({
           onClick={() => {
             if (isAddingNote) {
               setIsAddingNote(false);
-              // Here you would save the note
             } else {
               setIsAddingNote(true);
             }

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useStudentCardSheet } from '@/components/student-card/student-card';
 import DragToCompleteButton from '@/components/ui/drag-to-complete-button';
 import { type StudentClassInstance } from '@/types/student';
-import { CurrentClassNotes } from './drawer-content/current-class-notes';
-import { PreviousClassNotes } from './drawer-content/previous-class-notes';
+import { CurrentClassNotes } from './components/current-class-notes';
+import { PreviousClassNotes } from './components/previous-class-notes';
 
 export const OngoingClassCard: React.FC<{ student: StudentClassInstance }> = ({
   student,
@@ -20,7 +20,7 @@ export const OngoingClassCard: React.FC<{ student: StudentClassInstance }> = ({
         </h2>
       </div>
 
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col">
         <div className="flex-1 overflow-y-auto mb-4">
           <PreviousClassNotes student={student} />
           <CurrentClassNotes

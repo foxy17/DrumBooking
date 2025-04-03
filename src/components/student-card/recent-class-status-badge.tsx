@@ -1,5 +1,4 @@
 import React from 'react';
-import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 import {
@@ -32,7 +31,6 @@ const RecentClassStatusBadge: React.FC<RecentClassStatusBadgeProps> = ({
   // Determine what to display based on status
   let displayText = '';
   let colorKey = '';
-  let showCheckIcon = false;
 
   if (attendanceStatus === ATTENDANCE_STATUS.MISSED) {
     displayText = 'Missed';
@@ -41,7 +39,7 @@ const RecentClassStatusBadge: React.FC<RecentClassStatusBadgeProps> = ({
     displayText = 'Scheduled';
     colorKey = CLASS_INSTANCE_STATUS.SCHEDULED;
   } else if (classInstanceStatus === CLASS_INSTANCE_STATUS.COMPLETED) {
-    showCheckIcon = true;
+    displayText = 'Completed';
     colorKey = 'completed';
   }
 
@@ -50,13 +48,13 @@ const RecentClassStatusBadge: React.FC<RecentClassStatusBadgeProps> = ({
   return (
     <span
       className={cn(
-        'px-2 pb-1 pt-[5px] text-[8px] uppercase font-bold font-cirka tracking-[1px] leading-[10px] flex items-center',
+        'px-2 pb-1 pt-[5px] text-[8px] items-center gap-x-1 uppercase font-bold font-cirka tracking-[1px] leading-[10px] flex items-center',
         'border-pop-black-300/50',
         colorClasses,
         className
       )}
     >
-      {showCheckIcon ? <Check className="h-3 w-3" /> : displayText}
+      {displayText}
     </span>
   );
 };
