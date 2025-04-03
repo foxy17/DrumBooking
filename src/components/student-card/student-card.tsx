@@ -88,10 +88,10 @@ const StudentCard: React.FC<StudentCardProps> = ({
       ) : (
         <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
           <Drawer.Portal>
-            <Drawer.Overlay className="fixed inset-0 bg-black/90 z-50" />
-            <Drawer.Content className="bg-background fixed bottom-0 left-0 right-0 mt-24 flex flex-col rounded-t-[10px] h-fit pb-8 z-50">
-              <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-muted mt-2 mb-8" />
-              <div className="px-6">
+            <Drawer.Overlay className="fixed inset-0 bg-black z-5" />
+            <Drawer.Content className="bg-background fixed bottom-0 left-0 right-0 mt-24 flex flex-col rounded-t-xl  h-fit pb-8 z-5">
+              <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-pop-white-500 mt-2 mb-4" />
+              <div className="px-6 z-10">
                 <StudentCardContext.Provider value={contextValue}>
                   {children}
                 </StudentCardContext.Provider>

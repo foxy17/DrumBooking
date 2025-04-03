@@ -79,7 +79,8 @@ const ongoingStudents: StudentClassInstance[] = [
     timeSlot: '11am-12pm',
     classType: CLASS_TYPE.SOLO,
     attendance: 'pending',
-    notes: 'Ongoing class notes placeholder.',
+    notes:
+      'Ongoing class notes placeholder.Ongoing class notes placeholder for duo student 1 Ongoing class notes placeholder for duo student 1 Ongoing class notes placeholder for duo student 1 Ongoing class notes placeholder for duo student 1',
   },
   {
     studentId: '2',
