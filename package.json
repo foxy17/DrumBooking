@@ -4,11 +4,8 @@
   "homepage": ".",
   "type": "module",
   "scripts": {
-    "start": "npm run build:css && concurrently \"npm run watch:css\" \"vite\"",
-    "dev": "vite",
-    "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/styles.css --watch",
-    "build:css": "npx tailwindcss -i ./src/index.css -o ./src/styles.css",
-    "build": "npm run build:css && vite build",
+    "dev": "vite --host",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "jest",
     "release": "standard-version",

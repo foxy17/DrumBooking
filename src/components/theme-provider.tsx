@@ -42,10 +42,18 @@ export function ThemeProvider({
         : 'light';
 
       root.classList.add(systemTheme);
+
+      // Update theme-color meta tag based on system preference
+      const themeColor = systemTheme === 'dark' ? '#0D0D0D' : '#ffffff';
+      updateThemeColor(themeColor);
       return;
     }
 
     root.classList.add(theme);
+
+    // Update theme-color meta tag based on selected theme
+    const themeColor = theme === 'dark' ? '#0D0D0D' : '#ffffff';
+    updateThemeColor(themeColor);
   }, [theme]);
 
   const value = {
@@ -70,4 +78,12 @@ export const useTheme = () => {
     throw new Error('useTheme must be used within a ThemeProvider');
 
   return context;
+};
+
+// Helper function to update theme-color meta tag
+const updateThemeColor = (color: string) => {
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', color);
+  }
 };
