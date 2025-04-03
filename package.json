@@ -78,6 +78,7 @@
     "react-router": "^6.26.2",
     "react-router-dom": "^6.26.2",
     "react-show-more-text": "^1.7.1",
+    "react-signature-canvas": "^1.1.0-alpha.2",
     "react-signature-pad-wrapper": "^4.0.3",
     "react-toastify": "^10.0.5",
     "recharts": "^2.15.1",
