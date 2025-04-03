@@ -19,28 +19,4 @@
   ring: 0 !important;
 }
 
-.save-button-container {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.save-button-container.visible {
-  max-height: 50px; /* Slightly larger than button height to ensure it fits */
-  opacity: 1;
-  margin-top: 8px;
-}
-
-.save-button {
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  transition-delay: 0.1s;
-}
-
-.save-button.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
+/* Animation styles removed as they're no longer needed */

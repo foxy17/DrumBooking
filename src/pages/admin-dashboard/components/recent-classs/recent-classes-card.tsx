@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { FaSave } from 'react-icons/fa';
-import { Edit } from 'lucide-react';
+import { FaEdit, FaSave } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { type StudentClassInstance } from '@/types/student';
@@ -9,18 +8,18 @@ import './recent-classes-card.css';
 export const RecentClassCard: React.FC<{ student: StudentClassInstance }> = ({
   student,
 }) => {
-  const [isEditingNote, setIsEditingNote] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [noteText, setNoteText] = useState(student.notes ?? '');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (isEditingNote && textareaRef.current) {
+    if (isEditing && textareaRef.current) {
       // Focus the textarea and move cursor to the end
       textareaRef.current.focus();
       const length = textareaRef.current.value.length;
       textareaRef.current.setSelectionRange(length, length);
     }
-  }, [isEditingNote]);
+  }, [isEditing]);
   return (
     <div className="flex flex-col h-full">
       <div className="flex flex-col mb-6">
@@ -29,42 +28,49 @@ export const RecentClassCard: React.FC<{ student: StudentClassInstance }> = ({
         </h2>
       </div>
 
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col">
         <div className="flex-1 overflow-y-auto mb-4">
-          {isEditingNote ? (
-            <div className="mb-3">
+          <div className="mb-3">
+            <div className="rounded-md bg-pop-black-400/50 p-2 min-h-[120px] border border-pop-white-300/50">
               <Textarea
                 ref={textareaRef}
                 value={noteText}
                 onChange={e => {
                   setNoteText(e.target.value);
                 }}
-                className="note-textarea"
+                className="note-textarea bg-pop-black-500! border-0 p-0"
                 placeholder="Enter class notes..."
+                disabled={!isEditing}
               />
-            </div>
-          ) : (
-            <div className="mb-3 rounded-md bg-pop-black-400/50 relative min-h-[120px]">
-              <button
+
+              <Button
+                variant={isEditing ? 'success' : 'secondary'}
+                size="sm"
+                className="w-full"
                 onClick={() => {
-                  setIsEditingNote(true);
+                  if (isEditing) {
+                    // Save functionality would go here
+                    console.log('Note saved:', noteText);
+                    setIsEditing(false);
+                  } else {
+                    setIsEditing(true);
+                  }
                 }}
-                className="absolute top-2 right-2 p-1 rounded-full bg-pop-black-400/50"
-                aria-label="Edit note"
               >
-                <Edit className="h-3.5 w-3.5 text-pop-white-300" />
-              </button>
-              <div className="flex items-start gap-2 p-3 h-full">
-                {student.notes ? (
-                  <p className="text-pop-white-100">{student.notes}</p>
+                {isEditing ? (
+                  <>
+                    <FaSave className="h-3 w-3 mr-1" />
+                    Save Note
+                  </>
                 ) : (
-                  <p className="text-muted-foreground italic">
-                    No previous class notes.
-                  </p>
+                  <>
+                    <FaEdit className="h-3 w-3 mr-1" />
+                    Edit Note
+                  </>
                 )}
-              </div>
+              </Button>
             </div>
-          )}
+          </div>
         </div>
       </div>
 
@@ -76,19 +82,6 @@ export const RecentClassCard: React.FC<{ student: StudentClassInstance }> = ({
         >
           Edit Attendance
         </Button>
-        <div
-          className={`save-button-container ${isEditingNote ? 'visible' : ''}`}
-        >
-          <Button
-            className={`save-button ${isEditingNote ? 'visible' : ''} w-full bg-park-green-700 hover:bg-park-green-600 text-pop-white-500 flex items-center justify-center gap-2`}
-            onClick={() => {
-              setIsEditingNote(false);
-            }}
-          >
-            <FaSave className="h-4 w-4" />
-            Save Note
-          </Button>
-        </div>
       </div>
     </div>
   );
