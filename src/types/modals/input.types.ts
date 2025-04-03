@@ -1,5 +1,6 @@
 import { type BaseModalProps } from './base.types';
 
 export interface SignatureModalProps extends BaseModalProps {
-  signatureData?: string;
+  studentName: string;
+  onSave: (signatureData: string) => void;
 }

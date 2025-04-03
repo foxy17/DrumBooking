@@ -13,6 +13,12 @@ const modalComponents = {
         default: mod.ConfirmModal,
       }))
   ),
+  [MODAL_TYPES.SIGNATURE]: lazy(
+    async () =>
+      await import('./signature-modal').then(mod => ({
+        default: mod.SignatureModal,
+      }))
+  ),
 } as const;
 
 // Type to ensure all modal types have a corresponding component

@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { Calendar, X } from 'lucide-react';
-import { SignatureModal } from '@/components/signature-modal/signature-modal';
 import { useStudentCardSheet } from '@/components/student-card/student-card';
 import { Button } from '@/components/ui/button';
 import DragToCheckinButton from '@/components/ui/drag-to-complete-button';
+import { useModalStore } from '@/store/modalStore';
+import { MODAL_TYPES } from '@/types/modals';
 import { type StudentClassInstance } from '@/types/student';
 import { PreviousClassNotes } from './components/previous-class-notes';
 
@@ -11,7 +11,7 @@ export const UpcomingClassCard: React.FC<{ student: StudentClassInstance }> = ({
   student,
 }) => {
   const { setSheetOpen } = useStudentCardSheet();
-  const [isSignatureModalOpen, setIsSignatureModalOpen] = useState(false);
+  const { openModal } = useModalStore();
 
   return (
     <div className="flex flex-col h-full">
@@ -46,27 +46,18 @@ export const UpcomingClassCard: React.FC<{ student: StudentClassInstance }> = ({
         <DragToCheckinButton
           variant="sharp"
           onComplete={() => {
-            setIsSignatureModalOpen(true);
+            openModal(MODAL_TYPES.SIGNATURE, {
+              studentName: student.studentName,
+              onSave: (signatureData: string) => {
+                console.log('Signature saved:', signatureData);
+                // Here you would save the signature to the database
+                setSheetOpen(false);
+              },
+            });
           }}
           text="Swipe to Check In"
         />
       </div>
-
-      {isSignatureModalOpen && (
-        <SignatureModal
-          isOpen={isSignatureModalOpen}
-          onClose={() => {
-            setIsSignatureModalOpen(false);
-          }}
-          onSave={(signatureData: string) => {
-            console.log('Signature saved:', signatureData);
-            // Here you would save the signature to the database
-            setIsSignatureModalOpen(false);
-            setSheetOpen(false);
-          }}
-          studentName={student.studentName}
-        />
-      )}
     </div>
   );
 };

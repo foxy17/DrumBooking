@@ -9,13 +9,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-
-interface SignatureModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSave: (signatureData: string) => void;
-  studentName: string;
-}
+import { type SignatureModalProps } from '@/types/modals';
 
 export const SignatureModal: React.FC<SignatureModalProps> = ({
   isOpen,
@@ -40,7 +34,6 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
     }
   };
 
-  // Check if signature pad is empty before saving
   const checkIfEmpty = () => {
     if (signaturePadRef.current) {
       setIsEmpty(signaturePadRef.current.isEmpty());
@@ -74,6 +67,7 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
                   backgroundColor: 'rgba(255, 255, 255, 0)',
                   velocityFilterWeight: 0.7,
                 }}
+                onEnd={checkIfEmpty}
               />
             </div>
           </div>
@@ -81,21 +75,13 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
           <div className="flex justify-between mt-4 gap-4">
             <Button
               variant="outline"
-              onClick={() => {
-                handleClear();
-                setIsEmpty(true);
-              }}
+              onClick={handleClear}
               className="w-full rounded-full"
             >
               Clear
             </Button>
             <Button
-              onClick={() => {
-                checkIfEmpty();
-                if (!isEmpty) {
-                  handleSave();
-                }
-              }}
+              onClick={handleSave}
               disabled={isEmpty}
               className={cn(
                 'w-full rounded-full',
@@ -110,5 +96,3 @@ export const SignatureModal: React.FC<SignatureModalProps> = ({
     </Dialog>
   );
 };
-
-export default SignatureModal;
