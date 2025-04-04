@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { HeroImage } from './hero-image';
 import { LoginForm } from './login-form';
 
 const Login = () => {
@@ -26,7 +25,6 @@ const Login = () => {
             className="text-4xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-5xl md:leading-[3.5rem]"
             lines={['Bombay Drums', 'School']}
           />
-          <HeroImage />
           <CardTitle className="text-xl pt-4">Login</CardTitle>
           <CardDescription>
             Enter your email below to login to your account
