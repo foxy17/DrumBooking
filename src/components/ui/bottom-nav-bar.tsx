@@ -16,27 +16,21 @@ export function BottomNavBar({ items }: BottomNavBarProps) {
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-1 h-14 border-t border-gray-700 bg-pop-black-500 text-white">
+    <nav className="fixed bottom-0 left-0 right-0 z-1 h-14 bg-pop-black-500/85 backdrop-blur-sm text-white">
       <div className="mx-auto flex h-full max-w-md items-center justify-around px-4">
         {items.map(item => {
           const Icon = item.icon;
-          const isActive = location.pathname === item.path;
+          const isActive = location.pathname.startsWith(`/admin${item.path}`);
           return (
             <Link
               key={item.label}
               to={item.path}
               className={cn(
-                'relative flex h-full px-4 flex-col items-center justify-center gap-1 text-xs font-medium text-pop-white-100', // Added relative positioning
-                isActive && 'text-yoyo-300' // Style for active item text
+                'relative flex h-full px-4 items-center justify-center',
+                isActive ? 'text-yoyo-300' : 'text-pop-white-100'
               )}
             >
-              <Icon className="h-5 w-5" />
-              <span className="text-xs tracking-widest font-cirka">
-                {item.label}
-              </span>
-              {!isActive && (
-                <div className="absolute bottom-1 h-1 w-8 rounded-full text-pop-white-500" />
-              )}
+              <Icon className={cn('h-8 w-8')} />
             </Link>
           );
         })}
