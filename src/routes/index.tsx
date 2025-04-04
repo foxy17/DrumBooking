@@ -1,7 +1,6 @@
 import { Navigate } from 'react-router';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
-import { HomeLayout } from '@/components/layout/home.layout';
-import { RootLayout } from '@/components/layout/root.layout';
+import { HomeLayout, RootLayout } from '@/components/layout';
 import AdminDashboard from '@/pages/admin-dashboard';
 import Home from '@/pages/home';
 import NotesHistory from '@/pages/notes-history/notes-history';
