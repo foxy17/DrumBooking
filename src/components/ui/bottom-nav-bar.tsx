@@ -20,11 +20,12 @@ export function BottomNavBar({ items }: BottomNavBarProps) {
       <div className="mx-auto flex h-full max-w-md items-center justify-around px-4">
         {items.map(item => {
           const Icon = item.icon;
-          const isActive = location.pathname.startsWith(`/admin${item.path}`);
+          const fullPath = `/admin${item.path}`;
+          const isActive = location.pathname.startsWith(fullPath);
           return (
             <Link
               key={item.label}
-              to={item.path}
+              to={fullPath}
               className={cn(
                 'relative flex h-full px-4 items-center justify-center',
                 isActive ? 'text-yoyo-300' : 'text-pop-white-100'
