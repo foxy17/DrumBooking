@@ -7,7 +7,7 @@ import Users from '@/pages/users/users';
 import { adminRouteConfig } from '@/routes/admin-route-config';
 import PrivateRoute from '@/routes/private-route';
 import { routeConfig } from '@/routes/route-config';
-import { HomeLayout, RootLayout } from '../components/layout';
+import { HomeLayout, RootLayout } from '../components/layouts';
 
 export const router = createBrowserRouter([
   {
