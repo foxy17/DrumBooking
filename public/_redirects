@@ -1,1 +1,6 @@
+# SPA fallback - these need to be in order from most specific to least specific
+/admin/dash/* /index.html 200!
+/admin/dash /index.html 200!
+/admin/* /index.html 200!
+/admin /index.html 200!
 /* /index.html 200 
