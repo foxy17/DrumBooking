@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { type StudentClassInstance } from '@/types/student';
 import { OngoingClassesSection as OngoingClasses } from './components/ongoing-classes';
 import { RecentClasses } from './components/recent-classs/recent-classes';
@@ -105,8 +106,22 @@ const ongoingStudents: StudentClassInstance[] = [
 ];
 
 const AdminDashboard = () => {
+  useEffect(() => {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      window.scrollTo({
+        top: 1,
+        behavior: 'smooth',
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
-    <div className="flex w-full max-w-2xl mx-auto flex-col px-6 py-4">
+    <div className="flex w-full max-w-2xl mx-auto flex-col px-6 py-4 min-h-[100dvh]">
       <div id="ongoing">
         <h2 className="text-xl font-bold font-overpass tracking-wider bg-background py-2 sticky top-0 z-1">
           ongoing classes

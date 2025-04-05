@@ -28,8 +28,12 @@ export function NavigationDock() {
 
   return (
     <>
-      <div className="fixed bottom-4 left-1/2 hidden -translate-x-1/2 md:block">
-        <Dock items={items.map(({ icon, label }) => ({ icon, label }))} />
+      <div className="fixed left-2 top-1/2 hidden -translate-y-1/2 md:block h-auto">
+        <Dock
+          items={items.map(({ icon, label }) => ({ icon, label }))}
+          orientation="vertical"
+          className="border-zinc-800"
+        />
       </div>
 
       <div className="block mt-16 md:hidden">

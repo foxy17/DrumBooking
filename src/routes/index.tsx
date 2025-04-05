@@ -1,7 +1,5 @@
 import { Navigate } from 'react-router';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
-import { HomeLayout } from '@/components/layout/home.layout';
-import { RootLayout } from '@/components/layout/root.layout';
 import AdminDashboard from '@/pages/admin-dashboard';
 import Home from '@/pages/home';
 import NotesHistory from '@/pages/notes-history/notes-history';
@@ -9,6 +7,7 @@ import Users from '@/pages/users/users';
 import { adminRouteConfig } from '@/routes/admin-route-config';
 import PrivateRoute from '@/routes/private-route';
 import { routeConfig } from '@/routes/route-config';
+import { HomeLayout, RootLayout } from '../components/layouts';
 
 export const router = createBrowserRouter([
   {
