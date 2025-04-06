@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { authService } from '@/services/auth.service';
 import { NavigationDock } from './navigation';
 
 // Define reusable style constants
@@ -19,6 +21,16 @@ const containerStyles = {
 
 export const HomeLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const username = 'Rahul Chaudhary'; // Replace with actual username from auth context
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await authService.signOut();
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   return (
     <div className="flex flex-col h-[100dvh] w-screen overflow-auto">
@@ -53,6 +65,7 @@ export const HomeLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
               size="sm"
               className="gap-2 tracking-wider cursor-pointer"
               title="Logout"
+              onClick={handleLogout}
             >
               Logout
               <LogOut className="h-3 w-3" />
