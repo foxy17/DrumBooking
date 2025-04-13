@@ -4,8 +4,8 @@ import { SignupForm } from './signup-form';
 const Signup = () => {
   return (
     <AuthLayout
-      title="Create an Account"
-      description="Sign up to get started with our application"
+      title="Add New User"
+      description="Create a new user account in the system"
     >
       <SignupForm />
     </AuthLayout>

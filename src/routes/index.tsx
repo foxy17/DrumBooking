@@ -3,6 +3,7 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 import { AuthProvider } from '@/components/auth/auth-provider';
 import AdminDashboard from '@/pages/admin-dashboard';
 import ForgotPassword from '@/pages/Auth/forgot-password';
+import ResetPassword from '@/pages/Auth/reset-password';
 import Signup from '@/pages/Auth/signup';
 import Home from '@/pages/Home';
 import NotesHistory from '@/pages/notes-history/notes-history';
@@ -100,6 +101,14 @@ export const router = createBrowserRouter([
           <PublicRoute>
             <ForgotPassword />
           </PublicRoute>
+        ),
+      },
+      {
+        path: '/reset-password',
+        element: (
+          <PrivateRoute>
+            <ResetPassword />
+          </PrivateRoute>
         ),
       },
       {

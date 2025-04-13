@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,16 +9,13 @@ import { CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { authService } from '@/services/auth.service';
+import useAuthStore from '@/store/useAuthStore';
 
 // Define Yup schema for form validation
 const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email('Please enter a valid email')
-    .required('Email is required'),
   password: yup
     .string()
-    .min(8, 'Password must be at least 8 characters')
+    .min(8, 'Password should be at least 8 characters')
     .required('Password is required'),
   confirmPassword: yup
     .string()
@@ -26,34 +23,48 @@ const schema = yup.object().shape({
     .required('Please confirm your password'),
 });
 
-export function SignupForm() {
+export function ResetPasswordForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onBlur', // Validate on blur
+    mode: 'onBlur',
   });
   const navigate = useNavigate();
-  const [signupError, setSignupError] = useState('');
+  const [resetError, setResetError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated);
 
-  const onSubmit = async (data: { email: string; password: string }) => {
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const onSubmit = async (data: { password: string }) => {
     setIsSubmitting(true);
-    setSignupError('');
+    setResetError('');
 
     try {
-      await authService.signUp(data.email, data.password);
-      // Show success message and redirect to login
-      navigate('/login', {
-        state: {
-          message: 'User added successfully!',
-        },
-      });
+      await authService.updatePassword(data.password);
+      setSuccessMessage('Password reset successful! Logging you in...');
+
+      // Wait for 3 seconds before redirecting
+      setTimeout(() => {
+        navigate('/login', {
+          state: {
+            message:
+              'Password reset successful! Please login with your new password.',
+          },
+        });
+      }, 2000);
     } catch (error: any) {
-      setSignupError(
-        (error?.message as string) || 'Failed to add user. Please try again.'
+      setResetError(
+        (error?.message as string) ||
+          'Failed to reset password. Please try again.'
       );
     } finally {
       setIsSubmitting(false);
@@ -68,26 +79,14 @@ export function SignupForm() {
         className="grid gap-4"
       >
         <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="user@example.com"
-            {...register('email')}
-          />
-          {errors.email && (
-            <p className="text-sm text-red-500">{errors.email.message}</p>
-          )}
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">New Password</Label>
           <Input id="password" type="password" {...register('password')} />
           {errors.password && (
             <p className="text-sm text-red-500">{errors.password.message}</p>
           )}
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
+          <Label htmlFor="confirmPassword">Confirm New Password</Label>
           <Input
             id="confirmPassword"
             type="password"
@@ -99,21 +98,25 @@ export function SignupForm() {
             </p>
           )}
         </div>
-        {signupError && (
+        {resetError && (
           <Alert variant="destructive">
-            <AlertDescription>{signupError}</AlertDescription>
+            <AlertDescription>{resetError}</AlertDescription>
+          </Alert>
+        )}
+        {successMessage && (
+          <Alert>
+            <AlertDescription>{successMessage}</AlertDescription>
           </Alert>
         )}
         <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? 'Adding User...' : 'Add User'}
+          {isSubmitting ? 'Resetting Password...' : 'Reset Password'}
         </Button>
         <div className="text-center">
-          <span className="text-sm text-gray-500">Back to </span>
           <Link
             to="/login"
             className="text-sm text-gray-300 hover:text-gray-500"
           >
-            Login
+            Login to your account
           </Link>
         </div>
       </form>

@@ -99,7 +99,7 @@ export function LoginForm() {
             to="/signup"
             className="text-sm text-gray-300 hover:text-gray-500"
           >
-            Sign up
+            Add User
           </Link>
         </div>
       </form>
