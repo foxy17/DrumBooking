@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { authService } from '@/services/auth.service';
 
 // Define Yup schema for form validation
 const schema = yup.object().shape({
@@ -32,15 +33,21 @@ export function LoginForm() {
   });
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: { email: string; password: string }) => {
+    setIsSubmitting(true);
+    setLoginError('');
+
     try {
-      // Here you would typically make an API call to authenticate the user
-      console.log('Login data:', data);
-      // If login is successful, navigate to dashboard
+      await authService.signIn(data.email, data.password);
       navigate('/dash');
-    } catch (error) {
-      setLoginError('Login failed. Please try again.');
+    } catch (error: any) {
+      setLoginError(
+        (error?.message as string) || 'Login failed. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -83,9 +90,18 @@ export function LoginForm() {
             <AlertDescription>{loginError}</AlertDescription>
           </Alert>
         )}
-        <Button type="submit" className="w-full">
-          Login
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
+          {isSubmitting ? 'Logging in...' : 'Login'}
         </Button>
+        <div className="text-center">
+          <span className="text-sm text-gray-500">Don't have an account? </span>
+          <Link
+            to="/signup"
+            className="text-sm text-gray-300 hover:text-gray-500"
+          >
+            Add User
+          </Link>
+        </div>
       </form>
     </CardContent>
   );

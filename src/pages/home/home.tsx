@@ -1,11 +1,5 @@
-import Login from '@/pages/login';
+import Login from '@/pages/auth/login';
 
-const Home = () => {
-  return (
-    <div className="h-[100dvh] w-screen flex items-center justify-center">
-      <Login />
-    </div>
-  );
-};
+const Home = () => <Login />;
 
 export default Home;
