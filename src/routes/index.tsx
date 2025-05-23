@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to={routeConfig.home.link} replace />,
+            element: <Navigate to={routeConfig.home.link} replace={true} />,
           },
           {
             index: true,
@@ -62,7 +62,9 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to={adminRouteConfig.home.link} replace />,
+            element: (
+              <Navigate to={adminRouteConfig.home.link} replace={true} />
+            ),
           },
           {
             index: true,

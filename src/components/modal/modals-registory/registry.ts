@@ -34,6 +34,6 @@ type ModalRegistryCheck = true extends ModalTypeCheck & RegistryTypeCheck
 
 // This will fail to compile if the registry is not complete
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const _typeCheck: ModalRegistryCheck = true as never;
+const TypeCheck: ModalRegistryCheck = true as never;
 
 export { modalComponents };

@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import DotPattern from "@/components/magicui/dot-pattern";
 import WordPullUp from "@/components/magicui/word-pull-up";
