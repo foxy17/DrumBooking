@@ -1,5 +1,5 @@
-import { supabase } from '@/lib/supabase';
-import useAuthStore from '@/store/useAuthStore';
+import { supabase } from "@/lib/supabase";
+import useAuthStore from "@/store/useAuthStore";
 
 export const authService = {
   // Sign in with email/password

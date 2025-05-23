@@ -1,34 +1,34 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { LogOut } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { authService } from '@/services/auth.service';
-import { NavigationDock } from './navigation';
+import type React from "react";
+import { useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { authService } from "@/services/auth.service";
+import { NavigationDock } from "./navigation";
 
 // Define reusable style constants
 const headerStyles = {
-  base: 'bg-background/95 h-12 border-b border-b-pop-black-100  shrink-0',
-  mobile: 'z-2 backdrop-blur  supports-[backdrop-filter]:bg-background/60',
-  desktop: 'md:fixed md:top-0 md:left-0 md:right-0 md:z-10 md:border-none',
+  base: "bg-background/95 h-12 border-b border-b-pop-black-100  shrink-0",
+  mobile: "z-2 backdrop-blur  supports-[backdrop-filter]:bg-background/60",
+  desktop: "md:fixed md:top-0 md:left-0 md:right-0 md:z-10 md:border-none",
 };
 
 const containerStyles = {
-  base: 'flex items-center h-full',
-  mobile: 'justify-between px-6 max-w-2xl',
-  desktop: 'mdjustify-between mdpx-6 md:max-w-screen-2xl',
+  base: "flex items-center h-full",
+  mobile: "justify-between px-6 max-w-2xl",
+  desktop: "mdjustify-between mdpx-6 md:max-w-screen-2xl",
 };
 
 export const HomeLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const username = 'Rahul Chaudhary'; // Replace with actual username from auth context
+  const username = "Rahul Chaudhary"; // Replace with actual username from auth context
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await authService.signOut();
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
-      console.error('Logout failed:', error);
+      console.error("Logout failed:", error);
     }
   };
 
@@ -74,7 +74,7 @@ export const HomeLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
         </div>
       </div>
 
-      <main className={cn('flex-grow overflow-auto', 'md:pl-16', 'md:mt-12')}>
+      <main className={cn("flex-grow overflow-auto", "md:pl-16", "md:mt-12")}>
         {children}
       </main>
 

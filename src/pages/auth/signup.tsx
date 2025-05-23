@@ -1,5 +1,5 @@
-import { AuthLayout } from '@/components/layouts/auth-layout';
-import { SignupForm } from './signup-form';
+import { AuthLayout } from "@/components/layouts/auth-layout";
+import { SignupForm } from "./signup-form";
 
 const Signup = () => {
   return (

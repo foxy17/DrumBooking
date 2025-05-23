@@ -53,9 +53,9 @@ export type DerivedFunction<
  */
 export type UpperSnakecase<
   S extends string,
-  D extends string = '',
+  D extends string = "",
 > = S extends `${infer FirstWord}${D}${infer Rest}`
-  ? D extends ''
+  ? D extends ""
     ? Uppercase<S>
     : `${Uppercase<FirstWord>}_${Uppercase<Rest>}`
   : never;

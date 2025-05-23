@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { logger } from './logger';
+import { create } from "zustand";
+import { logger } from "./logger";
 
 interface CounterState {
   value: number;
@@ -15,12 +15,12 @@ const initialState: Pick<CounterStore, keyof CounterState> = {
 
 export const useCounterStore = create<CounterStore>()(
   logger<CounterStore>(
-    set => ({
+    (set) => ({
       ...initialState,
-      setValue: number => {
+      setValue: (number) => {
         set({ value: number });
       },
     }),
-    'authStore'
+    "authStore"
   )
 );

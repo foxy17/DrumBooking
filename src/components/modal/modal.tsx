@@ -1,7 +1,7 @@
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
-import { useModalStore } from '@/store/modalStore';
-import { type ModalType } from '@/types/modals';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+import { useModalStore } from "@/store/modalStore";
+import type { ModalType } from "@/types/modals";
 
 interface ModalProps {
   id: string;

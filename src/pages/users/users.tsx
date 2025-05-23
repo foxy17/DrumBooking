@@ -1,51 +1,51 @@
-import React, { useState } from 'react';
-import { Filter, Plus, Search } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import type { Booking } from '@/types/booking';
-import { FilterModal } from './components/filter-modal';
-import UserList from './components/user-list';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import type { Booking } from "@/types/booking";
+import { Filter, Plus, Search } from "lucide-react";
+import React, { useState } from "react";
+import { FilterModal } from "./components/filter-modal";
+import UserList from "./components/user-list";
 
 const usersData: Booking[] = [
   {
-    id: '1',
-    name: 'Brandon Taylor qwewerq Brandon Taylor',
-    time: '12 PM Thursdays',
-    duration: '3 Month',
-    date: 'Jan 11, 2025',
-    image: '/hero.png',
-    phone: '(818) 537-7381',
-    email: 'codyfisher@company.com',
-    appointmentType: 'Solo',
+    id: "1",
+    name: "Brandon Taylor qwewerq Brandon Taylor",
+    time: "12 PM Thursdays",
+    duration: "3 Month",
+    date: "Jan 11, 2025",
+    image: "/hero.png",
+    phone: "(818) 537-7381",
+    email: "codyfisher@company.com",
+    appointmentType: "Solo",
   },
   {
-    id: '2',
-    name: 'Anna Hunt',
-    time: '12:15 PM',
-    duration: '1 Month',
-    date: 'Feb 19, 2025',
-    image: '/hero.png',
-    phone: '(818) 537-7381',
-    email: 'codyfisher@company.com',
-    appointmentType: 'Duo',
+    id: "2",
+    name: "Anna Hunt",
+    time: "12:15 PM",
+    duration: "1 Month",
+    date: "Feb 19, 2025",
+    image: "/hero.png",
+    phone: "(818) 537-7381",
+    email: "codyfisher@company.com",
+    appointmentType: "Duo",
   },
   {
-    id: '3',
-    name: 'Anna Hunt',
-    time: '12 PM Thursdays',
-    duration: 'Expiring',
-    date: 'Feb 26, 2025',
-    image: '/hero.png',
-    phone: '(818) 537-7381',
-    email: 'codyfisher@company.com',
-    appointmentType: 'Solo',
+    id: "3",
+    name: "Anna Hunt",
+    time: "12 PM Thursdays",
+    duration: "Expiring",
+    date: "Feb 26, 2025",
+    image: "/hero.png",
+    phone: "(818) 537-7381",
+    email: "codyfisher@company.com",
+    appointmentType: "Solo",
   },
 ];
 
-type FilterKeys = 'dueWithin7Days' | 'soloSession' | 'duoSession';
+type FilterKeys = "dueWithin7Days" | "soloSession" | "duoSession";
 
 const Users = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [filters, setFilters] = useState({
     dueWithin7Days: false,
@@ -54,7 +54,7 @@ const Users = () => {
   });
 
   const handleFilterChange = (key: FilterKeys, value: boolean) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
+    setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
   const handleClearAll = () => {
@@ -69,14 +69,14 @@ const Users = () => {
     let filteredUsers = users;
 
     // Filter by search term
-    filteredUsers = filteredUsers.filter(user =>
+    filteredUsers = filteredUsers.filter((user) =>
       user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     // Filter by due date (within 7 days)
     if (filters.dueWithin7Days) {
       const today = new Date();
-      filteredUsers = filteredUsers.filter(user => {
+      filteredUsers = filteredUsers.filter((user) => {
         if (!user.date) return false;
         const userDate = new Date(user.date);
         const diffTime = userDate.getTime() - today.getTime();
@@ -87,9 +87,9 @@ const Users = () => {
 
     // Filter by session type
     if (filters.soloSession || filters.duoSession) {
-      filteredUsers = filteredUsers.filter(user => {
-        if (filters.soloSession && user.appointmentType === 'Solo') return true;
-        if (filters.duoSession && user.appointmentType === 'Duo') return true;
+      filteredUsers = filteredUsers.filter((user) => {
+        if (filters.soloSession && user.appointmentType === "Solo") return true;
+        if (filters.duoSession && user.appointmentType === "Duo") return true;
         return false;
       });
     }
@@ -108,7 +108,7 @@ const Users = () => {
             placeholder="Search Users"
             className="rounded-full border dark:border-zinc-200 bg-zinc-900 pl-9 dark:placeholder:text-white"
             value={searchTerm}
-            onChange={e => {
+            onChange={(e) => {
               setSearchTerm(e.target.value);
             }}
           />

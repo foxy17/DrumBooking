@@ -1,7 +1,7 @@
-import {
-  type UserAppMetadata,
-  type UserMetadata,
-} from '@supabase/gotrue-js/src/lib/types';
+import type {
+  UserAppMetadata,
+  UserMetadata,
+} from "@supabase/gotrue-js/src/lib/types";
 
 export interface User {
   id: string;

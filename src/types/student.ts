@@ -1,8 +1,8 @@
-import {
-  type AttendanceStatusType,
-  type ClassInstanceStatusType,
-  type ClassType,
-} from '@/utils/constants';
+import type {
+  AttendanceStatusType,
+  ClassInstanceStatusType,
+  ClassType,
+} from "@/utils/constants";
 
 /**
  * Represents a student's participation details for a specific class instance.
@@ -39,5 +39,5 @@ export interface StudentClassInstance {
   studentAssignedTeacherId?: string | null; // Student's primary assigned teacher
 
   // Derived fields (May be null/missing)
-  paymentStatus?: 'Active' | 'Expired' | 'Due Soon' | string | null; // Derived payment status for the student
+  paymentStatus?: "Active" | "Expired" | "Due Soon" | string | null; // Derived payment status for the student
 }

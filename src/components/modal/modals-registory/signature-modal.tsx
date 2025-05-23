@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import SignatureCanvas from 'react-signature-canvas';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { cn } from '@/lib/utils';
-import { type SignatureModalProps } from '@/types/modals';
+} from "@/components/ui/dialog";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import type { SignatureModalProps } from "@/types/modals";
+import React, { useEffect, useRef, useState } from "react";
+import SignatureCanvas from "react-signature-canvas";
 
 export const SignatureModal = ({
   id,
@@ -28,10 +28,10 @@ export const SignatureModal = ({
     };
 
     checkOrientation();
-    window.addEventListener('resize', checkOrientation);
+    window.addEventListener("resize", checkOrientation);
 
     return () => {
-      window.removeEventListener('resize', checkOrientation);
+      window.removeEventListener("resize", checkOrientation);
     };
   }, []);
 
@@ -46,8 +46,8 @@ export const SignatureModal = ({
         const container = canvas.parentElement;
         if (container) {
           // Force the parent to have the full height of its container first
-          container.style.width = '100%';
-          container.style.height = '100%';
+          container.style.width = "100%";
+          container.style.height = "100%";
 
           // Set canvas dimensions to match container with proper pixel ratio
           canvas.width = container.offsetWidth * ratio;
@@ -56,7 +56,7 @@ export const SignatureModal = ({
           canvas.style.height = `${container.offsetHeight}px`;
 
           // Scale the context for high DPI displays
-          const ctx = canvas.getContext('2d');
+          const ctx = canvas.getContext("2d");
           if (ctx) {
             ctx.scale(ratio, ratio);
           }
@@ -71,10 +71,10 @@ export const SignatureModal = ({
     setTimeout(resizeCanvas, 300);
 
     // Add resize listener
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, [isLandscape]);
 
@@ -87,7 +87,7 @@ export const SignatureModal = ({
 
   const handleSave = () => {
     if (signaturePadRef.current && !signaturePadRef.current.isEmpty()) {
-      const signatureData = signaturePadRef.current.toDataURL('image/png');
+      const signatureData = signaturePadRef.current.toDataURL("image/png");
       onSave?.(signatureData);
       onClose?.();
     }
@@ -105,13 +105,13 @@ export const SignatureModal = ({
       const canvas = signaturePadRef.current.getCanvas();
 
       // Add event listener for end drawing
-      canvas.addEventListener('mouseup', checkIfEmpty);
-      canvas.addEventListener('touchend', checkIfEmpty);
+      canvas.addEventListener("mouseup", checkIfEmpty);
+      canvas.addEventListener("touchend", checkIfEmpty);
 
       return () => {
         // Clean up event listeners
-        canvas.removeEventListener('mouseup', checkIfEmpty);
-        canvas.removeEventListener('touchend', checkIfEmpty);
+        canvas.removeEventListener("mouseup", checkIfEmpty);
+        canvas.removeEventListener("touchend", checkIfEmpty);
       };
     }
   }, []);
@@ -119,7 +119,7 @@ export const SignatureModal = ({
   return (
     <Dialog
       open={true} // Always open since the component is only rendered when it should be open
-      onOpenChange={open => {
+      onOpenChange={(open) => {
         if (!open) onClose?.();
       }}
     >
@@ -133,7 +133,7 @@ export const SignatureModal = ({
         <div className="flex flex-col p-2 bg-pop-black-400/10 flex-grow">
           <div
             className={cn(
-              'border border-pop-black-100  bg-white rounded-md overflow-hidden relative'
+              "border border-pop-black-100  bg-white rounded-md overflow-hidden relative"
             )}
           >
             <SignatureCanvas
@@ -141,7 +141,7 @@ export const SignatureModal = ({
               penColor="black"
               velocityFilterWeight={0.7}
               canvasProps={{
-                className: 'w-full h-full absolute inset-0',
+                className: "w-full h-full absolute inset-0",
               }}
               onEnd={checkIfEmpty}
             />
@@ -149,8 +149,8 @@ export const SignatureModal = ({
 
           <div
             className={cn(
-              'mt-4 gap-4',
-              isMobile ? 'flex flex-col' : 'flex justify-between'
+              "mt-4 gap-4",
+              isMobile ? "flex flex-col" : "flex justify-between"
             )}
           >
             <Button variant="outline" onClick={handleClear} className="w-full">
@@ -161,8 +161,8 @@ export const SignatureModal = ({
               onClick={handleSave}
               disabled={isEmpty}
               className={cn(
-                'w-full',
-                isEmpty && 'opacity-80 cursor-not-allowed'
+                "w-full",
+                isEmpty && "opacity-80 cursor-not-allowed"
               )}
             >
               Start Class

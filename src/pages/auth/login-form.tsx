@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { authService } from '@/services/auth.service';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { authService } from "@/services/auth.service";
 
 // Define Yup schema for form validation
 const schema = yup.object().shape({
   email: yup
     .string()
-    .email('Please enter a valid email')
-    .required('Email is required'),
+    .email("Please enter a valid email")
+    .required("Email is required"),
   password: yup
     .string()
-    .min(8, 'Password must be at least 8 characters')
-    .required('Password is required'),
+    .min(8, "Password must be at least 8 characters")
+    .required("Password is required"),
 });
 
 export function LoginForm() {
@@ -29,22 +29,22 @@ export function LoginForm() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onBlur', // Validate on blur
+    mode: "onBlur", // Validate on blur
   });
   const navigate = useNavigate();
-  const [loginError, setLoginError] = useState('');
+  const [loginError, setLoginError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: { email: string; password: string }) => {
     setIsSubmitting(true);
-    setLoginError('');
+    setLoginError("");
 
     try {
       await authService.signIn(data.email, data.password);
-      navigate('/dash');
+      navigate("/dash");
     } catch (error: any) {
       setLoginError(
-        (error?.message as string) || 'Login failed. Please try again.'
+        (error?.message as string) || "Login failed. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -64,7 +64,7 @@ export function LoginForm() {
             id="email"
             type="email"
             placeholder="m@example.com"
-            {...register('email')}
+            {...register("email")}
           />
           {errors.email && (
             <p className="text-sm text-red-500">{errors.email.message}</p>
@@ -80,7 +80,7 @@ export function LoginForm() {
               Forgot your password?
             </Link>
           </div>
-          <Input id="password" type="password" {...register('password')} />
+          <Input id="password" type="password" {...register("password")} />
           {errors.password && (
             <p className="text-sm text-red-500">{errors.password.message}</p>
           )}
@@ -91,7 +91,7 @@ export function LoginForm() {
           </Alert>
         )}
         <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? 'Logging in...' : 'Login'}
+          {isSubmitting ? "Logging in..." : "Login"}
         </Button>
         <div className="text-center">
           <span className="text-sm text-gray-500">Don't have an account? </span>

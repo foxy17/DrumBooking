@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
-import { FaSave } from 'react-icons/fa';
-import clsx from 'clsx';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { SectionHeader } from './section-header';
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import clsx from "clsx";
+import { useEffect, useRef } from "react";
+import { FaSave } from "react-icons/fa";
+import { SectionHeader } from "./section-header";
 
 interface CurrentClassNotesProps {
   newNote: string;
@@ -19,7 +19,7 @@ export const CurrentClassNotes = ({
   setIsAddingNote,
 }: CurrentClassNotesProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const hasNewNote = newNote.trim() !== '';
+  const hasNewNote = newNote.trim() !== "";
 
   useEffect(() => {
     if (isAddingNote && textareaRef.current) {
@@ -35,7 +35,7 @@ export const CurrentClassNotes = ({
         <Textarea
           ref={textareaRef}
           value={newNote}
-          onChange={e => {
+          onChange={(e) => {
             setNewNote(e.target.value);
           }}
           className="note-textarea bg-pop-black-500! border-0 p-0"
@@ -46,8 +46,8 @@ export const CurrentClassNotes = ({
           variant="secondary"
           size="sm"
           className={clsx(
-            'w-full bg-success-500 text-white',
-            !hasNewNote && 'opacity-50'
+            "w-full bg-success-500 text-white",
+            !hasNewNote && "opacity-50"
           )}
           onClick={() => {
             if (isAddingNote) {

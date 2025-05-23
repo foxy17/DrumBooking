@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
 
 interface UserInfoProps {
   userInfo: {
@@ -18,17 +18,17 @@ export const UserInfo = ({ userInfo }: UserInfoProps) => {
         <AvatarImage src={userInfo.image} alt={userInfo.name} />
         <AvatarFallback className="text-lg">
           {userInfo.name
-            .split(' ')
-            .map(n => n[0])
-            .join('')}
+            .split(" ")
+            .map((n) => n[0])
+            .join("")}
         </AvatarFallback>
       </Avatar>
       <div className="flex flex-col items-start text-left max-w-[calc(100%-4rem)]">
         <span
           className={`font-semibold text-white w-full ${
-            expanded ? 'whitespace-normal break-words' : 'truncate'
+            expanded ? "whitespace-normal break-words" : "truncate"
           }`}
-          onClick={e => {
+          onClick={(e) => {
             e.stopPropagation();
             setExpanded(!expanded);
           }}

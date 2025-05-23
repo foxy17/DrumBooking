@@ -7,5 +7,5 @@ export interface Booking {
   image: string;
   phone: string;
   email: string;
-  appointmentType: 'Solo' | 'Duo';
+  appointmentType: "Solo" | "Duo";
 }

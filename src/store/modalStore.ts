@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { type BaseModalProps, type ModalType } from '@/types/modals';
+import type { BaseModalProps, ModalType } from "@/types/modals";
+import { create } from "zustand";
 
 interface BaseModalData {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface ModalState {
   activeModals: Record<string, BaseModalData>;
   openModal: <T extends Record<string, unknown>>(
     type: ModalType,
-    props?: Omit<T & BaseModalProps, 'onClose'>
+    props?: Omit<T & BaseModalProps, "onClose">
   ) => void;
   closeModal: (id: string) => void;
   closeLatestModal: () => void;
@@ -37,7 +37,7 @@ export const useModalStore = create<ModalState>()((set, get) => ({
       },
     };
 
-    set(state => ({
+    set((state) => ({
       activeModals: {
         ...state.activeModals,
         [modalId]: modalData,
@@ -45,15 +45,15 @@ export const useModalStore = create<ModalState>()((set, get) => ({
     }));
   },
 
-  closeModal: id => {
-    set(state => {
+  closeModal: (id) => {
+    set((state) => {
       const { [id]: _, ...rest } = state.activeModals;
       return { activeModals: rest };
     });
   },
 
   closeLatestModal: () => {
-    set(state => {
+    set((state) => {
       const modalIds = Object.keys(state.activeModals);
       if (modalIds.length === 0) return state;
 

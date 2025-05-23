@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { authService } from '@/services/auth.service';
+import { useEffect, useState } from "react";
+import { authService } from "@/services/auth.service";
 
 interface AuthProviderProps {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         // Check if user is already logged in
         await authService.getSession();
       } catch (error) {
-        console.error('Auth initialization error:', error);
+        console.error("Auth initialization error:", error);
       } finally {
         setIsLoading(false);
       }

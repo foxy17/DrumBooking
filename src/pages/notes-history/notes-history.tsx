@@ -1,63 +1,63 @@
-import { useEffect, useState } from 'react';
-import { ChevronLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { type noteHistoryItem } from '@/types/notes-history';
-import TimelineItem from './components/timeline-line-item';
+import { Button } from "@/components/ui/button";
+import type { noteHistoryItem } from "@/types/notes-history";
+import { ChevronLeft } from "lucide-react";
+import { useEffect, useState } from "react";
+import TimelineItem from "./components/timeline-line-item";
 
 export const historyData: noteHistoryItem[] = [
   {
-    id: '1',
-    date: '04 March 2024',
+    id: "1",
+    date: "04 March 2024",
     content:
-      'Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum adipisicing do. Dolor ut mollit occaecat re',
-    type: 'note',
+      "Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum adipisicing do. Dolor ut mollit occaecat re",
+    type: "note",
   },
   {
-    id: '2',
-    date: '27 February 2024',
-    content: 'Music Writing - The Tool',
-    type: 'writing',
+    id: "2",
+    date: "27 February 2024",
+    content: "Music Writing - The Tool",
+    type: "writing",
   },
   {
-    id: '3',
-    date: '21 February 2024',
+    id: "3",
+    date: "21 February 2024",
     content:
-      'Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum',
-    type: 'note',
+      "Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum",
+    type: "note",
   },
   {
-    id: '4',
-    date: '15 February 2024',
+    id: "4",
+    date: "15 February 2024",
     content:
-      'Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum',
-    type: 'note',
+      "Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum",
+    type: "note",
   },
   {
-    id: '9',
-    date: '04 March 2024',
+    id: "9",
+    date: "04 March 2024",
     content:
-      'Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum adipisicing do. Dolor ut mollit occaecat re',
-    type: 'note',
+      "Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum adipisicing do. Dolor ut mollit occaecat re",
+    type: "note",
   },
   {
-    id: '8',
-    date: '04 March 2024',
+    id: "8",
+    date: "04 March 2024",
     content:
-      'Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum adipisicing do. Dolor ut mollit occaecat re',
-    type: 'note',
+      "Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum adipisicing do. Dolor ut mollit occaecat re",
+    type: "note",
   },
   {
-    id: '5',
-    date: '27 February 2024',
-    content: 'Music Writing - The Tool',
-    type: 'writing',
+    id: "5",
+    date: "27 February 2024",
+    content: "Music Writing - The Tool",
+    type: "writing",
   },
   {
-    id: '6',
-    date: '21 February 2024',
+    id: "6",
+    date: "21 February 2024",
     content:
-      'Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum',
-    type: 'note',
+      "Est ex elit ea ea Lorem ea consectetur qui cillum nostrud officia ipsum magna est fugiat cillum",
+    type: "note",
   },
 ];
 
@@ -69,9 +69,9 @@ export default function NotesHistory() {
       setIsMobile(window.innerWidth < 768);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -93,7 +93,7 @@ export default function NotesHistory() {
       {isMobile ? (
         <div className="relative top-4 pb-8 ">
           <div className="space-y-4">
-            {historyData.map(item => (
+            {historyData.map((item) => (
               <TimelineItem key={item.id} item={item} />
             ))}
           </div>
@@ -101,7 +101,7 @@ export default function NotesHistory() {
       ) : (
         <div className="mx-auto w-[90%] max-w-4xl pb-8 pt-4">
           {/* Timeline section */}
-          {historyData.map(item => (
+          {historyData.map((item) => (
             <TimelineItem key={item.id} item={item} />
           ))}
         </div>

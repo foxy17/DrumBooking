@@ -1,7 +1,7 @@
-import { Suspense } from 'react';
-import { useModalStore } from '@/store/modalStore';
-import { modalComponents } from './modals-registory/registry';
-import { Modal } from './modal';
+import { useModalStore } from "@/store/modalStore";
+import { Suspense } from "react";
+import { Modal } from "./modal";
+import { modalComponents } from "./modals-registory/registry";
 
 export function ModalManager() {
   const { activeModals } = useModalStore();

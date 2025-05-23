@@ -1,12 +1,12 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import type React from "react";
 
 import {
   ATTENDANCE_STATUS,
   type AttendanceStatusType,
   CLASS_INSTANCE_STATUS,
   type ClassInstanceStatusType,
-} from '@/utils/constants';
+} from "@/utils/constants";
 
 interface RecentClassStatusBadgeProps {
   classInstanceStatus?: ClassInstanceStatusType | null;
@@ -16,12 +16,12 @@ interface RecentClassStatusBadgeProps {
 
 const badgeColorMap: Record<string, string> = {
   [CLASS_INSTANCE_STATUS.SCHEDULED]:
-    'bg-orange-sunshine-500 text-pop-white-500',
-  [ATTENDANCE_STATUS.MISSED]: 'bg-red-500 text-pop-white-500',
-  completed: 'bg-park-green-700 text-pop-white-500',
+    "bg-orange-sunshine-500 text-pop-white-500",
+  [ATTENDANCE_STATUS.MISSED]: "bg-red-500 text-pop-white-500",
+  completed: "bg-park-green-700 text-pop-white-500",
 };
 
-const defaultBadgeColor = 'bg-pop-black-200 text-pop-white-300';
+const defaultBadgeColor = "bg-pop-black-200 text-pop-white-300";
 
 const RecentClassStatusBadge: React.FC<RecentClassStatusBadgeProps> = ({
   classInstanceStatus,
@@ -29,18 +29,18 @@ const RecentClassStatusBadge: React.FC<RecentClassStatusBadgeProps> = ({
   className,
 }) => {
   // Determine what to display based on status
-  let displayText = '';
-  let colorKey = '';
+  let displayText = "";
+  let colorKey = "";
 
   if (attendanceStatus === ATTENDANCE_STATUS.MISSED) {
-    displayText = 'Missed';
+    displayText = "Missed";
     colorKey = ATTENDANCE_STATUS.MISSED;
   } else if (classInstanceStatus === CLASS_INSTANCE_STATUS.SCHEDULED) {
-    displayText = 'Scheduled';
+    displayText = "Scheduled";
     colorKey = CLASS_INSTANCE_STATUS.SCHEDULED;
   } else if (classInstanceStatus === CLASS_INSTANCE_STATUS.COMPLETED) {
-    displayText = 'Completed';
-    colorKey = 'completed';
+    displayText = "Completed";
+    colorKey = "completed";
   }
 
   const colorClasses = badgeColorMap[colorKey] ?? defaultBadgeColor;
@@ -48,8 +48,8 @@ const RecentClassStatusBadge: React.FC<RecentClassStatusBadgeProps> = ({
   return (
     <span
       className={cn(
-        'px-2 pb-1 pt-[5px] text-[8px] items-center gap-x-1 uppercase font-bold font-cirka tracking-[1px] leading-[10px] flex items-center',
-        'border-pop-black-300/50',
+        "px-2 pb-1 pt-[5px] text-[8px] items-center gap-x-1 uppercase font-bold font-cirka tracking-[1px] leading-[10px] flex items-center",
+        "border-pop-black-300/50",
         colorClasses,
         className
       )}

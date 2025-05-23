@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { authService } from '@/services/auth.service';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { authService } from "@/services/auth.service";
 
 // Define Yup schema for form validation
 const schema = yup.object().shape({
   email: yup
     .string()
-    .email('Please enter a valid email')
-    .required('Email is required'),
+    .email("Please enter a valid email")
+    .required("Email is required"),
 });
 
 export function ForgotPasswordForm() {
@@ -26,10 +26,10 @@ export function ForgotPasswordForm() {
     reset,
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onBlur', // Validate on blur
+    mode: "onBlur", // Validate on blur
   });
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error';
+    type: "success" | "error";
     message: string;
   } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,15 +41,15 @@ export function ForgotPasswordForm() {
 
       // Show success message
       setSubmitStatus({
-        type: 'success',
-        message: 'Password reset link has been sent to your email',
+        type: "success",
+        message: "Password reset link has been sent to your email",
       });
       reset();
     } catch (error: any) {
       setSubmitStatus({
-        type: 'error',
+        type: "error",
         message:
-          error.message || 'Failed to send reset link. Please try again.',
+          error.message || "Failed to send reset link. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -69,7 +69,7 @@ export function ForgotPasswordForm() {
             id="email"
             type="email"
             placeholder="m@example.com"
-            {...register('email')}
+            {...register("email")}
           />
           {errors.email && (
             <p className="text-sm text-red-500">{errors.email.message}</p>
@@ -78,14 +78,14 @@ export function ForgotPasswordForm() {
 
         {submitStatus && (
           <Alert
-            variant={submitStatus.type === 'error' ? 'destructive' : 'default'}
+            variant={submitStatus.type === "error" ? "destructive" : "default"}
           >
             <AlertDescription>{submitStatus.message}</AlertDescription>
           </Alert>
         )}
 
         <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Reset Link'}
+          {isSubmitting ? "Sending..." : "Send Reset Link"}
         </Button>
 
         <div className="text-center">

@@ -1,4 +1,4 @@
-import { type BaseModalProps } from './base.types';
+import type { BaseModalProps } from "./base.types";
 
 export interface AlertModalProps extends BaseModalProps {
   title?: string;
