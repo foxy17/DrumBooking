@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { createContext, useContext } from 'react';
-import { Edit, RotateCcw } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import { UserInfo } from '@/components/ui/user-info';
-import { cn } from '@/lib/utils';
-import type { Booking } from '@/types/booking';
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { UserInfo } from "@/components/ui/user-info";
+import { cn } from "@/lib/utils";
+import type { Booking } from "@/types/booking";
+import { Edit, RotateCcw } from "lucide-react";
+import { createContext, useContext } from "react";
 
 type UserListContextType = {
   data: Booking[];
@@ -26,7 +26,7 @@ interface UserListProps {
 
 const UserListContext = createContext<UserListContextType>({
   data: [] as Booking[],
-  header: '',
+  header: "",
 });
 
 const AccordionItemContext = createContext<Booking | undefined>(undefined);
@@ -61,18 +61,18 @@ UserList.AccordionWrapper = function UserListAccordionWrapper({
   const { data } = useContext(UserListContext);
   if (!data) return null;
   return (
-    <Accordion type="single" collapsible>
-      {data.map(data => (
+    <Accordion type="single" collapsible={true}>
+      {data.map((data) => (
         <AccordionItemContext.Provider value={data} key={data.id}>
           <AccordionItem
             key={data.id}
             value={data.id}
             className={cn(
-              'group transition-all duration-200 bg-[#171a1f]',
-              'data-[state=open]:bg-[#1e1e1d]',
-              'border-b border-zinc-200',
-              'md:px-4',
-              'last:border-0'
+              "group transition-all duration-200 bg-[#171a1f]",
+              "data-[state=open]:bg-[#1e1e1d]",
+              "border-b border-zinc-200",
+              "md:px-4",
+              "last:border-0"
             )}
           >
             {children}
@@ -108,7 +108,7 @@ UserList.SecondColumn = function UserListSecondColumn() {
       <div className="font-semibold text-white">{data.date}</div>
       <div
         className={`text-xs ${
-          data.duration === 'Expiring' ? 'text-red-300' : 'text-zinc-400'
+          data.duration === "Expiring" ? "text-red-300" : "text-zinc-400"
         }`}
       >
         {data.duration}

@@ -1,5 +1,5 @@
-import { AlertDialog } from '@/components/ui/alert-dialog';
-import { type AlertModalProps } from '@/types/modals';
+import { AlertDialog } from "@/components/ui/alert-dialog";
+import type { AlertModalProps } from "@/types/modals";
 
 export function AlertModal({
   title,

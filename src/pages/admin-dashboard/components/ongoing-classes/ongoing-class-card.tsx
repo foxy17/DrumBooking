@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { useStudentCardSheet } from '@/components/student-card/student-card';
-import DragToCompleteButton from '@/components/ui/drag-to-complete-button';
-import { type StudentClassInstance } from '@/types/student';
-import { CurrentClassNotes } from './components/current-class-notes';
-import { PreviousClassNotes } from './components/previous-class-notes';
+import { useStudentCardSheet } from "@/components/student-card/student-card";
+import DragToCompleteButton from "@/components/ui/drag-to-complete-button";
+import type { StudentClassInstance } from "@/types/student";
+import { useState } from "react";
+import { CurrentClassNotes } from "./components/current-class-notes";
+import { PreviousClassNotes } from "./components/previous-class-notes";
 
 export const OngoingClassCard: React.FC<{ student: StudentClassInstance }> = ({
   student,
 }) => {
   const { setSheetOpen } = useStudentCardSheet();
   const [isAddingNote, setIsAddingNote] = useState(false);
-  const [newNote, setNewNote] = useState('');
+  const [newNote, setNewNote] = useState("");
 
   return (
     <div className="flex flex-col h-full">

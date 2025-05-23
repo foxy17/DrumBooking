@@ -1,9 +1,8 @@
-import React from 'react';
-import StudentCard from '@/components/student-card/student-card';
-import { type StudentClassInstance } from '@/types/student';
-import { OngoingClassCard } from './ongoing-class-card';
+import StudentCard from "@/components/student-card/student-card";
+import type { StudentClassInstance } from "@/types/student";
+import { OngoingClassCard } from "./ongoing-class-card";
 
-import { CARD_TYPE } from '@/utils/constants';
+import { CARD_TYPE } from "@/utils/constants";
 
 interface OngoingClassesSectionProps {
   ongoingStudents: StudentClassInstance[];
@@ -28,7 +27,7 @@ export const OngoingClassesSection: React.FC<OngoingClassesSectionProps> = ({
   return (
     <div className="flex flex-col gap-4">
       <div className="space-y-2">
-        {ongoingStudents.map(instance => (
+        {ongoingStudents.map((instance) => (
           <StudentCard
             key={instance.classInstanceId + instance.studentId}
             student={instance}

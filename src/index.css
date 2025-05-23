@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin 'tailwindcss-animate';
 
@@ -7,102 +7,116 @@
 @layer base {
   /* Gilroy Font Variations */
   @font-face {
-    font-family: 'Gilroy';
-    src: url('https://web-assets.cred.club/fonts/Gilroy-ExtraBold.woff') format('woff');
+    font-family: "Gilroy";
+    src: url("https://web-assets.cred.club/fonts/Gilroy-ExtraBold.woff")
+      format("woff");
     font-weight: 800;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Gilroy';
-    src: url('https://web-assets.cred.club/fonts/Gilroy-Bold.woff') format('woff');
+    font-family: "Gilroy";
+    src: url("https://web-assets.cred.club/fonts/Gilroy-Bold.woff")
+      format("woff");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Gilroy';
-    src: url('https://web-assets.cred.club/fonts/Gilroy-SemiBold.woff') format('woff');
+    font-family: "Gilroy";
+    src: url("https://web-assets.cred.club/fonts/Gilroy-SemiBold.woff")
+      format("woff");
     font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Gilroy';
-    src: url('https://web-assets.cred.club/fonts/Gilroy-Medium.woff') format('woff');
+    font-family: "Gilroy";
+    src: url("https://web-assets.cred.club/fonts/Gilroy-Medium.woff")
+      format("woff");
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Gilroy';
-    src: url('https://web-assets.cred.club/fonts/Gilroy-Regular.woff') format('woff');
+    font-family: "Gilroy";
+    src: url("https://web-assets.cred.club/fonts/Gilroy-Regular.woff")
+      format("woff");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Gilroy';
-    src: url('https://web-assets.cred.club/fonts/Gilroy-Thin.woff') format('woff');
+    font-family: "Gilroy";
+    src: url("https://web-assets.cred.club/fonts/Gilroy-Thin.woff")
+      format("woff");
     font-weight: 300;
     font-style: normal;
   }
 
   /* Cirka Font Variations */
   @font-face {
-    font-family: 'Cirka';
-    src: url('https://web-assets.cred.club/fonts/PPCirka-Bold.woff') format('woff');
+    font-family: "Cirka";
+    src: url("https://web-assets.cred.club/fonts/PPCirka-Bold.woff")
+      format("woff");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Cirka';
-    src: url('https://web-assets.cred.club/fonts/PPCirka-Light.woff') format('woff');
+    font-family: "Cirka";
+    src: url("https://web-assets.cred.club/fonts/PPCirka-Light.woff")
+      format("woff");
     font-weight: 600;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Cirka';
-    src: url('https://web-assets.cred.club/fonts/PPCirka-Medium.woff') format('woff');
+    font-family: "Cirka";
+    src: url("https://web-assets.cred.club/fonts/PPCirka-Medium.woff")
+      format("woff");
     font-weight: 500;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Cirka';
-    src: url('https://web-assets.cred.club/fonts/PPCirka-Regular.woff') format('woff');
+    font-family: "Cirka";
+    src: url("https://web-assets.cred.club/fonts/PPCirka-Regular.woff")
+      format("woff");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Cirka';
-    src: url('https://web-assets.cred.club/fonts/PPCirka-SemiBold.woff') format('woff');
+    font-family: "Cirka";
+    src: url("https://web-assets.cred.club/fonts/PPCirka-SemiBold.woff")
+      format("woff");
     font-weight: 300;
     font-style: normal;
   }
 
   /* Overpass Mono Font */
   @font-face {
-    font-family: 'Overpass Mono';
-    src: url('https://web-assets.cred.club/fonts/OverpassMono-Regular.woff') format('woff');
+    font-family: "Overpass Mono";
+    src: url("https://web-assets.cred.club/fonts/OverpassMono-Regular.woff")
+      format("woff");
     font-weight: normal;
     font-style: normal;
   }
 
   :root {
-    --font-gilroy: 'Gilroy', system-ui, sans-serif;
-    --font-overpass: 'Overpass Mono', monospace;
-    --font-cirka: 'Cirka', "Times New Roman", Times, serif;
+    --font-gilroy: "Gilroy", system-ui, sans-serif;
+    --font-overpass: "Overpass Mono", monospace;
+    --font-cirka: "Cirka", "Times New Roman", Times, serif;
   }
 
   html {
     font-family: var(--font-gilroy);
   }
 
-  code, pre, kbd {
+  code,
+  pre,
+  kbd {
     font-family: var(--font-overpass);
   }
 }
@@ -292,11 +306,11 @@
   margin-inline: auto;
   padding-inline: 2rem;
 
-  @media (width >=--theme(--breakpoint-xs)) {
+  @media (width >= --theme(--breakpoint-xs)) {
     max-width: none;
   }
 
-  @media (width >=1400px) {
+  @media (width >= 1400px) {
     max-width: 1400px;
   }
 }
@@ -310,7 +324,6 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-
   *,
   ::after,
   ::before,
@@ -322,104 +335,104 @@
 
 @layer base {
   :root {
-    --color-error-100: #FCE2DD;
-    --color-error-200: #F6A69B;
-    --color-error-300: #F47564;
-    --color-error-400: #F05E4B;
-    --color-error-500: #EE4D37;
+    --color-error-100: #fce2dd;
+    --color-error-200: #f6a69b;
+    --color-error-300: #f47564;
+    --color-error-400: #f05e4b;
+    --color-error-500: #ee4d37;
 
-    --color-warning-100: #FBDDC2;
-    --color-warning-200: #F8C699;
-    --color-warning-300: #F5AC6A;
-    --color-warning-400: #F29947;
-    --color-warning-500: #F08D32;
+    --color-warning-100: #fbddc2;
+    --color-warning-200: #f8c699;
+    --color-warning-300: #f5ac6a;
+    --color-warning-400: #f29947;
+    --color-warning-500: #f08d32;
 
-    --color-info-100: #C2D0F2;
-    --color-info-200: #89A5E3;
-    --color-info-300: #3F6FD9;
-    --color-info-400: #2C5ECD;
-    --color-info-500: #144CC7;
+    --color-info-100: #c2d0f2;
+    --color-info-200: #89a5e3;
+    --color-info-300: #3f6fd9;
+    --color-info-400: #2c5ecd;
+    --color-info-500: #144cc7;
 
-    --color-success-100: #E6F9F1;
-    --color-success-200: #83E0B8;
-    --color-success-300: #4FE3A3;
-    --color-success-400: #1FC87F;
-    --color-success-500: #06C270;
+    --color-success-100: #e6f9f1;
+    --color-success-200: #83e0b8;
+    --color-success-300: #4fe3a3;
+    --color-success-400: #1fc87f;
+    --color-success-500: #06c270;
 
-    --color-pop-black-100: #8A8A8A;
-    --color-pop-black-200: #3D3D3D;
+    --color-pop-black-100: #8a8a8a;
+    --color-pop-black-200: #3d3d3d;
     --color-pop-black-300: #161616;
     --color-pop-black-400: #121212;
-    --color-pop-black-500: #0D0D0D;
+    --color-pop-black-500: #0d0d0d;
 
-    --color-pop-white-100: #D2D2D2;
-    --color-pop-white-200: #E0E0E0;
-    --color-pop-white-300: #EFEFEF;
-    --color-pop-white-400: #FBFBFB;
-    --color-pop-white-500: #FFFFFF;
+    --color-pop-white-100: #d2d2d2;
+    --color-pop-white-200: #e0e0e0;
+    --color-pop-white-300: #efefef;
+    --color-pop-white-400: #fbfbfb;
+    --color-pop-white-500: #ffffff;
 
-    --color-poli-purple-100: #E8DFFF;
-    --color-poli-purple-200: #D2C2FF;
-    --color-poli-purple-300: #B49AFF;
-    --color-poli-purple-400: #9772FF;
-    --color-poli-purple-500: #6A35FF;
-    --color-poli-purple-600: #4A25B3;
-    --color-poli-purple-700: #351A80;
-    --color-poli-purple-800: #20104D;
+    --color-poli-purple-100: #e8dfff;
+    --color-poli-purple-200: #d2c2ff;
+    --color-poli-purple-300: #b49aff;
+    --color-poli-purple-400: #9772ff;
+    --color-poli-purple-500: #6a35ff;
+    --color-poli-purple-600: #4a25b3;
+    --color-poli-purple-700: #351a80;
+    --color-poli-purple-800: #20104d;
 
-    --color-orange-sunshine-100: #FFEFE6;
-    --color-orange-sunshine-200: #FFDBC7;
-    --color-orange-sunshine-300: #FFC3A2;
-    --color-orange-sunshine-400: #FFAB7C;
-    --color-orange-sunshine-500: #FF8744;
-    --color-orange-sunshine-600: #B35F30;
+    --color-orange-sunshine-100: #ffefe6;
+    --color-orange-sunshine-200: #ffdbc7;
+    --color-orange-sunshine-300: #ffc3a2;
+    --color-orange-sunshine-400: #ffab7c;
+    --color-orange-sunshine-500: #ff8744;
+    --color-orange-sunshine-600: #b35f30;
     --color-orange-sunshine-700: #804322;
-    --color-orange-sunshine-800: #4D2914;
+    --color-orange-sunshine-800: #4d2914;
 
-    --color-pink-pong-100: #FFE1E9;
-    --color-pink-pong-200: #FFC6D4;
-    --color-pink-pong-300: #FFA0B7;
-    --color-pink-pong-400: #FF7B9A;
-    --color-pink-pong-500: #FF426F;
-    --color-pink-pong-600: #B32E4E;
+    --color-pink-pong-100: #ffe1e9;
+    --color-pink-pong-200: #ffc6d4;
+    --color-pink-pong-300: #ffa0b7;
+    --color-pink-pong-400: #ff7b9a;
+    --color-pink-pong-500: #ff426f;
+    --color-pink-pong-600: #b32e4e;
     --color-pink-pong-700: #802138;
-    --color-pink-pong-800: #4D1421;
+    --color-pink-pong-800: #4d1421;
 
-    --color-manna-100: #FFF8E5;
-    --color-manna-200: #FFEFC7;
-    --color-manna-300: #FFE5A2;
-    --color-manna-400: #FFDB7D;
-    --color-manna-500: #FFCB45;
-    --color-manna-600: #B38E30;
+    --color-manna-100: #fff8e5;
+    --color-manna-200: #ffefc7;
+    --color-manna-300: #ffe5a2;
+    --color-manna-400: #ffdb7d;
+    --color-manna-500: #ffcb45;
+    --color-manna-600: #b38e30;
     --color-manna-700: #806623;
-    --color-manna-800: #4D3D15;
+    --color-manna-800: #4d3d15;
 
-    --color-neo-paccha-100: #FBFFE6;
-    --color-neo-paccha-200: #F7FFC6;
-    --color-neo-paccha-300: #F2FF9F;
-    --color-neo-paccha-400: #EDFE79;
-    --color-neo-paccha-500: #E5FE40;
-    --color-neo-paccha-600: #A0B22D;
-    --color-neo-paccha-700: #727F20;
-    --color-neo-paccha-800: #454C13;
+    --color-neo-paccha-100: #fbffe6;
+    --color-neo-paccha-200: #f7ffc6;
+    --color-neo-paccha-300: #f2ff9f;
+    --color-neo-paccha-400: #edfe79;
+    --color-neo-paccha-500: #e5fe40;
+    --color-neo-paccha-600: #a0b22d;
+    --color-neo-paccha-700: #727f20;
+    --color-neo-paccha-800: #454c13;
 
-    --color-yoyo-100: #F4E5FF;
-    --color-yoyo-200: #E5C5FF;
-    --color-yoyo-300: #D59FFF;
-    --color-yoyo-400: #C379FF;
-    --color-yoyo-500: #AA3FFF;
-    --color-yoyo-600: #772CB3;
+    --color-yoyo-100: #f4e5ff;
+    --color-yoyo-200: #e5c5ff;
+    --color-yoyo-300: #d59fff;
+    --color-yoyo-400: #c379ff;
+    --color-yoyo-500: #aa3fff;
+    --color-yoyo-600: #772cb3;
     --color-yoyo-700: #552080;
-    --color-yoyo-800: #33134D;
+    --color-yoyo-800: #33134d;
 
-    --color-park-green-100: #DDFFF1;
-    --color-park-green-200: #C4FFE6;
-    --color-park-green-300: #9DFFD6;
-    --color-park-green-400: #76FFC6;
-    --color-park-green-500: #3BFFAD;
-    --color-park-green-600: #29B379;
-    --color-park-green-700: #1E8057;
-    --color-park-green-800: #124D34;
+    --color-park-green-100: #ddfff1;
+    --color-park-green-200: #c4ffe6;
+    --color-park-green-300: #9dffd6;
+    --color-park-green-400: #76ffc6;
+    --color-park-green-500: #3bffad;
+    --color-park-green-600: #29b379;
+    --color-park-green-700: #1e8057;
+    --color-park-green-800: #124d34;
 
     --radius: 0.5rem;
     --background: 0 0% 100%;
@@ -453,12 +466,11 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-
-    --background: #0D0D0D;
+    --background: #0d0d0d;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -489,7 +501,7 @@
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -524,7 +536,7 @@
   .neo-card {
     @apply bg-pop-black-400 border border-pop-black-300/30 rounded-sm shadow-lg;
   }
-  
+
   .neo-gradient {
     @apply bg-gradient-to-br from-poli-purple-500 to-poli-purple-600;
   }
@@ -534,22 +546,18 @@
   }
 
   .neo-button-primary {
-    composes: neo-button;
     @apply bg-poli-purple-500 text-pop-white-500 hover:bg-poli-purple-600 hover:shadow-lg;
   }
 
   .neo-button-secondary {
-    composes: neo-button;
     @apply bg-pop-black-400 text-pop-white-300 hover:bg-pop-black-300/80;
   }
 
   .neo-button-danger {
-    composes: neo-button;
     @apply bg-error-500/90 text-pop-white-500 hover:bg-error-500;
   }
 
   .neo-button-success {
-    composes: neo-button;
     @apply bg-park-green-500/90 text-pop-white-500 hover:bg-park-green-500;
   }
 

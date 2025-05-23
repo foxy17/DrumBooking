@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import * as yup from "yup";
 
 // Define Yup schema for form validation
 const schema = yup.object().shape({
   email: yup
     .string()
-    .email('Please enter a valid email')
-    .required('Email is required'),
+    .email("Please enter a valid email")
+    .required("Email is required"),
   password: yup
     .string()
-    .min(8, 'Password must be at least 8 characters')
-    .required('Password is required'),
+    .min(8, "Password must be at least 8 characters")
+    .required("Password is required"),
 });
 
 export function LoginForm() {
@@ -28,19 +28,19 @@ export function LoginForm() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onBlur', // Validate on blur
+    mode: "onBlur", // Validate on blur
   });
   const navigate = useNavigate();
-  const [loginError, setLoginError] = useState('');
+  const [loginError, setLoginError] = useState("");
 
   const onSubmit = async (data: any) => {
     try {
       // Here you would typically make an API call to authenticate the user
-      console.log('Login data:', data);
+      console.log("Login data:", data);
       // If login is successful, navigate to dashboard
-      navigate('/dash');
+      navigate("/dash");
     } catch (error) {
-      setLoginError('Login failed. Please try again.');
+      setLoginError("Login failed. Please try again.");
     }
   };
 
@@ -57,7 +57,7 @@ export function LoginForm() {
             id="email"
             type="email"
             placeholder="m@example.com"
-            {...register('email')}
+            {...register("email")}
           />
           {errors.email && (
             <p className="text-sm text-red-500">{errors.email.message}</p>
@@ -73,7 +73,7 @@ export function LoginForm() {
               Forgot your password?
             </Link>
           </div>
-          <Input id="password" type="password" {...register('password')} />
+          <Input id="password" type="password" {...register("password")} />
           {errors.password && (
             <p className="text-sm text-red-500">{errors.password.message}</p>
           )}

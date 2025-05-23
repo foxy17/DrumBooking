@@ -1,12 +1,13 @@
-import React, { createContext, useContext, useState } from 'react';
-import { Drawer } from 'vaul';
-import { Sheet, SheetContent } from '@/components/ui/sheet';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { type StudentClassInstance } from '@/types/student';
-import RecentClassStatusBadge from './recent-class-status-badge';
-import StatusBadge from './status-badge';
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import type { StudentClassInstance } from "@/types/student";
+import type React from "react";
+import { createContext, useContext, useState } from "react";
+import { Drawer } from "vaul";
+import RecentClassStatusBadge from "./recent-class-status-badge";
+import StatusBadge from "./status-badge";
 
-import { CARD_TYPE, type CardType } from '@/utils/constants';
+import { CARD_TYPE, type CardType } from "@/utils/constants";
 
 // Define Context props
 interface StudentCardContextProps {
@@ -21,7 +22,7 @@ const StudentCardContext = createContext<StudentCardContextProps | null>(null);
 export const useStudentCardSheet = () => {
   const context = useContext(StudentCardContext);
   if (!context) {
-    throw new Error('useStudentCardSheet must be used within a StudentCard');
+    throw new Error("useStudentCardSheet must be used within a StudentCard");
   }
   return context;
 };
@@ -38,7 +39,7 @@ const StudentCard: React.FC<StudentCardProps> = ({
   cardType,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const contextValue = { setSheetOpen: setIsOpen, isSheetOpen: isOpen };
 
@@ -46,15 +47,15 @@ const StudentCard: React.FC<StudentCardProps> = ({
 
   return (
     <>
-      <div
-        className="neo-card p-4 mb-3 cursor-pointer hover:bg-pop-black-400/10 transition-colors"
+      <button
+        type="button"
+        className="neo-card p-4 mb-3 cursor-pointer hover:bg-pop-black-400/10 transition-colors w-full"
         onClick={() => {
           setIsOpen(true);
         }}
-        role="button"
         tabIndex={0}
-        onKeyDown={e => {
-          if (e.key === 'Enter' || e.key === ' ') setIsOpen(true);
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") setIsOpen(true);
         }}
       >
         <div className="flex justify-between items-start">
@@ -62,7 +63,7 @@ const StudentCard: React.FC<StudentCardProps> = ({
             <h3 className="text-pop-white-500 tracking-wide font-bold text-lg">
               {student.studentName}
             </h3>
-            <div className="flex font-cirka items-center tracking-wide gap-1 text-sm text-pop-white-300/80 mt-1">
+            <div className="flex font-cirka items-center tracking-wide gap-1 text-sm text-pop-white-300/80 mt-1 tracking-widest">
               <span>{displayTime}</span>
             </div>
           </div>
@@ -75,7 +76,7 @@ const StudentCard: React.FC<StudentCardProps> = ({
             <StatusBadge classType={student.classType} />
           )}
         </div>
-      </div>
+      </button>
 
       {isDesktop ? (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>

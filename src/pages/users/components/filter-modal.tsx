@@ -1,7 +1,7 @@
-import { X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Switch } from '@/components/ui/switch';
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Switch } from "@/components/ui/switch";
+import { X } from "lucide-react";
 
 type Filters = {
   dueWithin7Days: boolean;
@@ -48,7 +48,7 @@ export const FilterModal = ({
               <Switch
                 checked={filters.dueWithin7Days}
                 onCheckedChange={(checked: boolean) => {
-                  onFilterChange('dueWithin7Days', checked);
+                  onFilterChange("dueWithin7Days", checked);
                 }}
               />
             </div>
@@ -62,8 +62,8 @@ export const FilterModal = ({
                 <Checkbox
                   id="solo"
                   checked={filters.soloSession}
-                  onCheckedChange={checked => {
-                    onFilterChange('soloSession', checked as boolean);
+                  onCheckedChange={(checked) => {
+                    onFilterChange("soloSession", checked as boolean);
                   }}
                 />
               </div>
@@ -72,8 +72,8 @@ export const FilterModal = ({
                 <Checkbox
                   id="duo"
                   checked={filters.duoSession}
-                  onCheckedChange={checked => {
-                    onFilterChange('duoSession', checked as boolean);
+                  onCheckedChange={(checked) => {
+                    onFilterChange("duoSession", checked as boolean);
                   }}
                 />
               </div>

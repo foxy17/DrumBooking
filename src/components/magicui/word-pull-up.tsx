@@ -1,5 +1,5 @@
-import { motion, type Variants } from 'motion/react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import { type Variants, motion } from "motion/react";
 
 interface WordPullUpProps {
   lines: string[];
@@ -32,19 +32,19 @@ export default function WordPullUp({
       initial="hidden"
       animate="show"
       className={cn(
-        'font-display text-left text-4xl font-bold tracking-[-0.02em] drop-shadow-xs',
+        "font-display text-left text-4xl font-bold tracking-[-0.02em] drop-shadow-xs",
         className
       )}
     >
       {lines.map((line, lineIndex) => (
         <motion.div key={lineIndex} className="mb-0 last:mb-0">
-          {line.split(' ').map((word, wordIndex) => (
+          {line.split(" ").map((word, wordIndex) => (
             <motion.span
               key={`${lineIndex}-${wordIndex}`}
               variants={framerProps}
               className="inline-block pr-2 leading-6"
             >
-              {word === '' ? <span>&nbsp;</span> : word}
+              {word === "" ? <span>&nbsp;</span> : word}
             </motion.span>
           ))}
         </motion.div>

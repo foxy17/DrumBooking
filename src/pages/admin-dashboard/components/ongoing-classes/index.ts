@@ -1,1 +1,1 @@
-export * from './ongoing-classes';
+export * from "./ongoing-classes";

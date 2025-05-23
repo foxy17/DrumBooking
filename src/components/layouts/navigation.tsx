@@ -1,6 +1,6 @@
-import { Dock } from '@/components/ui/dock-two';
-import { routeConfig } from '@/routes/route-config';
-import { BottomNavBar } from '../ui/bottom-nav-bar';
+import { Dock } from "@/components/ui/dock-two";
+import { routeConfig } from "@/routes/route-config";
+import { BottomNavBar } from "../ui/bottom-nav-bar";
 
 export function NavigationDock() {
   const items = [

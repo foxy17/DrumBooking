@@ -1,4 +1,4 @@
-import { type BaseModalProps } from './base.types';
+import type { BaseModalProps } from "./base.types";
 
 export interface SignatureModalProps extends BaseModalProps {
   studentName: string;

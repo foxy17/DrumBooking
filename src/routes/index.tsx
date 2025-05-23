@@ -1,20 +1,20 @@
-import { Navigate } from 'react-router';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
-import AdminDashboard from '@/pages/admin-dashboard';
-import Home from '@/pages/home';
-import NotesHistory from '@/pages/notes-history/notes-history';
-import Users from '@/pages/users/users';
-import { adminRouteConfig } from '@/routes/admin-route-config';
-import PrivateRoute from '@/routes/private-route';
-import { routeConfig } from '@/routes/route-config';
-import { HomeLayout, RootLayout } from '../components/layouts';
+import AdminDashboard from "@/pages/admin-dashboard";
+import Home from "@/pages/home";
+import NotesHistory from "@/pages/notes-history/notes-history";
+import Users from "@/pages/users/users";
+import { adminRouteConfig } from "@/routes/admin-route-config";
+import PrivateRoute from "@/routes/private-route";
+import { routeConfig } from "@/routes/route-config";
+import { Navigate } from "react-router";
+import { Outlet, createBrowserRouter } from "react-router-dom";
+import { HomeLayout, RootLayout } from "../components/layouts";
 
 export const router = createBrowserRouter([
   {
     element: <RootLayout />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: (
           <PrivateRoute>
             <HomeLayout>
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to={routeConfig.home.link} replace />,
+            element: <Navigate to={routeConfig.home.link} replace={true} />,
           },
           {
             index: true,
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: '/admin',
+        path: "/admin",
         element: (
           <HomeLayout>
             <Outlet />
@@ -52,7 +52,9 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to={adminRouteConfig.home.link} replace />,
+            element: (
+              <Navigate to={adminRouteConfig.home.link} replace={true} />
+            ),
           },
           {
             index: true,
@@ -70,11 +72,11 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: '/login',
+        path: "/login",
         element: <Home />,
       },
       {
-        path: '/history',
+        path: "/history",
         element: <NotesHistory />,
       },
     ],

@@ -1,21 +1,21 @@
-import { lazy } from 'react';
-import { MODAL_TYPES, type ModalType } from '@/types/modals';
+import { MODAL_TYPES, type ModalType } from "@/types/modals";
+import { lazy } from "react";
 
 // Lazy load all modal components
 const modalComponents = {
   [MODAL_TYPES.ALERT]: lazy(
     async () =>
-      await import('./alert-modal').then(mod => ({ default: mod.AlertModal }))
+      await import("./alert-modal").then((mod) => ({ default: mod.AlertModal }))
   ),
   [MODAL_TYPES.CONFIRM]: lazy(
     async () =>
-      await import('./confirm-modal').then(mod => ({
+      await import("./confirm-modal").then((mod) => ({
         default: mod.ConfirmModal,
       }))
   ),
   [MODAL_TYPES.SIGNATURE]: lazy(
     async () =>
-      await import('./signature-modal').then(mod => ({
+      await import("./signature-modal").then((mod) => ({
         default: mod.SignatureModal,
       }))
   ),

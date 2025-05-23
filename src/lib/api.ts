@@ -1,16 +1,16 @@
-import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios';
+import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
 import {
   errorInterceptor,
   requestInterceptor,
   successInterceptor,
-} from './interceptors';
+} from "./interceptors";
 
 const axiosRequestConfig: AxiosRequestConfig = {
   baseURL: import.meta.env.VITE_API_END_POINT,
-  responseType: 'json',
+  responseType: "json",
   headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
   },
 };
 

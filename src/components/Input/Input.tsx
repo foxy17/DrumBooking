@@ -1,10 +1,10 @@
-import { type InputHTMLAttributes } from 'react';
-import {
-  type FieldErrors,
-  type FieldValues,
-  type Path,
-  type UseFormRegister,
-} from 'react-hook-form';
+import type { InputHTMLAttributes } from "react";
+import type {
+  FieldErrors,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from "react-hook-form";
 
 export interface Props<
   T extends FieldValues = FieldValues,
@@ -30,7 +30,7 @@ const Input = <T extends FieldValues, U extends FieldValues>({
   return (
     <div className="flex flex-col">
       <label className="flex" htmlFor={name}>
-        {label ?? ''}
+        {label ?? ""}
       </label>
       <input
         className="border rounded-lg p-2 w-full mb-2"
