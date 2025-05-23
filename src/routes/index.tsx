@@ -5,7 +5,7 @@ import AdminDashboard from "@/pages/admin-dashboard";
 import ForgotPassword from "@/pages/auth/forgot-password";
 import ResetPassword from "@/pages/auth/reset-password";
 import Signup from "@/pages/auth/signup";
-import Home from "@/pages/home";
+import Home from "@/pages/home/home";
 import NotesHistory from "@/pages/notes-history/notes-history";
 import Users from "@/pages/users/users";
 import { adminRouteConfig } from "@/routes/admin-route-config";

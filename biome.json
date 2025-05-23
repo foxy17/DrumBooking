@@ -14,7 +14,9 @@
       "dev-dist/**",
       "coverage/**",
       "*.min.js",
-      "*.min.css"
+      "*.min.css",
+      "src/components/ui/**",
+      "src/components/magicui/**"
     ]
   },
   "formatter": {
@@ -155,6 +157,12 @@
               {
                 "selector": {
                   "kind": "variable"
+                },
+                "formats": ["camelCase", "PascalCase", "CONSTANT_CASE"]
+              },
+              {
+                "selector": {
+                  "kind": "objectLiteralProperty"
                 },
                 "formats": ["camelCase", "PascalCase", "CONSTANT_CASE"]
               },
